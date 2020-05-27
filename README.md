@@ -46,7 +46,10 @@ figures S1 through S4.
 
 #### Variant discovery
 
-This folder contains …
+This folder contains the code and data to call and filter variants in
+the whole genome sequences of our ancestral and derived *Ensifer
+meliloti* strains. It also contains the code that generated supplemental
+figure S5.
 
 #### GWAS
 
