@@ -87,15 +87,11 @@ write.table(fam_file.ok, file="./Run_GEMMA_files/pheno.txt", sep="\t",
 ### Merge automatically generated .fam file (empty phenotype cols) with the actual phenotypes (pheno.txt) on the server
 
 ``` bash
-## scp'ed to GEMMA directory on cluster
-scp /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/Run_GEMMA_files/pheno.txt rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/GEMMA/
 
 # first, need to remove missing phenotype (field 6)
 awk '{$6=""; print $0}' KH35c_final_plink.fam > KH35c_final_plink.fam2
 # then, add the columns from the pheno.txt file
 paste KH35c_final_plink.fam2 <(cut -f 2-13 pheno.txt) > KH35c_final_plink.fam
-
-## double check file to make sure it looks good!!!!
 ```
 
 ## GEMMA: Relatedness matrix
@@ -129,8 +125,6 @@ done
 grep "pve estimate" KH35c_final_ulmm.out > pve_ulmm.txt
 grep "se(pve)" KH35c_final_ulmm.out > se_ulmm.txt
 paste pve_ulmm.txt se_ulmm.txt > pve_se_ulmm.txt
-## scp'ed pve and se estimates to ./Run_GEMMA_files/, added traits in adjacent col
-## scp'ed all .assoc files to ./Run_GEMMA_files/, added traits in adjacent col
 ```
 
 ## Permutation test
@@ -165,9 +159,6 @@ random <- lapply(1:1000, random_phenos, df = phenotypes)
 ```
 
 ### GEMMA permutations (on server)
-
-First, I scp’ed the zipped randomized spreadsheets from R to the GEMMA
-directory
 
 Need names of all file inputs to match:
 
@@ -226,10 +217,8 @@ done
 ```
 
 Result: permutation files with first column as position locations, and
-cols 2-1001 as beta scores for randomized phenotypes
-
-scp’ed to local machine for downstream
-analyses.
+cols 2-1001 as beta scores for randomized
+phenotypes
 
 ## findinterval method for checking whether betas fall outside the distribution
 
@@ -605,7 +594,7 @@ save_plot("./Figures/Figure3.pdf", fig3, dpi= 1000,
           base_width=14)
 ```
 
-## Tables
+## Table
 
 This code generates the information in supplemental table S3 in the
 paper. It summarizes variants by combining dataframes generated to make
