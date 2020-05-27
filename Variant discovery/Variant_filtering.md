@@ -6,30 +6,12 @@ Rebecca Batstone
 ``` r
 # packages
 library("tidyverse") #includes ggplot2, dplyr, readr, stringr
-library("cowplot") # paneled graphs
-library("reshape2") # dcast function
-library("magick") ## include images
-library("UpSetR") ## upset graphs
-library("car") ## which.names function
 ```
-
-## Recap: variant calling prior to filtering, (see Variant\_calling.md for full details)
-
-Note: made a path to vcftools: export
-VCFTOOLS=“/gran1/tia.harrison/VCFTOOLS/vcftools\_0.1.13/bin/vcftools”
-
-Called SNPs using HaplotypeCaller, specifying haploidy. See
-KH35cWG\_alignment.Rmd for details (re-run HaplotypeCaller).
-
-Directory:
-/gran1/rebecca.batstone/align\_KH35c\_08Mar2018/processed\_bam\_samples/
-VCF: KH35c\_rn.vcf (21247 unfiltered sites, re-named isolates using
-bcftools)
 
 ## Filtering sites using vcftools
 
 ``` bash
-# from /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
+
 $VCFTOOLS --vcf KH35c_rn.vcf --min-meanDP 20 --max-meanDP 230 --minQ 30 --max-missing 0.9 --max-non-ref-ac 48 --min-alleles 2 --max-alleles 2 --recode --recode-INFO-all --out KH35c_filt1
 # kept 1330 out of a possible 21,247 Sites
 
@@ -85,8 +67,7 @@ found in the QUAL column of the VCF file. This file has the suffix
 ## Pick representative singletons for each individual
 
 I output singletons for KH35c\_filt1.recode.vcf (487 singletons), and
-did the same for site quality. I scp’ed these to my computer, depositing
-them to my project folder.
+did the same for site quality.
 
 –exclude-positions I determined how many singletons there were in the
 dataset (KH35c\_filt1.vcf), singletons being a SNP that was only present
@@ -132,14 +113,12 @@ SNP_info_filt <- SNP_info %>%
 ### 444 sites to exclude, 43 sites used as representatives for each sample
 
 write.csv(SNP_info_filt, "./Output/SNP_info_exc.csv", row.names = FALSE)
-# I then formatted for vcftools (first column = chrom, second column = pos, no headers). Saved as SNPs_to_excluded, and scp'ed to the cluster (/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/)
 ```
 
 ### Use vcftools to filter out singletons
 
 ``` bash
 # then, filtered out non-representative singletons (see note below, N = 437)
-# from /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
 $VCFTOOLS --vcf KH35c_filt1.recode.vcf --exclude-positions SNPs_to_exclude.txt --recode --recode-INFO-all --out KH35c_filt2
 # kept 886 out of a possible 1330 Sites
 ```
@@ -342,16 +321,14 @@ write.csv(SNP_info3_sub, "./Output/SNPs_to_exclude_LD.csv",
 ```
 
 Note about LD groups: some SNPs appear in multiple groups. 288074,
-288091 (both in groups 19 and 24), 365824 (in groups 11 and
-19).
+288091 (both in groups 19 and 24), 365824 (in groups 11 and 19).
 
 ### Use vcftools to filter out linked variants
 
 ``` bash
-# from /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
+
 $VCFTOOLS --vcf KH35c_filt2.recode.vcf --exclude-positions SNPs_to_exclude_LD.txt --maf 0.001 --recode --recode-INFO-all --out KH35c_final
 # 363 out of a possible 886 Sites
-# copied to GEMMA, renamed
 cp KH35c_final.recode.vcf ../../GEMMA/GEMMA_363.recode.vcf
 ```
 
