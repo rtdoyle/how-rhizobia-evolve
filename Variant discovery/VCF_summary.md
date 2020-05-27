@@ -3,7 +3,7 @@ Summary stats on VCF files
 Rebecca Batstone
 2020-05-27
 
-## Load packages
+## Load packages, and write a useful function
 
 ``` r
 library(tidyverse)
@@ -44,8 +44,6 @@ $VCFTOOLS --vcf  KH35c_filt1.recode.vcf --chr CP021827.1 --recode --recode-INFO-
 
 $VCFTOOLS --vcf  KH35c_filt1.recode.vcf --chr CP021828.1 --recode --recode-INFO-all --out KH35c_full_pSymB
 ## 523 SNPs kept
-
-## zipped on server, scp'ed to my comp. 
 ```
 
 ## Construct the chrom objects
@@ -175,89 +173,10 @@ vcf_pSymB <- read.vcfR("./Data/KH35c_full_regions/KH35c_full_pSymB.recode.vcf")
 ``` r
 # create chrom objects
 chrom <- create.chromR(name='Chromosome', vcf=vcf_chrom, seq=ref_chrom, ann=gff_chrom)
-```
-
-    ## Names in vcf:
-
-    ##   CP021825.1
-
-    ## Names of sequences:
-
-    ##   Chromosome
-
-    ## Warning in create.chromR(name = "Chromosome", vcf = vcf_chrom, seq = ref_chrom, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom_pAcc <- create.chromR(name='Accessory_plasmid', vcf=vcf_pAcc, seq=ref_pAcc, ann=gff_pAcc)
-```
-
-    ## Names in vcf:
-
-    ##   CP021826.1
-
-    ## Names of sequences:
-
-    ##   Accessory_plasmid
-
-    ## Warning in create.chromR(name = "Accessory_plasmid", vcf = vcf_pAcc, seq = ref_pAcc, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom_pSymA <- create.chromR(name='Symbiosis_plasmid_A', vcf=vcf_pSymA, seq=ref_pSymA, ann=gff_pSymA)
-```
-
-    ## Names in vcf:
-
-    ##   CP021827.1
-
-    ## Names of sequences:
-
-    ##   Symbiosis_plasmid_A
-
-    ## Warning in create.chromR(name = "Symbiosis_plasmid_A", vcf = vcf_pSymA, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom_pSymB <- create.chromR(name='Symbiosis_plasmid_B', vcf=vcf_pSymB, seq=ref_pSymB, ann=gff_pSymB)
-```
 
-    ## Names in vcf:
-
-    ##   CP021828.1
-
-    ## Names of sequences:
-
-    ##   Symbiosis_plasmid_B
-
-    ## Warning in create.chromR(name = "Symbiosis_plasmid_B", vcf = vcf_pSymB, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom <- proc.chromR(chrom, verbose=FALSE)
 chrom_pAcc <- proc.chromR(chrom_pAcc, verbose=FALSE)
 chrom_pSymA <- proc.chromR(chrom_pSymA, verbose=FALSE)
@@ -677,13 +596,7 @@ heatmap.bp(dp_pSymB)
 # visualizing read depth per sample, boxplot
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(11, 34, 44.5, 87, 164, 12, 30, 38, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -692,13 +605,7 @@ abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ``` r
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(32, 33, 36.5, 39, 39, 18, 37, 60.5, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -707,13 +614,7 @@ abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ``` r
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(6, 45, 63, 80, 132, 7, 43, 62, 91, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -722,13 +623,7 @@ abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ``` r
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(2, 51, 64, 85, 135, 4, 48, 66, 91, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -754,8 +649,6 @@ $VCFTOOLS --vcf  KH35c_GEMMA.recode.vcf --chr CP021827.1 --recode --recode-INFO-
 
 $VCFTOOLS --vcf  KH35c_GEMMA.recode.vcf --chr CP021828.1 --recode --recode-INFO-all --out KH35c_gwas_pSymB
 ## 143 SNPs kept
-
-## zipped on server, scp'ed to my comp. 
 ```
 
 ## Construct the chrom objects
@@ -852,89 +745,10 @@ vcf_pSymB <- read.vcfR("./Data/KH35c_gwas_regions/KH35c_gwas_pSymB.recode.vcf")
 ``` r
 # create chrom objects
 chrom <- create.chromR(name='Chromosome', vcf=vcf_chrom, seq=ref_chrom, ann=gff_chrom)
-```
-
-    ## Names in vcf:
-
-    ##   CP021825.1
-
-    ## Names of sequences:
-
-    ##   Chromosome
-
-    ## Warning in create.chromR(name = "Chromosome", vcf = vcf_chrom, seq = ref_chrom, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom_pAcc <- create.chromR(name='Accessory_plasmid', vcf=vcf_pAcc, seq=ref_pAcc, ann=gff_pAcc)
-```
-
-    ## Names in vcf:
-
-    ##   CP021826.1
-
-    ## Names of sequences:
-
-    ##   Accessory_plasmid
-
-    ## Warning in create.chromR(name = "Accessory_plasmid", vcf = vcf_pAcc, seq = ref_pAcc, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom_pSymA <- create.chromR(name='Symbiosis_plasmid_A', vcf=vcf_pSymA, seq=ref_pSymA, ann=gff_pSymA)
-```
-
-    ## Names in vcf:
-
-    ##   CP021827.1
-
-    ## Names of sequences:
-
-    ##   Symbiosis_plasmid_A
-
-    ## Warning in create.chromR(name = "Symbiosis_plasmid_A", vcf = vcf_pSymA, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom_pSymB <- create.chromR(name='Symbiosis_plasmid_B', vcf=vcf_pSymB, seq=ref_pSymB, ann=gff_pSymB)
-```
 
-    ## Names in vcf:
-
-    ##   CP021828.1
-
-    ## Names of sequences:
-
-    ##   Symbiosis_plasmid_B
-
-    ## Warning in create.chromR(name = "Symbiosis_plasmid_B", vcf = vcf_pSymB, : 
-    ##         Names in variant data and sequence data do not match perfectly.
-    ##         If you choose to proceed, we'll do our best to match the data.
-    ##         But prepare yourself for unexpected results.
-
-    ## Initializing var.info slot.
-
-    ## var.info slot initialized.
-
-``` r
 chrom <- proc.chromR(chrom, verbose=FALSE, win.size = 100)
 chrom_pAcc <- proc.chromR(chrom_pAcc, verbose=FALSE, win.size = 100)
 chrom_pSymA <- proc.chromR(chrom_pSymA, verbose=FALSE, win.size = 100)
@@ -1310,13 +1124,7 @@ heatmap.bp(dp_pSymB)
 # visualizing read depth per sample, boxplot
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(11, 48, 101.5, 154, 221, 15, 46, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -1325,13 +1133,7 @@ abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ``` r
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(32, 32, 59, 86, 86, 18, 18, 51, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -1340,13 +1142,7 @@ abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ``` r
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(6, 44.5, 74, 113, 179, 7, 47.5, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -1355,13 +1151,7 @@ abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ``` r
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
-```
-
-    ## Warning in bxp(list(stats = structure(c(14, 58.5, 70, 98, 148, 12, 62, 82, :
-    ## Duplicated argument las = 2 is disregarded
-
-``` r
+boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -1415,17 +1205,10 @@ java -jar snpEff.jar build -gff3 -v Sinorhizobium_meliloti_kh35c
 ## Use SnpEff to get annotations (filt1\_1330)
 
 ``` bash
-# /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
 java -Xmx4g -jar $SNPEFF Sinorhizobium_meliloti_kh35c -v -s 'snpEff_filt1_1330.html' -ud 0 filt1_1330.recode.vcf > filt1_1330.ann.vcf
 
-# scp'ed summary files over: 
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/snpEff_filt1_1330* /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
-
 # summarize vcf to table
-java -jar $GATK3 -R /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V filt1_1330.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o filt1_1330.ann.vcf.table
-
-# scp'ed to VCF summary folder
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/filt1_1330.ann.vcf.table /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
+java -jar $GATK3 -R GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V filt1_1330.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o filt1_1330.ann.vcf.table
 ```
 
 ## Add information to VCF summary file (filt1\_1330)
@@ -1513,78 +1296,14 @@ write.csv(filt1_vars.f, "./Output/filt1_1330_sum.csv", row.names = FALSE)
 save(filt1_vars.f, file = "./Output/filt1_1330_sum.Rdata")
 ```
 
-## Minor allele frequency spectra (1330)
-
-``` r
-load(file = "./Output/filt1_1330_sum.Rdata") ## filt1_vars.f
-
-filt1_vars.f_span <- filt1_vars.f %>%
-  filter(!is.na(origin)) %>%
-     group_by(Novel, AC_bin=cut(mac, breaks= seq(0, 24, by = 3))) %>%
-     summarise(count = n()) %>%
-     arrange(as.numeric(AC_bin)) %>%
-     ungroup(.) %>%
-     group_by(Novel) %>%
-     mutate(total = sum(count), prop = count/total)
-
-level_key <- c('(0,3]' = 3,  '(3,6]' = 6, '(6,9]' = 9, '(9,12]' = 12,
-               '(12,15]' = 15, '(15,18]' = 18, '(18,21]' = 21, '(21,24]' = 24)
-filt1_vars.f_span$mac <- recode_factor(filt1_vars.f_span$AC_bin, !!!level_key)
-
-png(filename="./Data/AFS_allvars.png", units="px", width=797, height=557)
-     
-ggplot(filt1_vars.f_span, aes(x = mac, y = prop, fill = Novel)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  theme_bw() +
-  xlab("Minor allele count") +
-  ylab("Proportion of loci") +
-  theme(axis.text.y = element_text(size=12), 
-        legend.position=c(0.8,0.8), 
-        legend.background = element_blank(),
-        legend.key = element_rect(colour = "transparent", fill = "transparent"),
-        axis.title.y = element_text(size=16), 
-        axis.title.x = element_text(size=16),
-        axis.text.x = element_text(size=12), 
-        plot.title = element_text(size=16, face = "bold"),
-        panel.background = element_rect(fill="transparent"),
-        strip.background = element_rect(fill="transparent"),
-        strip.text = element_text(size = 12, face = "bold"),
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank()
-        )
-  
-dev.off()
-```
-
-    ## quartz_off_screen 
-    ##                 2
-
-``` r
-## do the same, but split for novel isolates within each host line
-filt1_vars.f$group <-ifelse(grepl("anc", filt1_vars.f$origin, fixed = "FALSE"), 
-                            "standing",
-                            ifelse(filt1_vars.f$origin == "L270", "unique_270",
-                                   ifelse(filt1_vars.f$origin == "L276", "unique_276",
-                                          ifelse(filt1_vars.f$origin == "L279", "unique_279",
-                                                 ifelse(filt1_vars.f$origin == "L313", "unique_313",
-                                                        ifelse(filt1_vars.f$origin == "L267",
-                                                               "unique_267","exclude"))))))
-```
-
 ## Use SnpEff to get annotations (GEMMA\_363)
 
 ``` bash
 # From the GEMMA directory
 java -Xmx4g -jar $SNPEFF Sinorhizobium_meliloti_kh35c -v -s 'snpEff_GEMMA_363.html' -ud 0  GEMMA_363.recode.vcf > GEMMA_363.ann.vcf
 
-# scp'ed summary files over: 
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/snpEff_GEMMA_363* /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
-
 # summarize vcf to table
-java -jar $GATK3 -R /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V GEMMA_363.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o GEMMA_363.ann.vcf.table
-
-# scp'ed to VCF summary folder
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/GEMMA/GEMMA_363.ann.vcf.table /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
+java -jar $GATK3 -R GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V GEMMA_363.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o GEMMA_363.ann.vcf.table
 ```
 
 ## Use bedtools to get annotations (GEMMA\_363)
@@ -1597,9 +1316,6 @@ made on GCA.
 $BEDTOOLS intersect -loj -a GEMMA_363.ann.vcf -b GCA_002197105.1_ASM219710v1_genomic.gff -wb | \
   cut -f 1,2,61,67 > GEMMA_363.genes.txt 
   ## extract region, ps, field, and info
-  
-# scp'ed to VCF summary folder
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/GEMMA/GEMMA_363.genes.txt /c/Users/IGB/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
 ```
 
 ## Add information to VCF summary file (GEMMA\_363)
@@ -1660,12 +1376,6 @@ GEMMA_vars.o$Novel <-  replace(GEMMA_vars.o$Novel, GEMMA_vars.o$Novel == 0,"Yes"
 # extract gene, impact, function from snpEff annotation
 GEMMA_vars.o$ANN <- as.character(GEMMA_vars.o$ANN)
 GEMMA_vars.a <- separate(data = GEMMA_vars.o, col = ANN, into = c("allele", "type","impact","gene"), sep = "\\|")
-```
-
-    ## Warning: Expected 4 pieces. Additional pieces discarded in 363 rows [1, 2, 3, 4,
-    ## 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
-
-``` r
 ## drop allele
 GEMMA_vars.a <- GEMMA_vars.a[ , -which(names(GEMMA_vars.a) %in% c("allele"))]
 

@@ -54,7 +54,8 @@ This
 contains the code and data to call and filter variants in the whole
 genome sequences of our ancestral and derived *Ensifer meliloti*
 strains. It also contains the code that generated supplemental figure
-S5.
+S5, and the code to calculate nucleotide diversity for ancestral versus
+derived bacteria.
 
 ##### GWAS
 
@@ -63,8 +64,3 @@ This
 contains the code to run the GWAS analyses and permutation tests
 described in the paper, as well as the code to produce Figure 3 and the
 information summarized in supplemental table S3.
-
-##### Nucleotide diversity
-
-Finally, this folder contains the code to calculate nucleotide diversity
-for ancestral versus derived bacteria.

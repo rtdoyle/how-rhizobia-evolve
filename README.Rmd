@@ -33,12 +33,8 @@ This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/Sing
 
 ##### Variant discovery
 
-This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/Variant%20discovery) contains the code and data to call and filter variants in the whole genome sequences of our ancestral and derived _Ensifer meliloti_ strains. It also contains the code that generated supplemental figure S5. 
+This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/Variant%20discovery) contains the code and data to call and filter variants in the whole genome sequences of our ancestral and derived _Ensifer meliloti_ strains. It also contains the code that generated supplemental figure S5, and the code to calculate nucleotide diversity for ancestral versus derived bacteria. 
 
 ##### GWAS
 
 This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/GWAS) contains the code to run the GWAS analyses and permutation tests described in the paper, as well as the code to produce Figure 3 and the information summarized in supplemental table S3. 
-
-##### Nucleotide diversity
-
-Finally, this folder contains the code to calculate nucleotide diversity for ancestral versus derived bacteria. 

@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Load packages
+## Load packages, and write a useful function
 
 ```{r Load packages, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -51,13 +51,11 @@ $VCFTOOLS --vcf  KH35c_filt1.recode.vcf --chr CP021827.1 --recode --recode-INFO-
 
 $VCFTOOLS --vcf  KH35c_filt1.recode.vcf --chr CP021828.1 --recode --recode-INFO-all --out KH35c_full_pSymB
 ## 523 SNPs kept
-
-## zipped on server, scp'ed to my comp. 
 ```
 
 ## Construct the chrom objects
 
-```{r vcfR_full}
+```{r vcfR_full, message=FALSE, warning=FALSE}
 # reference file
 ref <- ape::read.dna("./Data/GCA_002197105.1_ASM219710v1_genomic.fna", 
                      format = "fasta")
@@ -144,22 +142,22 @@ heatmap.bp(dp_pSymB)
 # visualizing read depth per sample, boxplot
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -182,13 +180,11 @@ $VCFTOOLS --vcf  KH35c_GEMMA.recode.vcf --chr CP021827.1 --recode --recode-INFO-
 
 $VCFTOOLS --vcf  KH35c_GEMMA.recode.vcf --chr CP021828.1 --recode --recode-INFO-all --out KH35c_gwas_pSymB
 ## 143 SNPs kept
-
-## zipped on server, scp'ed to my comp. 
 ```
 
 ## Construct the chrom objects
 
-```{r vcfR_gwas}
+```{r vcfR_gwas, message=FALSE, warning=FALSE}
 # vcf's
 vcf_chrom <- read.vcfR("./Data/KH35c_gwas_regions/KH35c_gwas_chrom.recode.vcf")
 vcf_pAcc <- read.vcfR("./Data/KH35c_gwas_regions/KH35c_gwas_pAccA.recode.vcf")
@@ -242,22 +238,22 @@ heatmap.bp(dp_pSymB)
 # visualizing read depth per sample, boxplot
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_chrom, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_pAcc, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_pSymA, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 
 par(mar=c(8,4,1,1))
 #boxplot(dp, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", log='y', las=2)
-boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth", las=2)
+boxplot(dp_pSymB, las=3, col=c("#C0C0C0", "#808080"), ylab="Depth")
 abline(h=seq(0,1e4, by=100), col="#C0C0C088")
 ```
 
@@ -313,17 +309,11 @@ java -jar snpEff.jar build -gff3 -v Sinorhizobium_meliloti_kh35c
 ## Use SnpEff to get annotations (filt1_1330)
 
 ```{r vcf_annotate_snpEff, engine= 'bash', eval = FALSE}
-# /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
 java -Xmx4g -jar $SNPEFF Sinorhizobium_meliloti_kh35c -v -s 'snpEff_filt1_1330.html' -ud 0 filt1_1330.recode.vcf > filt1_1330.ann.vcf
 
-# scp'ed summary files over: 
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/snpEff_filt1_1330* /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
-
 # summarize vcf to table
-java -jar $GATK3 -R /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V filt1_1330.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o filt1_1330.ann.vcf.table
+java -jar $GATK3 -R GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V filt1_1330.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o filt1_1330.ann.vcf.table
 
-# scp'ed to VCF summary folder
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/filt1_1330.ann.vcf.table /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
 ```
 
 ## Add information to VCF summary file (filt1_1330)
@@ -405,73 +395,15 @@ write.csv(filt1_vars.f, "./Output/filt1_1330_sum.csv", row.names = FALSE)
 save(filt1_vars.f, file = "./Output/filt1_1330_sum.Rdata")
 ```
 
-## Minor allele frequency spectra (1330)
-
-```{r maf_spectra}
-load(file = "./Output/filt1_1330_sum.Rdata") ## filt1_vars.f
-
-filt1_vars.f_span <- filt1_vars.f %>%
-  filter(!is.na(origin)) %>%
-     group_by(Novel, AC_bin=cut(mac, breaks= seq(0, 24, by = 3))) %>%
-     summarise(count = n()) %>%
-     arrange(as.numeric(AC_bin)) %>%
-     ungroup(.) %>%
-     group_by(Novel) %>%
-     mutate(total = sum(count), prop = count/total)
-
-level_key <- c('(0,3]' = 3,  '(3,6]' = 6, '(6,9]' = 9, '(9,12]' = 12,
-               '(12,15]' = 15, '(15,18]' = 18, '(18,21]' = 21, '(21,24]' = 24)
-filt1_vars.f_span$mac <- recode_factor(filt1_vars.f_span$AC_bin, !!!level_key)
-
-png(filename="./Data/AFS_allvars.png", units="px", width=797, height=557)
-     
-ggplot(filt1_vars.f_span, aes(x = mac, y = prop, fill = Novel)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  theme_bw() +
-  xlab("Minor allele count") +
-  ylab("Proportion of loci") +
-  theme(axis.text.y = element_text(size=12), 
-        legend.position=c(0.8,0.8), 
-        legend.background = element_blank(),
-        legend.key = element_rect(colour = "transparent", fill = "transparent"),
-        axis.title.y = element_text(size=16), 
-        axis.title.x = element_text(size=16),
-        axis.text.x = element_text(size=12), 
-        plot.title = element_text(size=16, face = "bold"),
-        panel.background = element_rect(fill="transparent"),
-        strip.background = element_rect(fill="transparent"),
-        strip.text = element_text(size = 12, face = "bold"),
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank()
-        )
-  
-dev.off()
-
-## do the same, but split for novel isolates within each host line
-filt1_vars.f$group <-ifelse(grepl("anc", filt1_vars.f$origin, fixed = "FALSE"), 
-                            "standing",
-                            ifelse(filt1_vars.f$origin == "L270", "unique_270",
-                                   ifelse(filt1_vars.f$origin == "L276", "unique_276",
-                                          ifelse(filt1_vars.f$origin == "L279", "unique_279",
-                                                 ifelse(filt1_vars.f$origin == "L313", "unique_313",
-                                                        ifelse(filt1_vars.f$origin == "L267",
-                                                               "unique_267","exclude"))))))
-```
-
 ## Use SnpEff to get annotations (GEMMA_363) 
 
 ```{r vcf_summary, engine= 'bash', eval = FALSE}
 # From the GEMMA directory
 java -Xmx4g -jar $SNPEFF Sinorhizobium_meliloti_kh35c -v -s 'snpEff_GEMMA_363.html' -ud 0  GEMMA_363.recode.vcf > GEMMA_363.ann.vcf
 
-# scp'ed summary files over: 
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/snpEff_GEMMA_363* /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
-
 # summarize vcf to table
-java -jar $GATK3 -R /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V GEMMA_363.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o GEMMA_363.ann.vcf.table
+java -jar $GATK3 -R GCA_002197105.1_ASM219710v1_genomic.fna -T VariantsToTable -V GEMMA_363.ann.vcf -F CHROM -F POS -F REF -F ALT -F QUAL -F AF -F ANN -F DP -GF GT -o GEMMA_363.ann.vcf.table
 
-# scp'ed to VCF summary folder
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/GEMMA/GEMMA_363.ann.vcf.table /c/Users/$USERNAME/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
 ```
 
 ## Use bedtools to get annotations (GEMMA_363) 
@@ -483,14 +415,11 @@ Note: there is a diff btw GCA (genbank) and GCF (Refseq). All calls were made on
 $BEDTOOLS intersect -loj -a GEMMA_363.ann.vcf -b GCA_002197105.1_ASM219710v1_genomic.gff -wb | \
   cut -f 1,2,61,67 > GEMMA_363.genes.txt 
   ## extract region, ps, field, and info
-  
-# scp'ed to VCF summary folder
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/GEMMA/GEMMA_363.genes.txt /c/Users/IGB/Dropbox/'Evolution experiment 2016'/ens_evo_exp/VCF_summary_files/
 ```
 
 ## Add information to VCF summary file (GEMMA_363)
 
-```{r merge_sum_363}
+```{r merge_sum_363, warning=FALSE, message=FALSE}
 # Import VCF info file, merge
 GEMMA_vars <- read.table("./Data/GEMMA_363.ann.vcf.table",header=T,sep="\t")
 ## rename column POS to ps for downstream merging
