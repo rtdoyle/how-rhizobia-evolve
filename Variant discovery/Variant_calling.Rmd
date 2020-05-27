@@ -69,19 +69,19 @@ gunzip GCA_002197105.1_ASM219710v1_genomic.fna.gz
 
 ## index reference using bwa
 ```{bash bwa_index_ref, eval = FALSE}
-/gran1/apps/bwa-0.7.13/bwa index GCA_002197105.1_ASM219710v1_genomic.fna
+bwa index GCA_002197105.1_ASM219710v1_genomic.fna
 # creates a bunch of .fna files w/different extensions
 ```
 
 ## extract reference w/ samtools
 ```{bash samtools_index_ref, eval = FALSE}
-/gran1/apps/samtools-1.3/samtools faidx GCA_002197105.1_ASM219710v1_genomic.fna
+samtools faidx GCA_002197105.1_ASM219710v1_genomic.fna
 # creates .fai file
 ```
 
 ## make the .dict file using picard
 ```{bash picard_dict_ref, eval = FALSE}
-java -jar /gran1/rebecca.batstone/Alignment_to_VCF/picard/build/libs/picard.jar CreateSequenceDictionary REFERENCE=GCA_002197105.1_ASM219710v1_genomic.fna OUTPUT=GCA_002197105.1_ASM219710v1_genomic.fna.dict
+java -jar picard.jar CreateSequenceDictionary REFERENCE=GCA_002197105.1_ASM219710v1_genomic.fna OUTPUT=GCA_002197105.1_ASM219710v1_genomic.fna.dict
 # makes a .dict file
 ```
 
