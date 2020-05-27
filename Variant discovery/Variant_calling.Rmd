@@ -11,93 +11,9 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Tips and tricks I learned along the way
-
-Most of these are obvious to anyone who is mroe familiar with Unix, but they were not obvious to me when I first started.
-
-## Login to a server using secure shell
-
-Use GitBash on windows:
-https://git-scm.com/downloads
-
-```{bash server_login, eval = FALSE}
-ssh USERNAME@serveraddress
-
-ssh -Y USERNAME@serveraddress
-```
-
-## Autofill (first few letters, tab)
-
-## Working in the background (so I can log in and out):
-```{bash background, eval = FALSE}
-nohup <command> &
-# if you have multiple processes running, and want a specific .out for each, use:
-nohup bash program1.sh > program1.out &
-```
-
-## checking in (to see whether task is working)
-```{bash check_in, eval = FALSE}
-ps -fu $USERNAME
-tail nohup.out # to see what it's doing
-```
-
-## Kill a bash command running in the background
-```{bash kill, eval = FALSE}
-ps -aux | grep script_name
-killall script_name program
-
-# e.g. ps -aux | grep hapcaller.sh
-# killall hapcaller.sh java
-
-# note, if multiple java running, might want to specify PID
-# kill PID will work for most things
-# kill bash first, then java, or java will keep going
-```
-
-## Locating path of a file or program
-```{bash locate_path, eval = FALSE}
-pwd ## prints off present working directory
-locate -br '^file$' ## prints off location of file
-```
-
-## Find instances of a term in less
-```{bash less_search, eval = FALSE}
-less -I -p search_term *.ext  # or specify the extension
-```
-
-## Copying files to local machine/server
-```{bash scp, eval = FALSE}
-# copy from local machine, put on server
-## from local machine
-scp /path/to/local/file.ext USERNAME@serveraddress:path/to/server/directory
-
-# copy from server to local machine
-## from local machine
-scp USERNAME@serveraddress:path/to/server/file.ext /path/to/local/directory
-```  
-
-# Get sequences from CAGEF, unzip
-
-## Get the sequences from CAGEF server
-```{bash wget_CAGEF, eval = FALSE}
-wget -r -l1 --user=rebecca.batstone --ask-password http://142.150.215.230/DataCentre/Reads/rHkojK3AhtMxJVnI7u4/171006_NextSeq
-#pass: hCsn3QQY
-```
-
-## Unzip gz files
-```{bash unzip_gz, eval = FALSE}
-gunzip *.tar.gz
-cat *.tar | tar -xvf - -i
-```
-
 # Checking original sequences with FastQC
-```{bash fastQC, eval = FALSE}
-mkdir fastqc-reports
-/cap1/apps/FastQC/fastqc -o fastqc-reports *.fastq
 
-# Once everything has ran, copy to my machine:
-scp -r rebecca.batstone@capsicum.eeb.utoronto.ca:/cap1/rebecca.batstone/FASTQ_WGS_2017/fastqc_reports ./mnt/c/Users/rtbatstone/Downloads/
-```
+We used: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 # Use seqtk to clean reads (recommended by CBW)
 
