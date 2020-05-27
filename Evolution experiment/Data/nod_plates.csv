@@ -1,0 +1,337 @@
+box,date_plated,plant,isolate,previous_call,no_strep,strep,strain_call,notes
+"5th Gen, Batch 2, Box 1/2",43222,H09,1,1021/1022,Y,Y,1021,3 day incubation
+"5th Gen, Batch 2, Box 1/2",43222,H09,28,1021,Y,Y,1021,3 day incubation
+"5th Gen, Batch 2, Box 1/2",43222,O02,4,1021,Y,Y,1021,3 day incubation
+"5th Gen, Batch 2, Box 1/2",43223,O02,5,1021,Y,Y,1021,
+"5th Gen, Batch 2, Box 2/2",43223,O02,7,1021,Y,Y,1021,
+"5th Gen, Batch 1, Box 2/2",43220,P04,33,1021,Y,Y,1021,3 day incubation
+"5th Gen, Batch 3, Box 1/3",43226,P09,5,1021,Y,Y,1021,red colour
+SI isolates used in evolution experiment (WGS),43228,P09,5,1021,Y,Y,1021,red colour
+"5th Gen, Batch 1, Box 1/2",43216,R09,26,1021,Y,Y,1021,3 day incubation
+"5th Gen Batch 1, Box 1/2",43263,R09,26,1021,Y,Y,1021,Redone samples
+"5th Gen, Batch 1, Box 2/2",43220,R11,35,1021,Y,Y,1021,3 day incubation
+SI isolates used in evolution experiment (WGS),08-May-18,A01,11,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,A01,35,1021,Y,N,1022,Possibly A13-5
+SI isolates used in evolution experiment (WGS),02-May-18,A06,28,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,A09,1,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,A09,3,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,A13,1,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,A13,2,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,A13,2,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,A13,4,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,A13,4,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,A13,6,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,B09,3,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,B09,15,1022,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,B09,16,1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,B09,28,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,B13,9,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,B13,16,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,B13,16,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,B13,17,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,B13,18,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,B13,20,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,B13,20,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,C06,2,1022,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,C06,3,1022,Y,N,1022,much less growth on strep+
+"5th Gen Batch 6, Box 1/2",17-May,C06,9,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,C06,10,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,C06,11,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,C06,12,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,C13,12,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,D01,1,1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D01,1,1022,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D01,1,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,D01,2,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D01,3,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D01,4,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D01,5,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D01,6,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D01,7,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,D01,8,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D01,22,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D09,11,1021/1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,D09,12,1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D09,15,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,D09,16,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D09,17,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,D09,18,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D09,18,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D09,19,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D09,20,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D09,21,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D09,27,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D11,13,1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D11,14,1022,Y,N,1022,slightly less growth on strep+
+SI isolates used in evolution experiment (WGS),08-May-18,D11,22,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D11,23,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D11,24,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,D11,25,1021,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,D11,26,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,E04,1,1021/1022,Y,N,1022,
+"5th Gen, Batch 2, Box 2/2",03-May,E04,8,1022,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,E04,14,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,E04,15,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,E04,16,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen Batch 6, Box 2/2",05-Jun,E07,4,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,E07,6,1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,E07,6,1022,Y,N,1022,
+"5th Gen Batch 6, Box 2/2",05-Jun,E07,7,1022,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",17-May,E07,8,1022,Y,N,1022,contamination evident in strep- plate (yellow colour)
+"5th Gen Batch 6, Box 1/2",43230,E07,9,1022,Y,N,1022,similar growth on strep+
+"5th Gen Batch 6, Box 1/2",10-May,E07,13,1021,Y,N,1022,
+"5th Gen Batch 6, Box 1/2",10-May,E07,14,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,F02,35,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,F05,23,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,F05,38,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,F05,39,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,F06,13,1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,F06,21,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,F06,23,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,F06,24,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",05-May,F08,31,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,G09,47,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,G09,48,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,G09,49,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,H01,14,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,H01,15,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,H01,16,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,H01,17,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,H01,18,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,H01,18,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,H01,20,1022,Y,N,1022,very hard to make out pictures
+"5th Gen Batch 4, Box 1/3",07-May,H01,55,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",03-May,H04,1,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",03-May,H04,2,1022,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 1/2",03-May,H04,2,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",02-May,H08,10,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 2, Box 1/2",02-May,H09,18,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 2, Box 1/2",02-May,H09,19,1022,Y,N,1022,3 day incubation
+SI isolates used in evolution experiment (WGS),02-May-18,H11,12,1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,H11,15,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",05-May,H11,18,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",05-May,H11,19,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,H11,26,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I01,3,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,I01,7,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,I01,8,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I01,9,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,I01,10,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,I01,11,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,I01,15,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,I03,15,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,I03,17,1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,I03,26,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,I03,27,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,I03,28,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,I08,45,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I08,46,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I10,12,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I10,13,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,I10,50,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,I10,51,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,I10,51,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I10,52,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,I10,53,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,J07,7,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J07,8,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,J07,9,1022,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J07,33,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,J07,39,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,J07,41,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J07,42,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,J10,6,1022,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,J10,21,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,J10,22,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J10,23,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J10,24,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J10,25,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",17-May,J10,27,1021,Y,N,1022,less growth on strep+
+"4th Gen Batch 4, Box 2/3",12-May,J10,59,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,J11,30,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J11,31,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,J11,32,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,J11,34,1021,Y,N,1022,
+"4th Gen Batch 4, Box 2/3",12-May,J11,35,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",09-May,J11,36,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,J11,37,1021,Y,N,1022,
+"5th Gen Batch 4, Box 1/3",07-May,J11,38,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,K08,9,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,K08,30,1021,Y,N,1022,
+"5th Gen Batch 1, Box 1/2",43263,K09,7,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 3, Box 1/3",06-May,L07,8,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",05-May,L07,9,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",05-May,L07,18,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,L08,13,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,L08,14,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",05-May,L08,40,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",01-May,M04,1,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",01-May,M08,9,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 2/2",03-May,M08,17,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 1, Box 1/2",25-Apr,M10,1,1022,Y,N,1022,4 day incubation
+"5th Gen, Batch 1, Box 1/2",25-Apr,M10,1,1022,Y,N,1022,4 day incubation
+"5th Gen Batch 1, Box 1/2",43263,M10,3,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",43220,M10,3,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",25-Apr,M10,4,1022,Y,N,1022,4 day incubation
+SI isolates used in evolution experiment (WGS),02-May-18,M10,4,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",25-Apr,M10,5,1022,Y,N,1022,4 day incubation
+"5th Gen, Batch 1, Box 1/2",25-Apr,M10,5,1022,Y,Y,1022,4 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,M10,5,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",26-Apr,M10,11,1022,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,M10,11,1022,Y,N,1022,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,M10,11,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,M10,11,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 2/2",03-May,N04,11,1022,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 1/2",01-May,N04,12,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",01-May,N10,20,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",01-May,N10,21,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",03-May,N10,22,1022,Y,N,1022,Signs of growth on S+ after 3 days
+SI isolates used in evolution experiment (WGS),02-May-18,N10,22,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 2/2",03-May,N10,29,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,N10,30,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,N10,31,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 1/2",01-May,N10,32,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",03-May,O02,3,1022,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O02,6,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O02,8,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O02,9,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O02,10,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O02,23,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 1/2",01-May,O12,5,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,O12,5,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",03-May,O12,6,1022,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 1/2",03-May,O12,7,1022,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O12,11,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O12,12,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,O12,13,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 3, Box 1/3",06-May,P06,19,1021/1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P06,25,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,P06,32,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P06,33,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P09,2,1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P09,3,1021,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P09,3,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,P09,3,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,P09,4,1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P09,4,1022,Y,N,1022,
+"5th Gen, Batch 3, Box 1/3",06-May,P09,4,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",02-May,Q08,17,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 2, Box 2/2",03-May,Q08,20,1021,Y,N,1022,Signs of growth on S+ after 3 days
+SI isolates used in evolution experiment (WGS),08-May-18,Q08,20,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",01-May,Q08,21,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 2/2",03-May,Q08,22,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,Q08,23,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,Q08,24,1021,Y,N,1022,
+"5th Gen, Batch 2, Box 2/2",03-May,Q08,25,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 1/2",03-May,Q08,26,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen Batch 1, Box 2/2",15-Jun,Q11,1,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,1,1021,Y,N,1022,"slightly less growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,1,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,Q11,2,1022,Y,Y,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,2,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,3,1021,Y,N,1022,
+"5th Gen Batch 1, Box 2/2",15-Jun,Q11,4,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,4,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,4,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,5,1021,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,6,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,7,1021,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,12,1021,Y,N,1022,"not sure which plate is S- or +, 3 day incubation"
+"5th Gen Batch 1, Box 2/2",15-Jun,Q11,12,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",26-Apr,Q11,13,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",25-Apr,Q11,14,1022,Y,N,1022,4 day incubation
+"5th Gen, Batch 1, Box 1/2",25-Apr,Q11,14,1022,Y,N,1022,4 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,Q11,16,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,Q11,16,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,R09,2,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,R09,2,1022,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,R09,2,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",25-Apr,R09,6,1022,Y,N,1022,4 day incubation
+"5th Gen, Batch 1, Box 1/2",25-Apr,R09,6,1022,Y,N,1022,4 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,R09,6,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",25-Apr,R09,7,1022,Y,N,1022,4 day incubation
+SI isolates used in evolution experiment (WGS),02-May-18,R09,7,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,R09,8,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,R09,9,1022,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,R09,9,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,R09,9,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,R09,12,1022,Y,N,1022,"not sure which plate is S- or +, 3 day incubation"
+"5th Gen Batch 1, Box 2/2",15-Jun,R09,12,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",26-Apr,R09,15,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,R09,15,1022,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,R09,15,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,R09,27,1021,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,R11,10,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,R11,10,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,R11,28,1021,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,R11,28,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,R11,28,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,R11,29,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 2/2",30-Apr,R11,30,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,R11,31,1022,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,R11,31,1021,Y,N,1022,Redone samples
+SI isolates used in evolution experiment (WGS),08-May-18,R11,31,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,R11,32,1021,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,R11,34,1021,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,R11,34,1021,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,R11,34,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 2, Box 1/2",02-May,S02,13,1022,Y,N,1022,3 day incubation
+SI isolates used in evolution experiment (WGS),02-May-18,S02,13,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",01-May,S02,14,1022,Y,N,1022,
+"5th Gen, Batch 2, Box 1/2",02-May,S02,15,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 2, Box 1/2",02-May,S02,16,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 2, Box 2/2",03-May,S02,18,1021,Y,N,1022,Signs of growth on S+ after 3 days
+"5th Gen, Batch 2, Box 2/2",03-May,S02,19,1021,Y,N,1022,Signs of growth on S+ after 3 days
+SI isolates used in evolution experiment (WGS),08-May-18,S02,19,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T06,12,1021,Y,N,1022,3 day incubation
+SI isolates used in evolution experiment (WGS),08-May-18,T06,21,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T06,22,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+SI isolates used in evolution experiment (WGS),08-May-18,T06,22,1021,Y,N,1022,
+SI isolates used in evolution experiment (WGS),08-May-18,T06,23,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T06,24,1021,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,T06,25,1021,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,T06,25,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T09,13,1021,Y,N,1022,"no growth on strep, 3 day incubation"
+"5th Gen, Batch 1, Box 2/2",30-Apr,T09,14,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 2/2",30-Apr,T09,15,1021,Y,N,1022,3 day incubation
+SI isolates used in evolution experiment (WGS),08-May-18,T09,15,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T09,16,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 1/2",25-Apr,T09,17,1022,Y,N,1022,4 day incubation
+"5th Gen, Batch 1, Box 1/2",25-Apr,T09,17,1022,Y,N,1022,4 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,T09,17,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",26-Apr,T09,18,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,T10,8,1021,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,T10,8,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,T10,9,1021,Y,N,1022,
+"5th Gen Batch 1, Box 2/2",15-Jun,T10,10,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,T10,10,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 1/2",43216,T10,20,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",43216,T10,20,1022,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 1/2",43263,T10,20,1022,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 1/2",25-Apr,T10,21,1022,Y,N,1022,4 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,T10,21,1021,Y,N,1022,Redone samples
+SI isolates used in evolution experiment (WGS),02-May-18,T10,21,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T10,22,1022,Y,N,1022,
+SI isolates used in evolution experiment (WGS),02-May-18,T10,22,1022,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,T10,23,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,T11,17,1021,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 2/2",15-Jun,T11,17,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,T11,18,1021,Y,N,1022,
+"5th Gen, Batch 1, Box 1/2",26-Apr,T11,19,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 1/2",26-Apr,T11,19,1022,Y,N,1022,3 day incubation
+"5th Gen, Batch 1, Box 2/2",30-Apr,T11,19,1021,Y,N,1022,3 day incubation
+"5th Gen Batch 1, Box 1/2",12-Jun,T11,19,1022,Y,N,1022,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T11,19,1021,Y,N,1022,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T11,20,1021,Y,N,1022,Redone samples
+"5th Gen, Batch 1, Box 2/2",30-Apr,T11,20,1021,Y,N,1022,"very little growth on strep+, 3 day incubation"
+"5th Gen, Batch 1, Box 1/2",26-Apr,T11,24,1022,Y,N,1022,3 day incubation
+SI isolates used in evolution experiment (WGS),02-May-18,T11,24,1022,Y,N,1022,
+"5th Gen Batch 1, Box 2/2",15-Jun,Q11,5,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,Q11,7,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T06,21,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T06,22,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T06,24,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T09,13,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 1, Box 2/2",15-Jun,T09,15,1021,Y,"N (contamination, appears to be hyphae?)",NA,Redone samples
+"5th Gen Batch 6, Box 1/2",17-May,D09,10,1022,N,N,NA,
+"5th Gen, Batch 1, Box 2/2",30-Apr,T09,18,1022,N,Y,NA,

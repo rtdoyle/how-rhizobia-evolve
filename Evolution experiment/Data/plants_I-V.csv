@@ -1,0 +1,1179 @@
+gen,sample,loc,column,row,bench,line,type,plant,nod_diss,nod_rem,leaf,flower,fruit,date_diss,notes,shoot,root,height
+I,sub,A01,A,1,one,270,exp,I-A01,10,17,7,0,0,10-Jun-16,,0.101,NA,5
+II,sub,A01,A,1,one,270,exp,II-A01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,A01,A,1,one,270,exp,III-A01,0,10,22,0,0,04-Nov-16,,0.239,NA,5.5
+IV,sub,A01,A,1,one,270,exp,IV-A01,1,0,4,0,0,12-Jan-17,,0.056,NA,4
+V,sub,A01,A,1,one,270,exp,V-A01,9,10,18,0,0,28-Mar-17,,0.152,NA,5
+I,sub,A02,A,2,one,276,exp,I-A02,10,1,9,0,0,10-Jun-16,,0.076,NA,4
+II,full,A02,A,2,one,276,exp,II-A02,26,0,6,0,0,18-Aug-16,FD-genII,0.067,0.032,3
+I,sub,A03,A,3,one,279,exp,I-A03,10,3,13,0,0,10-Jun-16,Lots of root broke.,0.213,NA,6
+II,sub,A03,A,3,one,279,exp,II-A03,0,10,8,0,0,18-Aug-16,,0.051,NA,3
+III,full,A03,A,3,one,279,exp,III-A03,8,0,18,0,0,04-Nov-16,FD-genIII,0.244,0.063,6
+I,sub,A04,A,4,one,267,exp,I-A04,10,21,15,0,0,10-Jun-16,,0.136,NA,5
+II,sub,A04,A,4,one,267,exp,II-A04,5,14,23,0,0,18-Aug-16,,0.184,NA,4
+III,sub,A04,A,4,one,267,exp,III-A04,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+IV,sub,A04,A,4,one,267,exp,IV-A04,10,22,24,0,0,12-Jan-17,height not recorded,0.506,NA,NA
+V,sub,A04,A,4,one,267,exp,V-A04,0,2,1,0,0,28-Mar-17,yellow leaves,0.012,NA,3
+I,sub,A05,A,5,one,276,exp,I-A05,10,16,10,0,0,10-Jun-16,,0.088,NA,5
+II,full,A05,A,5,one,276,exp,II-A05,29,0,17,0,0,18-Aug-16,FD-genII,0.156,0.043,3
+I,sub,A06,A,6,one,313,exp,I-A06,10,37,24,0,0,10-Jun-16,,0.306,NA,8
+II,sub,A06,A,6,one,313,exp,II-A06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,A06,A,6,one,313,exp,III-A06,6,10,10,0,0,04-Nov-16,,0.157,NA,5.5
+IV,sub,A06,A,6,one,313,exp,IV-A06,0,6,24,0,0,12-Jan-17,,0.203,NA,3
+V,sub,A06,A,6,one,313,exp,V-A06,10,12,13,0,0,28-Mar-17,,0.14,NA,4.5
+I,sub,A07,A,7,one,313,exp,I-A07,10,24,21,0,0,10-Jun-16,,0.221,NA,4
+II,sub,A07,A,7,one,313,exp,II-A07,0,6,10,0,0,18-Aug-16,,0.129,NA,3
+III,sub,A07,A,7,one,313,exp,III-A07,10,10,13,0,0,04-Nov-16,,0.168,NA,6
+IV,sub,A07,A,7,one,313,exp,IV-A07,7,10,18,0,0,12-Jan-17,FD-genIV,0.168,0.118,3
+I,sub,A08,A,8,one,279,exp,I-A08,10,24,21,0,0,10-Jun-16,,0.348,NA,6
+II,sub,A08,A,8,one,279,exp,II-A08,10,30,20,0,0,18-Aug-16,,0.274,NA,3
+III,sub,A08,A,8,one,279,exp,III-A08,0,10,5,0,0,04-Nov-16,,0.089,NA,2
+IV,sub,A08,A,8,one,279,exp,IV-A08,0,13,7,0,0,11-Jan-17,,NA,NA,5
+V,sub,A08,A,8,one,279,exp,V-A08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,A09,A,9,one,313,control,I-A09,10,34,34,0,0,10-Jun-16,,0.609,NA,9
+II,sub,A09,A,9,one,313,control,II-A09,10,64,37,0,0,18-Aug-16,,0.502,NA,3
+III,sub,A09,A,9,one,313,control,III-A09,0,14,6,0,0,04-Nov-16,,NA,NA,4
+IV,sub,A09,A,9,one,313,control,IV-A09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,A09,A,9,one,313,control,V-A09,10,14,7,0,0,28-Mar-17,,0.071,NA,2.5
+I,sub,A10,A,10,one,313,exp,I-A10,10,8,10,0,0,10-Jun-16,,0.093,NA,2
+II,full,A10,A,10,one,313,exp,II-A10,82,15,24,0,0,18-Aug-16,FD-genII,0.324,0.111,3
+I,sub,A11,A,11,one,267,exp,I-A11,10,34,25,0,0,10-Jun-16,,0.368,NA,6
+II,sub,A11,A,11,one,267,exp,II-A11,0,7,32,0,0,18-Aug-16,,0.521,NA,4
+III,full,A11,A,11,one,267,exp,III-A11,11,0,13,0,0,04-Nov-16,FD-genIII,0.259,0.057,5
+I,sub,A12,A,12,one,279,exp,I-A12,10,36,20,0,0,10-Jun-16,,0.465,NA,7
+II,sub,A12,A,12,one,279,exp,II-A12,10,17,21,0,0,18-Aug-16,,0.388,NA,3
+III,sub,A12,A,12,one,279,exp,III-A12,0,10,5,0,0,04-Nov-16,,0.094,NA,3
+IV,sub,A12,A,12,one,279,exp,IV-A12,4,10,5,0,0,12-Jan-17,,0.038,NA,3
+V,sub,A12,A,12,one,279,exp,V-A12,0,0,1,0,0,28-Mar-17,"yellow leaves, red leaf",0.007,NA,0.5
+I,sub,A13,A,13,one,267,exp,I-A13,10,10,9,0,0,10-Jun-16,,0.082,NA,3
+II,sub,A13,A,13,one,267,exp,II-A13,0,11,3,0,0,18-Aug-16,,0.047,NA,2
+III,sub,A13,A,13,one,267,exp,III-A13,10,4,15,0,0,04-Nov-16,,0.245,NA,7
+IV,sub,A13,A,13,one,267,exp,IV-A13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,A13,A,13,one,267,exp,V-A13,8,10,8,0,0,28-Mar-17,yellow leaves,0.268,NA,5
+I,sub,B01,B,1,one,279,exp,I-B01,10,12,9,0,0,10-Jun-16,,0.177,NA,6
+II,sub,B01,B,1,one,279,exp,II-B01,10,15,10,0,0,18-Aug-16,,0.112,NA,3
+III,sub,B01,B,1,one,279,exp,III-B01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,B01,B,1,one,279,exp,IV-B01,10,13,16,0,0,12-Jan-17,,0.34,NA,4
+V,sub,B01,B,1,one,279,exp,V-B01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,B02,B,2,one,270,exp,I-B02,10,0,5,0,0,10-Jun-16,,0.084,NA,6
+II,sub,B02,B,2,one,270,exp,II-B02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,B02,B,2,one,270,exp,III-B02,8,10,12,0,0,04-Nov-16,,0.213,NA,7
+IV,sub,B02,B,2,one,270,exp,IV-B02,10,8,10,0,0,12-Jan-17,,0.109,NA,5
+V,sub,B02,B,2,one,270,exp,V-B02,0,7,6,0,0,28-Mar-17,,0.031,NA,0.5
+I,sub,B03,B,3,one,270,control,I-B03,0,5,5,0,0,10-Jun-16,yellow leaves,0.029,NA,3
+II,full,B03,B,3,one,270,control,II-B03,9,0,NA,NA,NA,18-Aug-16,FD-genII,0.027,0.007,1
+I,sub,B04,B,4,one,276,exp,I-B04,10,21,15,0,0,10-Jun-16,,0.144,NA,5
+II,sub,B04,B,4,one,276,exp,II-B04,8,16,13,0,0,18-Aug-16,,0.117,NA,3
+III,sub,B04,B,4,one,276,exp,III-B04,0,7,4,0,0,04-Nov-16,,0.044,NA,4
+IV,full,B04,B,4,one,276,exp,IV-B04,36,0,25,0,0,12-Jan-17,FD-genIV,0.321,0.115,3
+I,sub,B05,B,5,one,270,exp,I-B05,10,7,10,0,0,10-Jun-16,,0.114,NA,5
+II,sub,B05,B,5,one,270,exp,II-B05,0,3,6,0,0,18-Aug-16,no bottom,0.02,NA,1
+III,sub,B05,B,5,one,270,exp,III-B05,10,14,8,0,0,04-Nov-16,,0.119,NA,6
+IV,sub,B05,B,5,one,270,exp,IV-B05,6,10,28,0,0,12-Jan-17,,0.293,NA,6
+V,sub,B05,B,5,one,270,exp,V-B05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,B06,B,6,one,267,control,I-B06,0,0,0,0,0,10-Jun-16,died,0.005,NA,1
+II,sub,B06,B,6,one,267,control,II-B06,10,23,58,0,1,18-Aug-16,,0.696,NA,4
+III,sub,B06,B,6,one,267,control,III-B06,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+IV,sub,B06,B,6,one,267,control,IV-B06,10,42,34,0,0,12-Jan-17,,0.48,NA,4
+V,sub,B06,B,6,one,267,control,V-B06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,B07,B,7,one,313,exp,I-B07,10,13,23,0,0,10-Jun-16,,0.219,NA,5
+II,sub,B07,B,7,one,313,exp,II-B07,10,62,47,0,0,18-Aug-16,,0.585,NA,3
+III,sub,B07,B,7,one,313,exp,III-B07,10,20,17,0,0,04-Nov-16,,0.196,NA,6
+IV,full,B07,B,7,one,313,exp,IV-B07,37,0,14,0,0,12-Jan-17,FD-genIV,0.216,0.058,3.5
+I,sub,B08,B,8,one,270,exp,I-B08,0,8,6,0,0,10-Jun-16,,0.07,NA,4
+II,sub,B08,B,8,one,270,exp,II-B08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,B08,B,8,one,270,exp,III-B08,6,10,16,0,0,04-Nov-16,,0.23,NA,7
+IV,sub,B08,B,8,one,270,exp,IV-B08,10,12,11,0,0,12-Jan-17,,0.138,NA,4.5
+V,sub,B08,B,8,one,270,exp,V-B08,7,10,17,0,0,28-Mar-17,,0.102,NA,3.5
+I,sub,B09,B,9,one,270,exp,I-B09,4,0,6,0,0,10-Jun-16,late emerge,0.045,NA,2
+II,sub,B09,B,9,one,270,exp,II-B09,0,9,6,0,0,18-Aug-16,,0.022,NA,1
+III,sub,B09,B,9,one,270,exp,III-B09,10,20,18,0,0,04-Nov-16,,0.218,NA,5.5
+IV,sub,B09,B,9,one,270,exp,IV-B09,4,10,9,1,0,12-Jan-17,,0.102,NA,4
+V,sub,B09,B,9,one,270,exp,V-B09,6,10,8,0,0,28-Mar-17,,0.071,NA,3
+I,sub,B10,B,10,one,276,exp,I-B10,10,21,23,0,0,10-Jun-16,,0.191,NA,4
+II,sub,B10,B,10,one,276,exp,II-B10,0,15,8,0,0,18-Aug-16,,0.091,NA,0.5
+III,full,B10,B,10,one,276,exp,III-B10,17,0,24,0,0,04-Nov-16,FD-genIII,0.375,0.083,5
+I,sub,B11,B,11,one,276,exp,I-B11,10,34,26,0,0,10-Jun-16,,0.296,NA,4
+II,sub,B11,B,11,one,276,exp,II-B11,0,7,8,0,0,18-Aug-16,,0.085,NA,3
+III,sub,B11,B,11,one,276,exp,III-B11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,B11,B,11,one,276,exp,IV-B11,20,0,12,0,0,12-Jan-17,FD-genIV,0.133,0.123,2
+I,sub,B12,B,12,one,267,exp,I-B12,0,0,1,0,0,10-Jun-16,yellow leaves,0.009,NA,3
+II,sub,B12,B,12,one,267,exp,II-B12,10,53,47,0,0,18-Aug-16,,0.85,NA,3
+III,sub,B12,B,12,one,267,exp,III-B12,0,12,13,0,0,04-Nov-16,,0.328,NA,6
+IV,sub,B12,B,12,one,267,exp,IV-B12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,B12,B,12,one,267,exp,V-B12,0,8,3,0,0,28-Mar-17,"yellow leaves, died",0.019,NA,2.5
+I,sub,B13,B,13,one,279,exp,I-B13,10,63,24,0,0,10-Jun-16,,0.43,NA,7
+II,sub,B13,B,13,one,279,exp,II-B13,10,20,8,0,0,18-Aug-16,,0.087,NA,2
+III,sub,B13,B,13,one,279,exp,III-B13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,B13,B,13,one,279,exp,V-B13,6,10,10,0,0,28-Mar-17,,0.11,NA,2.5
+I,sub,C01,C,1,one,313,exp,I-C01,11,46,20,0,0,10-Jun-16,,0.279,NA,7
+II,sub,C01,C,1,one,313,exp,II-C01,10,31,12,0,0,18-Aug-16,,0.132,NA,2
+III,sub,C01,C,1,one,313,exp,III-C01,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,C01,C,1,one,313,exp,IV-C01,0,13,16,0,0,11-Jan-17,,0.114,NA,3
+V,sub,C01,C,1,one,313,exp,V-C01,6,7,5,0,0,28-Mar-17,,0.048,NA,2
+I,sub,C02,C,2,one,279,control,I-C02,0,0,3,0,0,10-Jun-16,yellow leaves,0.012,NA,3
+II,full,C02,C,2,one,279,control,II-C02,49,0,11,0,0,18-Aug-16,FD-genII,0.137,0.044,3
+I,sub,C03,C,3,one,267,exp,I-C03,10,10,7,0,0,10-Jun-16,,0.135,NA,5
+II,sub,C03,C,3,one,267,exp,II-C03,0,13,2,0,0,18-Aug-16,,0.045,NA,2
+III,sub,C03,C,3,one,267,exp,III-C03,0,8,6,0,0,04-Nov-16,,0.037,NA,3
+IV,sub,C03,C,3,one,267,exp,IV-C03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,C03,C,3,one,267,exp,V-C03,NA,NA,NA,NA,NA,NA,died,NA,NA,3
+I,sub,C04,C,4,one,267,exp,I-C04,10,35,23,0,0,10-Jun-16,,0.352,NA,6
+II,sub,C04,C,4,one,267,exp,II-C04,10,17,10,0,0,18-Aug-16,,0.104,NA,3
+III,sub,C04,C,4,one,267,exp,III-C04,NA,NA,NA,NA,NA,NA,died,NA,NA,5
+IV,full,C04,C,4,one,267,exp,IV-C04,34,0,13,0,0,11-Jan-17,FD-genIV,0.22,0.094,5
+I,sub,C05,C,5,one,270,exp,I-C05,0,4,5,0,0,10-Jun-16,,0.53,NA,4
+II,sub,C05,C,5,one,270,exp,II-C05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,C05,C,5,one,270,exp,III-C05,41,0,21,0,0,04-Nov-16,FD-genIII,0.048,0.023,5.5
+I,sub,C06,C,6,one,279,exp,I-C06,10,36,40,0,0,10-Jun-16,,0.832,NA,7
+II,sub,C06,C,6,one,279,exp,II-C06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,C06,C,6,one,279,exp,III-C06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,C06,C,6,one,279,exp,IV-C06,10,30,30,0,0,12-Jan-17,,0.583,NA,4.5
+V,sub,C06,C,6,one,279,exp,V-C06,10,6,11,0,0,28-Mar-17,,0.113,NA,4
+I,sub,C07,C,7,one,270,exp,I-C07,0,4,4,0,0,10-Jun-16,,0.052,NA,4
+II,sub,C07,C,7,one,270,exp,II-C07,10,16,14,0,0,18-Aug-16,,0.115,NA,3
+III,sub,C07,C,7,one,270,exp,III-C07,6,10,15,0,0,04-Nov-16,,0.159,NA,5
+IV,sub,C07,C,7,one,270,exp,IV-C07,0,8,12,0,0,12-Jan-17,,0.103,NA,5
+V,sub,C07,C,7,one,270,exp,V-C07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,C08,C,8,one,313,exp,I-C08,0,10,7,0,0,10-Jun-16,,0.063,NA,3
+II,full,C08,C,8,one,313,exp,II-C08,68,18,50,0,0,18-Aug-16,FD-genII,0.621,0.125,3
+I,sub,C09,C,9,one,313,exp,I-C09,10,17,15,0,0,10-Jun-16,,0.171,NA,5
+II,sub,C09,C,9,one,313,exp,II-C09,10,28,21,0,0,18-Aug-16,,0.186,NA,2
+III,sub,C09,C,9,one,313,exp,III-C09,8,10,19,0,0,04-Nov-16,,0.191,NA,3
+IV,sub,C09,C,9,one,313,exp,IV-C09,10,12,NA,NA,NA,12-Jan-17,,0.328,NA,5
+V,sub,C09,C,9,one,313,exp,V-C09,0,5,7,0,0,28-Mar-17,,0.027,NA,3
+I,sub,C10,C,10,one,276,exp,I-C10,10,12,11,0,0,10-Jun-16,,0.112,NA,4
+II,sub,C10,C,10,one,276,exp,II-C10,0,3,11,0,0,18-Aug-16,,0.099,NA,2
+III,sub,C10,C,10,one,276,exp,III-C10,0,3,8,0,0,04-Nov-16,,0.091,NA,5
+IV,sub,C10,C,10,one,276,exp,IV-C10,0,13,19,0,0,11-Jan-17,,0.21,NA,3
+V,sub,C10,C,10,one,276,exp,V-C10,10,22,33,0,0,28-Mar-17,large nod clusters,0.33,NA,2.5
+I,sub,C11,C,11,one,276,exp,I-C11,10,18,8,0,0,10-Jun-16,,0.075,NA,3
+II,full,C11,C,11,one,276,exp,II-C11,42,0,32,0,0,18-Aug-16,FD-genII,0.323,0.065,2
+I,sub,C12,C,12,one,279,exp,I-C12,10,31,23,0,0,10-Jun-16,,0.377,NA,6
+II,sub,C12,C,12,one,279,exp,II-C12,10,20,18,0,0,18-Aug-16,,0.222,NA,4
+III,sub,C12,C,12,one,279,exp,III-C12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,C12,C,12,one,279,exp,IV-C12,10,16,9,0,0,12-Jan-17,,0.128,NA,4.5
+V,sub,C12,C,12,one,279,exp,V-C12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,C13,C,13,one,270,exp,I-C13,0,2,2,0,0,10-Jun-16,,0.021,NA,5
+II,sub,C13,C,13,one,270,exp,II-C13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,C13,C,13,one,270,exp,III-C13,0,3,6,0,0,04-Nov-16,,0.048,NA,5
+IV,sub,C13,C,13,one,270,exp,IV-C13,0,2,15,0,0,12-Jan-17,,0.079,NA,4
+V,sub,C13,C,13,one,270,exp,V-C13,10,5,20,0,0,28-Mar-17,,0.129,NA,4.5
+I,sub,D01,D,1,one,270,exp,I-D01,0,3,3,0,0,11-Jun-16,clusters,0.014,NA,2
+II,sub,D01,D,1,one,270,exp,II-D01,0,0,4,0,0,17-Aug-16,died,0.004,NA,0.5
+III,sub,D01,D,1,one,270,exp,III-D01,0,10,15,0,0,04-Nov-16,,0.097,NA,7
+IV,sub,D01,D,1,one,270,exp,IV-D01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,D01,D,1,one,270,exp,V-D01,10,2,20,0,0,28-Mar-17,,0.165,NA,5.5
+I,sub,D02,D,2,one,279,exp,I-D02,10,19,24,0,0,11-Jun-16,clusters,0.467,NA,7
+II,sub,D02,D,2,one,279,exp,II-D02,7,10,7,0,0,17-Aug-16,,0.123,NA,3
+III,full,D02,D,2,one,279,exp,III-D02,32,0,18,0,0,04-Nov-16,FD-genIII,0.275,0.097,4.5
+I,sub,D03,D,3,one,276,exp,I-D03,7,10,6,0,0,11-Jun-16,clusters,0.075,NA,4
+II,sub,D03,D,3,one,276,exp,II-D03,10,19,9,0,0,17-Aug-16,,0.146,NA,3
+III,sub,D03,D,3,one,276,exp,III-D03,0,2,12,0,0,04-Nov-16,,0.144,NA,5.5
+IV,sub,D03,D,3,one,276,exp,IV-D03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,D03,D,3,one,276,exp,V-D03,6,6,20,0,0,28-Mar-17,,0.256,NA,5
+I,sub,D04,D,4,one,276,exp,I-D04,0,4,5,0,0,11-Jun-16,"Nods left all clustered, yellow leaves",0.026,NA,2
+II,sub,D04,D,4,one,276,exp,II-D04,10,21,14,0,0,17-Aug-16,,0.152,NA,3
+III,sub,D04,D,4,one,276,exp,III-D04,0,6,9,0,0,04-Nov-16,,0.101,NA,6
+IV,sub,D04,D,4,one,276,exp,IV-D04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,D04,D,4,one,276,exp,V-D04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,D05,D,5,one,313,exp,I-D05,10,31,25,0,0,11-Jun-16,,0.299,NA,6
+II,sub,D05,D,5,one,313,exp,II-D05,10,35,26,0,0,17-Aug-16,,0.273,NA,3
+III,full,D05,D,5,one,313,exp,III-D05,40,0,25,0,0,04-Nov-16,FD-genIII,0.282,0.054,7
+I,sub,D06,D,6,one,313,exp,I-D06,10,20,20,0,0,11-Jun-16,,0.204,NA,5
+II,sub,D06,D,6,one,313,exp,II-D06,0,3,12,0,0,17-Aug-16,,0.031,NA,3
+III,full,D06,D,6,one,313,exp,III-D06,40,0,25,0,0,04-Nov-16,FD-genIII,0.248,0.172,6
+I,sub,D07,D,7,one,267,control,I-D07,5,14,16,0,0,11-Jun-16,clusters,0.176,NA,4
+II,sub,D07,D,7,one,267,control,II-D07,10,24,29,0,0,17-Aug-16,,0.381,NA,3
+III,sub,D07,D,7,one,267,control,III-D07,0,1,5,0,0,04-Nov-16,,0.033,NA,4
+IV,sub,D07,D,7,one,267,control,IV-D07,10,13,41,0,0,11-Jan-17,,0.688,NA,6
+V,sub,D07,D,7,one,267,control,V-D07,0,8,5,0,0,28-Mar-17,yellow leaves,0.021,NA,4.5
+I,sub,D08,D,8,one,279,exp,I-D08,10,45,45,0,0,11-Jun-16,,0.866,NA,7
+II,sub,D08,D,8,one,279,exp,II-D08,10,30,42,0,0,17-Aug-16,,0.852,NA,4
+III,sub,D08,D,8,one,279,exp,III-D08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,D08,D,8,one,279,exp,IV-D08,33,0,19,0,0,11-Jan-17,FD-genIV,0.482,0.135,5.5
+I,sub,D09,D,9,one,313,exp,I-D09,10,47,33,0,0,11-Jun-16,,0.479,NA,8
+II,sub,D09,D,9,one,313,exp,II-D09,10,43,47,0,0,17-Aug-16,,0.694,NA,3
+III,sub,D09,D,9,one,313,exp,III-D09,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,D09,D,9,one,313,exp,IV-D09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,D09,D,9,one,313,exp,V-D09,10,32,29,0,0,28-Mar-17,,0.293,NA,6.5
+I,sub,D10,D,10,one,270,exp,I-D10,0,2,5,0,0,11-Jun-16,,0.017,NA,1
+II,full,D10,D,10,one,270,exp,II-D10,26,0,15,0,0,17-Aug-16,FD-genII,0.13,0.042,2
+I,sub,D11,D,11,one,267,exp,I-D11,10,16,34,0,0,11-Jun-16,,0.616,NA,6
+II,sub,D11,D,11,one,267,exp,II-D11,10,35,27,0,0,17-Aug-16,,0.255,NA,4
+III,sub,D11,D,11,one,267,exp,III-D11,0,0,5,0,0,04-Nov-16,,0.012,NA,1
+IV,sub,D11,D,11,one,267,exp,IV-D11,10,16,10,0,0,11-Jan-17,,0.128,NA,1
+V,sub,D11,D,11,one,267,exp,V-D11,10,23,6,0,0,28-Mar-17,,0.081,NA,4
+I,sub,D12,D,12,one,276,exp,I-D12,5,14,5,0,0,11-Jun-16,,0.044,NA,3
+II,sub,D12,D,12,one,276,exp,II-D12,7,10,12,0,0,17-Aug-16,,0.137,NA,2
+III,sub,D12,D,12,one,276,exp,III-D12,0,13,12,0,0,04-Nov-16,,0.137,NA,4
+IV,sub,D12,D,12,one,276,exp,IV-D12,NA,NA,NA,NA,NA,NA,died,NA,NA,3
+V,sub,D12,D,12,one,276,exp,V-D12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,D13,D,13,one,279,exp,I-D13,10,25,9,0,0,11-Jun-16,,0.171,NA,6
+II,sub,D13,D,13,one,279,exp,II-D13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,D13,D,13,one,279,exp,III-D13,NA,NA,NA,NA,NA,NA,died,NA,NA,6
+IV,sub,D13,D,13,one,279,exp,IV-D13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,D13,D,13,one,279,exp,V-D13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,E01,E,1,one,279,exp,I-E01,9,0,24,0,0,11-Jun-16,,0.492,NA,7
+II,full,E01,E,1,one,279,exp,II-E01,28,0,17,0,0,17-Aug-16,FD-genII,0.262,0.087,3
+I,sub,E02,E,2,one,270,exp,I-E02,10,13,10,0,0,11-Jun-16,,0.117,NA,5
+II,sub,E02,E,2,one,270,exp,II-E02,10,16,20,0,0,17-Aug-16,,0.153,NA,2
+III,full,E02,E,2,one,270,exp,III-E02,33,0,21,0,0,03-Nov-16,FD-genIII,0.182,0.054,7
+I,sub,E03,E,3,one,267,exp,I-E03,10,30,29,5,0,11-Jun-16,,0.386,NA,6
+II,sub,E03,E,3,one,267,exp,II-E03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,E03,E,3,one,267,exp,III-E03,10,33,24,0,0,03-Nov-16,,0.476,NA,7
+IV,sub,E03,E,3,one,267,exp,IV-E03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,E03,E,3,one,267,exp,V-E03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,E04,E,4,one,267,exp,I-E04,10,20,29,5,1,11-Jun-16,5 + 1 Fruit,0.578,NA,9
+II,sub,E04,E,4,one,267,exp,II-E04,6,16,37,1,2,17-Aug-16,,0.54,NA,3
+III,sub,E04,E,4,one,267,exp,III-E04,NA,NA,NA,NA,NA,NA,died,NA,NA,1.5
+IV,sub,E04,E,4,one,267,exp,IV-E04,10,40,28,0,0,11-Jan-17,,0.575,NA,7
+V,sub,E04,E,4,one,267,exp,V-E04,6,9,12,0,0,28-Mar-17,height not recorded,0.145,NA,NA
+I,sub,E05,E,5,one,270,exp,I-E05,10,36,2,0,0,11-Jun-16,,0.198,NA,5
+II,full,E05,E,5,one,270,exp,II-E05,60,0,18,0,0,17-Aug-16,FD-genII,0.163,0.131,3
+I,sub,E06,E,6,one,279,exp,I-E06,10,35,37,0,0,11-Jun-16,,0.743,NA,6
+II,sub,E06,E,6,one,279,exp,II-E06,6,21,34,0,0,17-Aug-16,,0.595,NA,3
+III,sub,E06,E,6,one,279,exp,III-E06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,E06,E,6,one,279,exp,IV-E06,67,0,14,0,0,11-Jan-17,FD-genIV,0.247,0.132,4
+I,sub,E07,E,7,one,270,exp,I-E07,0,0,3,0,0,11-Jun-16,"Tiny leaves, very little growth",0.004,NA,0.5
+II,sub,E07,E,7,one,270,exp,II-E07,0,9,6,0,0,17-Aug-16,,0.025,NA,0.5
+III,sub,E07,E,7,one,270,exp,III-E07,6,10,26,0,0,03-Nov-16,,0.364,NA,8
+IV,sub,E07,E,7,one,270,exp,IV-E07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,E07,E,7,one,270,exp,V-E07,10,9,10,0,0,28-Mar-17,,0.151,NA,5
+I,sub,E08,E,8,one,267,exp,I-E08,0,1,15,2,0,11-Jun-16,,0.201,NA,4
+II,sub,E08,E,8,one,267,exp,II-E08,10,27,31,0,2,17-Aug-16,,0.312,NA,3
+III,sub,E08,E,8,one,267,exp,III-E08,0,10,14,0,0,03-Nov-16,,0.119,NA,2.5
+IV,sub,E08,E,8,one,267,exp,IV-E08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,E08,E,8,one,267,exp,V-E08,NA,NA,NA,NA,NA,NA,"yellow leaves, died",NA,NA,2
+I,sub,E09,E,9,one,279,exp,I-E09,10,14,1,0,0,11-Jun-16,,0.251,NA,6
+II,sub,E09,E,9,one,279,exp,II-E09,10,42,43,0,0,17-Aug-16,,0.678,NA,4
+III,sub,E09,E,9,one,279,exp,III-E09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,E09,E,9,one,279,exp,IV-E09,9,6,6,0,0,11-Jan-17,,0.085,NA,3
+V,sub,E09,E,9,one,279,exp,V-E09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,E10,E,10,one,270,exp,I-E10,0,5,4,0,0,11-Jun-16,very little growth,0.006,NA,1
+II,sub,E10,E,10,one,270,exp,II-E10,10,25,18,0,0,17-Aug-16,,0.168,NA,3
+III,sub,E10,E,10,one,270,exp,III-E10,0,14,17,0,0,03-Nov-16,,0.142,NA,5
+IV,sub,E10,E,10,one,270,exp,IV-E10,0,13,4,0,0,11-Jan-17,,0.068,NA,3
+V,sub,E10,E,10,one,270,exp,V-E10,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,E11,E,11,one,267,exp,I-E11,0,1,6,0,0,11-Jun-16,,0.054,NA,3
+II,sub,E11,E,11,one,267,exp,II-E11,10,42,45,2,1,17-Aug-16,,0.591,NA,4
+III,sub,E11,E,11,one,267,exp,III-E11,0,16,8,0,0,03-Nov-16,,0.076,NA,4
+IV,sub,E11,E,11,one,267,exp,IV-E11,10,13,15,0,0,11-Jan-17,,0.152,NA,4
+V,sub,E11,E,11,one,267,exp,V-E11,0,3,7,0,0,28-Mar-17,,0.058,NA,3
+I,sub,E12,E,12,one,313,exp,I-E12,0,14,5,0,0,11-Jun-16,"Nods left: 12(P), 2(W)",0.026,NA,2
+II,sub,E12,E,12,one,313,exp,II-E12,10,30,52,0,0,17-Aug-16,,0.671,NA,3
+III,sub,E12,E,12,one,313,exp,III-E12,0,6,18,0,0,03-Nov-16,,0.207,NA,8
+IV,sub,E12,E,12,one,313,exp,IV-E12,10,4,13,0,0,11-Jan-17,,0.122,NA,5
+V,sub,E12,E,12,one,313,exp,V-E12,8,10,8,0,0,28-Mar-17,lots of died leaves,0.106,NA,4.5
+I,sub,E13,E,13,one,276,exp,I-E13,0,11,5,0,0,11-Jun-16,,0.049,NA,3
+II,sub,E13,E,13,one,276,exp,II-E13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,E13,E,13,one,276,exp,III-E13,0,7,8,0,0,03-Nov-16,,NA,NA,4
+IV,sub,E13,E,13,one,276,exp,IV-E13,0,4,12,0,0,11-Jan-17,,0.103,NA,2.5
+V,sub,E13,E,13,one,276,exp,V-E13,0,6,6,0,0,28-Mar-17,,0.034,NA,2.5
+I,sub,F01,F,1,one,313,exp,I-F01,10,5,22,0,0,12-Jun-16,,0.224,NA,4
+II,sub,F01,F,1,one,313,exp,II-F01,10,30,31,0,0,17-Aug-16,,0.23,NA,2
+III,sub,F01,F,1,one,313,exp,III-F01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,F01,F,1,one,313,exp,IV-F01,10,0,36,0,0,11-Jan-17,,0.47,NA,5
+V,sub,F01,F,1,one,313,exp,V-F01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,F02,F,2,one,279,exp,I-F02,10,24,34,0,0,12-Jun-16,,0.81,NA,6
+II,sub,F02,F,2,one,279,exp,II-F02,10,33,25,0,0,17-Aug-16,,0.391,NA,4
+III,sub,F02,F,2,one,279,exp,III-F02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,F02,F,2,one,279,exp,IV-F02,10,59,21,0,0,11-Jan-17,,0.1,NA,5
+V,sub,F02,F,2,one,279,exp,V-F02,6,6,6,0,0,28-Mar-17,,0.077,NA,3.5
+I,sub,F03,F,3,one,313,exp,I-F03,10,58,42,0,0,12-Jun-16,,0.507,NA,6
+II,sub,F03,F,3,one,313,exp,II-F03,10,48,24,0,0,17-Aug-16,,0.191,NA,3
+III,sub,F03,F,3,one,313,exp,III-F03,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,F03,F,3,one,313,exp,IV-F03,0,6,10,0,0,11-Jan-17,,0.932,NA,4.5
+V,sub,F03,F,3,one,313,exp,V-F03,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,F04,F,4,one,270,exp,I-F04,10,8,22,0,0,12-Jun-16,,0.213,NA,5
+II,sub,F04,F,4,one,270,exp,II-F04,0,13,37,0,0,17-Aug-16,,0.267,NA,3
+III,full,F04,F,4,one,270,exp,III-F04,32,0,13,0,0,03-Nov-16,FD-genIII,0.099,0.031,8
+I,sub,F05,F,5,one,267,exp,I-F05,10,54,37,8,0,12-Jun-16,,0.791,NA,6
+II,sub,F05,F,5,one,267,exp,II-F05,10,48,7,0,2,17-Aug-16,,0.157,NA,3
+III,sub,F05,F,5,one,267,exp,III-F05,0,13,10,0,0,03-Nov-16,,0.074,NA,4
+IV,sub,F05,F,5,one,267,exp,IV-F05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,F05,F,5,one,267,exp,V-F05,6,10,15,0,0,28-Mar-17,,0.154,NA,5.5
+I,sub,F06,F,6,one,276,exp,I-F06,0,0,4,0,0,12-Jun-16,yellow leaves,0.017,NA,1
+II,sub,F06,F,6,one,276,exp,II-F06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,F06,F,6,one,276,exp,III-F06,0,3,4,0,0,03-Nov-16,,0.044,NA,2.5
+IV,sub,F06,F,6,one,276,exp,IV-F06,10,41,63,0,0,11-Jan-17,,0.454,NA,5
+V,sub,F06,F,6,one,276,exp,V-F06,10,9,13,0,0,28-Mar-17,,0.139,NA,4.5
+I,sub,F07,F,7,one,270,exp,I-F07,0,8,6,0,0,12-Jun-16,Nods left all clustered | Pot fell,0.029,NA,3
+II,full,F07,F,7,one,270,exp,II-F07,21,0,28,0,0,17-Aug-16,FD-genII,0.269,0.094,2
+I,sub,F08,F,8,one,279,exp,I-F08,10,47,44,0,0,12-Jun-16,Pot fell,1.084,NA,7
+II,sub,F08,F,8,one,279,exp,II-F08,10,52,47,0,0,17-Aug-16,,0.851,NA,4
+III,sub,F08,F,8,one,279,exp,III-F08,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,F08,F,8,one,279,exp,IV-F08,10,77,20,0,0,11-Jan-17,,0.479,NA,4
+V,sub,F08,F,8,one,279,exp,V-F08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,F09,F,9,one,276,exp,I-F09,10,4,18,0,0,12-Jun-16,,0.226,NA,5
+II,sub,F09,F,9,one,276,exp,II-F09,0,13,14,0,0,17-Aug-16,,0.119,NA,2
+III,sub,F09,F,9,one,276,exp,III-F09,0,10,8,0,0,03-Nov-16,,0.073,NA,6
+IV,sub,F09,F,9,one,276,exp,IV-F09,10,32,39,0,0,11-Jan-17,,0.34,NA,4.5
+V,sub,F09,F,9,one,276,exp,V-F09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,F10,F,10,one,276,control,I-F10,0,0,5,0,0,12-Jun-16,yellow leaves,0.014,NA,2
+II,sub,F10,F,10,one,276,control,II-F10,10,20,13,0,0,17-Aug-16,,0.177,NA,3
+III,sub,F10,F,10,one,276,control,III-F10,0,6,5,0,0,03-Nov-16,,0.063,NA,4.5
+IV,full,F10,F,10,one,276,control,IV-F10,22,0,28,0,0,11-Jan-17,FD-genIV,0.274,0.121,2.5
+I,sub,F11,F,11,one,267,exp,I-F11,0,3,2,0,0,12-Jun-16,yellow leaves,0.01,NA,3
+II,full,F11,F,11,one,267,exp,II-F11,55,0,20,0,0,17-Aug-16,FD-genII,0.258,0.082,3
+I,sub,F12,F,12,one,313,control,I-F12,0,0,6,0,0,12-Jun-16,,0.048,NA,3
+II,sub,F12,F,12,one,313,control,II-F12,10,22,50,0,0,17-Aug-16,,0.448,NA,3
+III,sub,F12,F,12,one,313,control,III-F12,0,4,2,0,0,03-Nov-16,,0.01,NA,2
+IV,sub,F12,F,12,one,313,control,IV-F12,10,47,18,0,0,11-Jan-17,,0.22,NA,3
+V,sub,F12,F,12,one,313,control,V-F12,NA,NA,NA,NA,NA,NA,died,NA,NA,1.5
+I,sub,F13,F,13,one,313,exp,I-F13,10,28,24,0,0,12-Jun-16,,0.309,NA,6
+II,sub,F13,F,13,one,313,exp,II-F13,10,41,27,0,0,17-Aug-16,,0.289,NA,2
+III,sub,F13,F,13,one,313,exp,III-F13,0,0,12,0,0,03-Nov-16,,0.108,NA,3.5
+IV,full,F13,F,13,one,313,exp,IV-F13,16,0,17,0,0,11-Jan-17,FD-genIV,0.295,0.018,4
+I,sub,G01,G,1,one,279,exp,I-G01,10,39,39,0,0,12-Jun-16,,0.788,NA,6
+II,sub,G01,G,1,one,279,exp,II-G01,10,27,27,0,0,16-Aug-16,,0.493,NA,3
+III,sub,G01,G,1,one,279,exp,III-G01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,G01,G,1,one,279,exp,IV-G01,0,12,8,0,0,11-Jan-17,,0.128,NA,3
+V,sub,G01,G,1,one,279,exp,V-G01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,G02,G,2,one,276,exp,I-G02,10,15,35,0,0,12-Jun-16,,0.479,NA,5
+II,sub,G02,G,2,one,276,exp,II-G02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,G02,G,2,one,276,exp,III-G02,10,18,27,0,0,03-Nov-16,,0.357,NA,7
+IV,sub,G02,G,2,one,276,exp,IV-G02,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+V,sub,G02,G,2,one,276,exp,V-G02,0,12,14,0,0,28-Mar-17,megacluster of nods,0.169,NA,4
+I,sub,G03,G,3,one,276,control,I-G03,10,19,17,0,0,12-Jun-16,,0.183,NA,3
+II,sub,G03,G,3,one,276,control,II-G03,0,12,14,0,0,16-Aug-16,,0.153,NA,0.5
+III,sub,G03,G,3,one,276,control,III-G03,0,1,3,0,0,03-Nov-16,,0.017,NA,2
+IV,sub,G03,G,3,one,276,control,IV-G03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,G03,G,3,one,276,control,V-G03,0,5,1,0,0,28-Mar-17,yellow leaves,0.014,NA,3.5
+I,sub,G04,G,4,one,313,exp,I-G04,10,36,34,0,0,12-Jun-16,,0.358,NA,5
+II,sub,G04,G,4,one,313,exp,II-G04,10,43,14,0,0,17-Aug-16,,0.142,NA,2
+III,sub,G04,G,4,one,313,exp,III-G04,0,10,9,0,0,03-Nov-16,,0.064,NA,4
+IV,sub,G04,G,4,one,313,exp,IV-G04,10,79,19,0,0,11-Jan-17,,0.249,NA,3.4
+V,sub,G04,G,4,one,313,exp,V-G04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,G05,G,5,one,276,exp,I-G05,10,17,26,0,0,12-Jun-16,,0.309,NA,4
+II,sub,G05,G,5,one,276,exp,II-G05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,G05,G,5,one,276,exp,III-G05,29,0,31,0,0,03-Nov-16,FD-genIII,0.418,0.085,7
+I,sub,G06,G,6,one,267,exp,I-G06,0,0,2,0,0,12-Jun-16,yellow leaves,0.01,NA,1
+II,sub,G06,G,6,one,267,exp,II-G06,10,53,49,0,0,17-Aug-16,,0.742,NA,3
+III,full,G06,G,6,one,267,exp,III-G06,16,0,14,0,0,03-Nov-16,FD-genIII,0.157,0.029,5
+I,sub,G07,G,7,one,279,exp,I-G07,10,28,25,0,0,12-Jun-16,,0.44,NA,6
+II,sub,G07,G,7,one,279,exp,II-G07,10,23,18,0,0,17-Aug-16,,0.261,NA,4
+III,sub,G07,G,7,one,279,exp,III-G07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,G07,G,7,one,279,exp,IV-G07,10,11,16,0,0,11-Jan-17,,0.295,NA,3
+V,sub,G07,G,7,one,279,exp,V-G07,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,G08,G,8,one,313,exp,I-G08,10,20,14,0,0,12-Jun-16,,0.161,NA,5
+II,full,G08,G,8,one,313,exp,II-G08,32,0,22,0,0,17-Aug-16,FD-genII,0.179,0.059,3
+I,sub,G09,G,9,one,267,exp,I-G09,10,17,11,1,2,12-Jun-16,2 Fruits,0.159,NA,3
+II,sub,G09,G,9,one,267,exp,II-G09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,G09,G,9,one,267,exp,III-G09,10,13,21,0,0,03-Nov-16,,0.243,NA,6
+IV,sub,G09,G,9,one,267,exp,IV-G09,10,43,20,0,0,11-Jan-17,,0.266,NA,4
+V,sub,G09,G,9,one,267,exp,V-G09,10,22,18,0,0,28-Mar-17,,0.3,NA,4
+I,sub,G10,G,10,one,276,exp,I-G10,10,7,10,0,0,12-Jun-16,,0.08,NA,3
+II,sub,G10,G,10,one,276,exp,II-G10,0,7,21,0,0,17-Aug-16,,0.321,NA,2
+III,sub,G10,G,10,one,276,exp,III-G10,0,11,10,0,0,03-Nov-16,,0.116,NA,4
+IV,sub,G10,G,10,one,276,exp,IV-G10,NA,NA,55,0,0,11-Jan-17,,0.722,NA,5.5
+V,sub,G10,G,10,one,276,exp,V-G10,0,5,10,0,0,28-Mar-17,,0.059,NA,3
+I,sub,G11,G,11,one,270,control,I-G11,0,0,4,0,0,12-Jun-16,,0.03,NA,1
+II,sub,G11,G,11,one,270,control,II-G11,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+III,sub,G11,G,11,one,270,control,III-G11,10,11,10,0,0,03-Nov-16,,0.139,NA,3
+IV,full,G11,G,11,one,270,control,IV-G11,30,0,26,0,0,11-Jan-17,FD-genIV,0.298,0.057,6
+I,sub,G12,G,12,one,267,exp,I-G12,0,0,3,0,0,12-Jun-16,,0.016,NA,3
+II,sub,G12,G,12,one,267,exp,II-G12,10,31,22,0,0,17-Aug-16,,0.183,NA,3
+III,sub,G12,G,12,one,267,exp,III-G12,0,1,4,0,0,03-Nov-16,,0.033,NA,1
+IV,full,G12,G,12,one,267,exp,IV-G12,38,0,27,0,0,11-Jan-17,FD-genIV,0.443,0.083,5
+I,sub,G13,G,13,one,279,exp,I-G13,0,0,3,0,0,12-Jun-16,,0.08,NA,3
+II,full,G13,G,13,one,279,exp,II-G13,56,0,14,0,0,17-Aug-16,FD-genII,0.131,0.052,3
+I,sub,H01,H,1,two,267,exp,I-H01,10,10,13,0,0,12-Jun-16,,0.151,NA,4
+II,sub,H01,H,1,two,267,exp,II-H01,10,39,25,0,0,16-Aug-16,,0.294,NA,4
+III,sub,H01,H,1,two,267,exp,III-H01,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+IV,sub,H01,H,1,two,267,exp,IV-H01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,H01,H,1,two,267,exp,V-H01,10,14,18,0,0,28-Mar-17,nod clusters,0.218,NA,5
+I,sub,H02,H,2,two,270,exp,I-H02,10,16,12,0,0,12-Jun-16,,0.117,NA,4
+II,sub,H02,H,2,two,270,exp,II-H02,0,8,8,0,0,16-Aug-16,,0.059,NA,1
+III,sub,H02,H,2,two,270,exp,III-H02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,H02,H,2,two,270,exp,IV-H02,10,13,32,0,0,18-Jan-17,,0.374,NA,5
+V,sub,H02,H,2,two,270,exp,V-H02,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,H03,H,3,two,276,exp,I-H03,10,17,18,0,0,12-Jun-16,,0.198,NA,5
+II,sub,H03,H,3,two,276,exp,II-H03,0,3,4,0,0,16-Aug-16,,0.028,NA,2
+III,sub,H03,H,3,two,276,exp,III-H03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,H03,H,3,two,276,exp,IV-H03,31,0,43,0,0,18-Jan-17,FD-genIV,0.6,0.126,5
+I,sub,H04,H,4,two,267,exp,I-H04,10,37,NA,NA,NA,12-Jun-16,,0.715,NA,6
+II,sub,H04,H,4,two,267,exp,II-H04,10,19,10,0,1,16-Aug-16,,0.151,NA,3
+III,sub,H04,H,4,two,267,exp,III-H04,0,9,7,0,0,01-Nov-16,,0.05,NA,4
+IV,full,H04,H,4,two,267,exp,IV-H04,20,0,34,0,0,18-Jan-17,FD-genIV,0.559,0.166,6
+I,sub,H05,H,5,two,267,exp,I-H05,10,77,39,5,0,12-Jun-16,,0.601,NA,9
+II,sub,H05,H,5,two,267,exp,II-H05,10,49,18,0,0,16-Aug-16,,0.246,NA,3
+III,sub,H05,H,5,two,267,exp,III-H05,10,11,6,0,0,01-Nov-16,,0.101,NA,4
+IV,sub,H05,H,5,two,267,exp,IV-H05,10,49,14,0,0,18-Jan-17,,0.222,NA,4
+V,sub,H05,H,5,two,267,exp,V-H05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,H06,H,6,two,313,exp,I-H06,10,63,30,0,0,12-Jun-16,Pot fell,0.449,NA,7
+II,full,H06,H,6,two,313,exp,II-H06,48,0,28,0,0,16-Aug-16,FD-genII,0.258,0.053,2
+I,sub,H07,H,7,two,267,exp,I-H07,0,7,2,0,0,12-Jun-16,yellow leaves,0.012,NA,3
+II,sub,H07,H,7,two,267,exp,II-H07,10,56,41,0,1,16-Aug-16,,0.609,NA,4
+III,sub,H07,H,7,two,267,exp,III-H07,10,23,17,0,0,01-Nov-16,,0.337,NA,7.5
+IV,sub,H07,H,7,two,267,exp,IV-H07,10,13,10,0,0,18-Jan-17,,0.162,NA,3
+V,sub,H07,H,7,two,267,exp,V-H07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,H08,H,8,two,279,exp,I-H08,10,64,32,0,0,12-Jun-16,,0.68,NA,7
+II,sub,H08,H,8,two,279,exp,II-H08,10,42,24,0,0,16-Aug-16,,0.332,NA,3
+III,sub,H08,H,8,two,279,exp,III-H08,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,H08,H,8,two,279,exp,IV-H08,0,15,28,0,0,18-Jan-17,,0.481,NA,5
+V,sub,H08,H,8,two,279,exp,V-H08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,H09,H,9,two,313,exp,I-H09,NA,NA,NA,NA,NA,12-Jun-16,No germination,NA,NA,0
+II,sub,H09,H,9,two,313,exp,II-H09,10,34,26,0,0,16-Aug-16,,0.298,NA,3
+III,sub,H09,H,9,two,313,exp,III-H09,0,14,7,0,0,01-Nov-16,,0.079,NA,3
+IV,sub,H09,H,9,two,313,exp,IV-H09,10,13,36,0,0,18-Jan-17,,0.667,NA,4
+V,sub,H09,H,9,two,313,exp,V-H09,10,11,16,0,0,28-Mar-17,,0.182,NA,4
+I,sub,H10,H,10,two,279,exp,I-H10,0,3,4,0,0,12-Jun-16,"Pot fell, yellow leaves",0.013,NA,3
+II,sub,H10,H,10,two,279,exp,II-H10,0,9,21,0,0,16-Aug-16,,0.23,NA,3
+III,sub,H10,H,10,two,279,exp,III-H10,0,6,4,0,0,01-Nov-16,,0.069,NA,4
+IV,sub,H10,H,10,two,279,exp,IV-H10,10,16,17,0,0,18-Jan-17,,0.244,NA,1
+V,sub,H10,H,10,two,279,exp,V-H10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,H11,H,11,two,279,exp,I-H11,10,27,12,0,0,12-Jun-16,,0.2,NA,5
+II,sub,H11,H,11,two,279,exp,II-H11,10,43,26,0,0,16-Aug-16,,0.309,NA,4
+III,sub,H11,H,11,two,279,exp,III-H11,10,24,11,0,0,01-Nov-16,,NA,NA,5.5
+IV,sub,H11,H,11,two,279,exp,IV-H11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,H11,H,11,two,279,exp,V-H11,10,18,19,0,0,28-Mar-17,,0.271,NA,3.5
+I,sub,H12,H,12,two,270,exp,I-H12,NA,NA,NA,NA,NA,12-Jun-16,No germination,NA,NA,0
+II,sub,H12,H,12,two,270,exp,II-H12,6,10,8,0,0,16-Aug-16,,0.035,NA,1
+III,sub,H12,H,12,two,270,exp,III-H12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,H12,H,12,two,270,exp,IV-H12,23,0,34,0,0,18-Jan-17,FD-genIV,0.512,0.096,4
+I,sub,I01,I,1,two,313,exp,I-I01,10,32,49,0,0,13-Jun-16,,0.713,NA,8
+II,sub,I01,I,1,two,313,exp,II-I01,0,3,33,0,0,16-Aug-16,,0.352,NA,3
+III,sub,I01,I,1,two,313,exp,III-I01,0,5,2,0,0,01-Nov-16,,0.012,NA,1
+IV,sub,I01,I,1,two,313,exp,IV-I01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,I01,I,1,two,313,exp,V-I01,10,9,21,0,0,28-Mar-17,,0.271,NA,5.5
+I,sub,I02,I,2,two,313,exp,I-I02,10,38,40,0,0,13-Jun-16,,0.589,NA,8
+II,sub,I02,I,2,two,313,exp,II-I02,10,39,38,0,0,16-Aug-16,,0.477,NA,3
+III,sub,I02,I,2,two,313,exp,III-I02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,I02,I,2,two,313,exp,IV-I02,39,0,20,0,0,18-Jan-17,FD-genIV,0.254,0.065,4
+I,sub,I03,I,3,two,270,exp,I-I03,0,6,5,0,0,13-Jun-16,,0.037,NA,2
+II,sub,I03,I,3,two,270,exp,II-I03,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+III,sub,I03,I,3,two,270,exp,III-I03,10,25,10,0,0,01-Nov-16,,0.135,NA,7.5
+IV,sub,I03,I,3,two,270,exp,IV-I03,10,62,51,0,0,18-Jan-17,,0.475,NA,4
+V,sub,I03,I,3,two,270,exp,V-I03,10,13,6,0,0,28-Mar-17,,0.052,NA,4.5
+I,sub,I04,I,4,two,279,exp,I-I04,10,38,38,0,0,13-Jun-16,,0.769,NA,7
+II,sub,I04,I,4,two,279,exp,II-I04,0,6,20,0,0,16-Aug-16,,0.19,NA,3
+III,sub,I04,I,4,two,279,exp,III-I04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,I04,I,4,two,279,exp,IV-I04,10,10,28,0,0,18-Jan-17,,0.468,NA,4
+V,sub,I04,I,4,two,279,exp,V-I04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,I05,I,5,two,270,exp,I-I05,10,33,12,0,0,13-Jun-16,,0.146,NA,5
+II,sub,I05,I,5,two,270,exp,II-I05,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+III,sub,I05,I,5,two,270,exp,III-I05,0,12,5,0,0,01-Nov-16,,0.066,NA,4
+IV,sub,I05,I,5,two,270,exp,IV-I05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,I05,I,5,two,270,exp,V-I05,6,10,6,0,0,28-Mar-17,,0.057,NA,3
+I,sub,I06,I,6,two,279,exp,I-I06,5,12,21,0,0,13-Jun-16,,0.368,NA,7
+II,sub,I06,I,6,two,279,exp,II-I06,10,16,29,0,0,16-Aug-16,,0.381,NA,3
+III,sub,I06,I,6,two,279,exp,III-I06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,I06,I,6,two,279,exp,IV-I06,34,0,22,0,0,18-Jan-17,FD-genIV,0.547,0.196,5
+I,sub,I07,I,7,two,270,control,I-I07,0,2,5,0,0,13-Jun-16,yellow leaves,0.014,NA,2
+II,sub,I07,I,7,two,270,control,II-I07,0,2,3,0,0,16-Aug-16,,0.014,NA,0.5
+III,sub,I07,I,7,two,270,control,III-I07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,I07,I,7,two,270,control,IV-I07,0,10,13,0,0,18-Jan-17,,0.075,NA,6
+V,sub,I07,I,7,two,270,control,V-I07,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,I08,I,8,two,267,exp,I-I08,0,3,5,0,0,13-Jun-16,yellow leaves,0.029,NA,4
+II,sub,I08,I,8,two,267,exp,II-I08,0,8,33,0,1,16-Aug-16,,0.333,NA,3
+III,sub,I08,I,8,two,267,exp,III-I08,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+IV,sub,I08,I,8,two,267,exp,IV-I08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,I08,I,8,two,267,exp,V-I08,8,6,25,0,0,28-Mar-17,lots of nod clusters,0.401,NA,4.5
+I,sub,I09,I,9,two,276,exp,I-I09,10,18,13,0,0,13-Jun-16,,0.125,NA,4
+II,sub,I09,I,9,two,276,exp,II-I09,0,1,20,0,0,16-Aug-16,,0.123,NA,2
+III,sub,I09,I,9,two,276,exp,III-I09,0,8,6,0,0,01-Nov-16,,0.06,NA,4
+IV,sub,I09,I,9,two,276,exp,IV-I09,0,6,18,0,0,18-Jan-17,,0.163,NA,4
+V,sub,I09,I,9,two,276,exp,V-I09,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,I10,I,10,two,267,exp,I-I10,NA,NA,NA,NA,NA,13-Jun-16,No germination,NA,NA,0
+II,sub,I10,I,10,two,267,exp,II-I10,10,28,18,0,0,16-Aug-16,,0.202,NA,3
+III,sub,I10,I,10,two,267,exp,III-I10,9,10,15,0,0,01-Nov-16,,0.219,NA,8
+IV,sub,I10,I,10,two,267,exp,IV-I10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,I10,I,10,two,267,exp,V-I10,9,10,20,0,0,28-Mar-17,,0.254,NA,3.5
+I,sub,I11,I,11,two,270,exp,I-I11,NA,NA,NA,NA,NA,13-Jun-16,No germination,NA,NA,0
+II,full,I11,I,11,two,270,exp,II-I11,31,0,12,0,0,16-Aug-16,FD-genII,0.096,0.02,2
+I,sub,I12,I,12,two,276,exp,I-I12,0,1,13,0,0,13-Jun-16,,0.01,NA,2
+II,sub,I12,I,12,two,276,exp,II-I12,0,13,10,0,0,16-Aug-16,,0.075,NA,2
+III,sub,I12,I,12,two,276,exp,III-I12,0,13,16,0,0,01-Nov-16,,0.192,NA,7
+IV,sub,I12,I,12,two,276,exp,IV-I12,0,14,32,0,0,18-Jan-17,,0.466,NA,4
+V,sub,I12,I,12,two,276,exp,V-I12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,J01,J,1,two,276,exp,I-J01,NA,NA,NA,NA,NA,13-Jun-16,No germination,NA,NA,0
+II,sub,J01,J,1,two,276,exp,II-J01,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+III,full,J01,J,1,two,276,exp,III-J01,45,0,27,0,0,01-Nov-16,FD-genIII,0.339,0.059,8.5
+I,sub,J02,J,2,two,279,exp,I-J02,8,13,25,0,0,13-Jun-16,,0.353,NA,6
+II,sub,J02,J,2,two,279,exp,II-J02,10,29,29,0,0,16-Aug-16,,0.56,NA,4
+III,sub,J02,J,2,two,279,exp,III-J02,0,2,9,0,0,01-Nov-16,,0.095,NA,6
+IV,sub,J02,J,2,two,279,exp,IV-J02,0,15,17,0,0,18-Jan-17,,0.28,NA,4.5
+V,sub,J02,J,2,two,279,exp,V-J02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,J03,J,3,two,279,exp,I-J03,0,8,30,0,0,13-Jun-16,,0.402,NA,7
+II,full,J03,J,3,two,279,exp,II-J03,37,0,32,0,0,16-Aug-16,FD-genII,0.483,0.115,3.5
+I,sub,J04,J,4,two,276,exp,I-J04,10,26,20,0,0,13-Jun-16,,0.233,NA,6
+II,sub,J04,J,4,two,276,exp,II-J04,0,9,11,0,0,16-Aug-16,,0.058,NA,2
+III,full,J04,J,4,two,276,exp,III-J04,22,0,15,0,0,01-Nov-16,FD-genIII,0.212,0.06,6
+I,sub,J05,J,5,two,313,control,I-J05,0,0,5,0,0,13-Jun-16,yellow leaves,0.037,NA,3
+II,sub,J05,J,5,two,313,control,II-J05,10,12,33,0,0,16-Aug-16,,0.379,NA,3
+III,sub,J05,J,5,two,313,control,III-J05,0,7,12,0,0,01-Nov-16,,0.138,NA,7
+IV,sub,J05,J,5,two,313,control,IV-J05,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+V,sub,J05,J,5,two,313,control,V-J05,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1.5
+I,sub,J06,J,6,two,267,control,I-J06,0,0,3,0,0,13-Jun-16,,0.012,NA,3
+II,sub,J06,J,6,two,267,control,II-J06,10,34,33,0,0,16-Aug-16,,0.463,NA,3.5
+III,full,J06,J,6,two,267,control,III-J06,35,0,15,0,0,01-Nov-16,FD-genIII,0.238,0.041,6.5
+I,sub,J07,J,7,two,279,exp,I-J07,10,27,19,0,0,13-Jun-16,,0.279,NA,5
+II,sub,J07,J,7,two,279,exp,II-J07,10,32,26,0,0,16-Aug-16,,0.312,NA,4
+III,sub,J07,J,7,two,279,exp,III-J07,10,14,10,0,0,01-Nov-16,,0.124,NA,4
+IV,sub,J07,J,7,two,279,exp,IV-J07,10,11,17,0,0,18-Jan-17,,0.239,NA,3
+V,sub,J07,J,7,two,279,exp,V-J07,10,18,26,0,0,28-Mar-17,,0.449,NA,6.5
+I,sub,J08,J,8,two,279,exp,I-J08,10,60,33,0,0,13-Jun-16,,0.671,NA,8
+II,sub,J08,J,8,two,279,exp,II-J08,10,16,21,0,0,16-Aug-16,,0.266,NA,2.5
+III,full,J08,J,8,two,279,exp,III-J08,30,0,9,0,0,01-Nov-16,FD-genIII,0.125,0.08,5
+I,sub,J09,J,9,two,313,exp,I-J09,10,47,31,0,0,13-Jun-16,,0.462,NA,7
+II,sub,J09,J,9,two,313,exp,II-J09,0,9,22,0,0,16-Aug-16,,0.187,NA,2
+III,sub,J09,J,9,two,313,exp,III-J09,7,12,18,0,0,01-Nov-16,,0.208,NA,6
+IV,sub,J09,J,9,two,313,exp,IV-J09,10,63,30,0,0,18-Jan-17,,0.393,NA,3
+V,sub,J09,J,9,two,313,exp,V-J09,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,J10,J,10,two,313,exp,I-J10,10,39,21,0,0,13-Jun-16,,0.29,NA,7
+II,sub,J10,J,10,two,313,exp,II-J10,10,12,18,0,0,16-Aug-16,,0.151,NA,2
+III,sub,J10,J,10,two,313,exp,III-J10,8,11,9,0,0,01-Nov-16,,0.107,NA,4
+IV,sub,J10,J,10,two,313,exp,IV-J10,10,26,30,0,0,18-Jan-17,,0.718,NA,5
+V,sub,J10,J,10,two,313,exp,V-J10,10,23,11,0,0,28-Mar-17,,0.121,NA,2.5
+I,sub,J11,J,11,two,270,exp,I-J11,8,14,7,0,0,13-Jun-16,,0.068,NA,3
+II,sub,J11,J,11,two,270,exp,II-J11,0,2,7,0,0,16-Aug-16,,0.072,NA,3
+III,sub,J11,J,11,two,270,exp,III-J11,0,10,13,0,0,01-Nov-16,,0.137,NA,6
+V,sub,J11,J,11,two,270,exp,V-J11,10,18,30,0,0,28-Mar-17,,0.295,NA,5
+I,sub,J12,J,12,two,313,exp,I-J12,10,29,18,0,0,13-Jun-16,,0.188,NA,6
+II,sub,J12,J,12,two,313,exp,II-J12,10,32,14,0,0,16-Aug-16,,0.13,NA,3
+III,sub,J12,J,12,two,313,exp,III-J12,7,11,15,0,0,01-Nov-16,,0.193,NA,7
+IV,full,J12,J,12,two,313,exp,IV-J12,70,0,32,0,0,18-Jan-17,FD-genIV,0.351,0.045,3
+I,sub,K01,K,1,two,313,exp,I-K01,10,20,33,0,0,13-Jun-16,,0.416,NA,8
+II,sub,K01,K,1,two,313,exp,II-K01,10,69,42,0,0,15-Aug-16,,0.469,NA,3
+III,sub,K01,K,1,two,313,exp,III-K01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,K01,K,1,two,313,exp,IV-K01,NA,NA,21,0,0,18-Jan-17,,0.335,NA,4
+V,sub,K01,K,1,two,313,exp,V-K01,0,8,5,0,0,29-Mar-17,,0.033,NA,2.5
+I,sub,K02,K,2,two,267,exp,I-K02,10,20,37,4,0,13-Jun-16,,0.75,NA,7
+II,sub,K02,K,2,two,267,exp,II-K02,0,0,2,0,0,15-Aug-16,,0.006,NA,2.5
+III,sub,K02,K,2,two,267,exp,III-K02,10,12,8,0,0,01-Nov-16,,0.157,NA,7
+IV,sub,K02,K,2,two,267,exp,IV-K02,10,47,18,0,0,18-Jan-17,,0.283,NA,5
+V,sub,K02,K,2,two,267,exp,V-K02,0,6,5,0,0,29-Mar-17,,0.033,NA,3.5
+I,sub,K03,K,3,two,276,exp,I-K03,6,14,7,0,0,13-Jun-16,,0.073,NA,2
+II,sub,K03,K,3,two,276,exp,II-K03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,K03,K,3,two,276,exp,III-K03,0,1,9,0,0,01-Nov-16,,0.111,NA,6.5
+IV,sub,K03,K,3,two,276,exp,IV-K03,0,5,21,0,0,18-Jan-17,,0.326,NA,4
+V,sub,K03,K,3,two,276,exp,V-K03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,K04,K,4,two,267,exp,I-K04,10,19,35,3,2,13-Jun-16,2 Fruits,0.631,NA,8
+II,full,K04,K,4,two,267,exp,II-K04,5,0,18,3,0,15-Aug-16,FD-genII,0.225,0.035,4
+I,sub,K05,K,5,two,313,exp,I-K05,10,51,23,0,0,13-Jun-16,,0.325,NA,8
+II,sub,K05,K,5,two,313,exp,II-K05,0,3,20,0,0,15-Aug-16,,0.21,NA,3
+III,sub,K05,K,5,two,313,exp,III-K05,8,10,3,0,0,01-Nov-16,,0.047,NA,5
+IV,sub,K05,K,5,two,313,exp,IV-K05,10,39,41,0,0,18-Jan-17,,0.793,NA,3
+V,sub,K05,K,5,two,313,exp,V-K05,0,3,3,0,0,29-Mar-17,yellow leaves,0.015,NA,1.5
+I,sub,K06,K,6,two,313,exp,I-K06,5,11,21,0,0,13-Jun-16,,0.357,NA,7
+II,full,K06,K,6,two,313,exp,II-K06,50,12,31,0,0,15-Aug-16,FD-genII,0.32,0.052,3
+I,sub,K07,K,7,two,313,exp,I-K07,6,14,11,0,0,13-Jun-16,,0.156,NA,5
+II,sub,K07,K,7,two,313,exp,II-K07,10,17,32,0,0,16-Aug-16,,0.397,NA,3
+III,sub,K07,K,7,two,313,exp,III-K07,NA,NA,NA,NA,NA,NA,died,NA,NA,1.5
+IV,sub,K07,K,7,two,313,exp,IV-K07,10,40,35,0,0,18-Jan-17,,0.042,NA,5
+V,sub,K07,K,7,two,313,exp,V-K07,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,K08,K,8,two,276,exp,I-K08,10,11,10,0,0,13-Jun-16,,0.117,NA,3
+II,sub,K08,K,8,two,276,exp,II-K08,10,11,16,0,0,16-Aug-16,,0.129,NA,2
+III,sub,K08,K,8,two,276,exp,III-K08,0,3,7,0,0,01-Nov-16,,0.094,NA,4
+IV,sub,K08,K,8,two,276,exp,IV-K08,NA,NA,6,0,0,NA,died,0.0466,NA,3
+V,sub,K08,K,8,two,276,exp,V-K08,6,7,9,0,0,29-Mar-17,,0.063,NA,3.5
+I,sub,K09,K,9,two,313,exp,I-K09,6,17,26,0,0,13-Jun-16,,0.406,NA,7
+II,sub,K09,K,9,two,313,exp,II-K09,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+III,full,K09,K,9,two,313,exp,III-K09,35,0,18,0,0,01-Nov-16,FD-genIII,0.215,0.037,8
+I,sub,K10,K,10,two,270,control,I-K10,0,0,3,0,0,13-Jun-16,yellow leaves,0.011,NA,2
+II,sub,K10,K,10,two,270,control,II-K10,0,4,5,0,0,16-Aug-16,,0.004,NA,0.5
+III,full,K10,K,10,two,270,control,III-K10,24,0,17,0,0,01-Nov-16,FD-genIII,0.18,0.071,7
+I,sub,K11,K,11,two,279,control,I-K11,0,0,3,0,0,13-Jun-16,yellow leaves,0.015,NA,3
+II,sub,K11,K,11,two,279,control,II-K11,10,31,14,0,0,16-Aug-16,,0.152,NA,3
+III,sub,K11,K,11,two,279,control,III-K11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,K11,K,11,two,279,control,IV-K11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,K11,K,11,two,279,control,V-K11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,K12,K,12,two,313,exp,I-K12,NA,NA,NA,NA,NA,13-Jun-16,No germination,NA,NA,0
+II,full,K12,K,12,two,313,exp,II-K12,12,0,18,0,0,16-Aug-16,FD-genII,0.168,0.035,2
+I,sub,L01,L,1,two,279,exp,I-L01,10,52,26,0,0,13-Jun-16,,0.698,NA,6
+II,sub,L01,L,1,two,279,exp,II-L01,10,15,11,0,0,15-Aug-16,,0.157,NA,3
+III,sub,L01,L,1,two,279,exp,III-L01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,L01,L,1,two,279,exp,IV-L01,10,20,17,0,0,18-Jan-17,,0.281,NA,2
+V,sub,L01,L,1,two,279,exp,V-L01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,L02,L,2,two,270,exp,I-L02,0,0,2,0,0,13-Jun-16,late emerge,0.03,NA,0.5
+II,sub,L02,L,2,two,270,exp,II-L02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,L02,L,2,two,270,exp,III-L02,13,0,14,0,0,31-Oct-16,FD-genIII,0.162,0.099,6
+I,sub,L03,L,3,two,267,exp,I-L03,0,10,36,10,0,13-Jun-16,,0.616,NA,8
+II,sub,L03,L,3,two,267,exp,II-L03,10,26,34,0,0,15-Aug-16,clusters,0.597,NA,3
+III,sub,L03,L,3,two,267,exp,III-L03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,L03,L,3,two,267,exp,IV-L03,10,20,23,0,0,16-Jan-17,,0.426,NA,5
+V,sub,L03,L,3,two,267,exp,V-L03,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,L04,L,4,two,270,exp,I-L04,0,7,4,0,0,13-Jun-16,,0.08,NA,1
+II,sub,L04,L,4,two,270,exp,II-L04,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+III,sub,L04,L,4,two,270,exp,III-L04,10,14,13,0,0,31-Oct-16,,0.151,NA,6
+IV,sub,L04,L,4,two,270,exp,IV-L04,0,15,19,0,0,18-Jan-17,,0.249,NA,2
+V,sub,L04,L,4,two,270,exp,V-L04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,L05,L,5,two,313,exp,I-L05,0,8,25,0,0,13-Jun-16,,0.271,NA,6
+II,sub,L05,L,5,two,313,exp,II-L05,0,8,7,0,0,15-Aug-16,,0.058,NA,2.5
+III,full,L05,L,5,two,313,exp,III-L05,40,0,16,0,0,31-Oct-16,FD-genIII,0.198,0.042,7
+I,sub,L06,L,6,two,276,exp,I-L06,10,19,20,0,0,13-Jun-16,,0.225,NA,6
+II,sub,L06,L,6,two,276,exp,II-L06,10,15,12,0,0,15-Aug-16,,0.11,NA,3
+III,sub,L06,L,6,two,276,exp,III-L06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,L06,L,6,two,276,exp,IV-L06,0,10,42,0,0,18-Jan-17,,0.445,NA,6
+V,sub,L06,L,6,two,276,exp,V-L06,0,6,13,0,0,29-Mar-17,,0.07,NA,3
+I,sub,L07,L,7,two,276,exp,I-L07,NA,NA,NA,NA,NA,13-Jun-16,died,NA,NA,0.5
+II,sub,L07,L,7,two,276,exp,II-L07,0,4,8,0,0,15-Aug-16,,0.071,NA,2
+III,sub,L07,L,7,two,276,exp,III-L07,0,7,7,0,0,31-Oct-16,,0.036,NA,2
+IV,sub,L07,L,7,two,276,exp,IV-L07,0,7,20,0,0,18-Jan-17,,0.16,NA,3
+V,sub,L07,L,7,two,276,exp,V-L07,7,10,17,0,0,29-Mar-17,,0.189,NA,3.5
+I,sub,L08,L,8,two,313,exp,I-L08,10,23,16,0,0,13-Jun-16,,0.247,NA,6
+II,sub,L08,L,8,two,313,exp,II-L08,5,12,NA,NA,NA,15-Aug-16,,0.263,NA,3
+III,sub,L08,L,8,two,313,exp,III-L08,0,15,9,0,0,31-Oct-16,,0.097,NA,5
+IV,sub,L08,L,8,two,313,exp,IV-L08,10,24,28,0,0,18-Jan-17,,0.35,NA,2.5
+V,sub,L08,L,8,two,313,exp,V-L08,10,14,8,0,0,29-Mar-17,,0.066,NA,4
+I,sub,L09,L,9,two,276,control,I-L09,0,0,1,0,0,13-Jun-16,yellow leaves,0.004,NA,2
+II,full,L09,L,9,two,276,control,II-L09,34,0,9,0,0,15-Aug-16,FD-genII,0.065,0.034,3.5
+I,sub,L10,L,10,two,270,exp,I-L10,0,1,3,0,0,13-Jun-16,,0.022,NA,2
+II,full,L10,L,10,two,270,exp,II-L10,8,0,5,0,0,15-Aug-16,FD-genII,0.014,0.009,1
+I,sub,L11,L,11,two,267,exp,I-L11,0,0,1,0,0,13-Jun-16,,0.006,NA,4
+II,sub,L11,L,11,two,267,exp,II-L11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,L11,L,11,two,267,exp,III-L11,39,0,30,0,0,01-Nov-16,FD-genIII,0.445,0.118,8
+I,sub,L12,L,12,two,279,exp,I-L12,7,12,19,0,0,13-Jun-16,Pot fell,0.286,NA,5
+II,sub,L12,L,12,two,279,exp,II-L12,10,28,21,0,0,15-Aug-16,,0.226,NA,2
+III,sub,L12,L,12,two,279,exp,III-L12,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,L12,L,12,two,279,exp,IV-L12,10,10,20,0,0,18-Jan-17,,0.372,NA,3
+V,sub,L12,L,12,two,279,exp,V-L12,0,4,3,0,0,29-Mar-17,,0.011,NA,1
+I,sub,M01,M,1,two,276,exp,I-M01,10,13,12,0,0,13-Jun-16,,0.141,NA,4
+II,sub,M01,M,1,two,276,exp,II-M01,0,10,8,0,0,15-Aug-16,,0.078,NA,1
+III,sub,M01,M,1,two,276,exp,III-M01,0,12,7,0,0,21-Oct-16,,0.042,NA,4
+IV,full,M01,M,1,two,276,exp,IV-M01,21,0,16,0,0,17-Jan-17,FD-genIV,0.194,0.062,5
+I,sub,M02,M,2,two,267,exp,I-M02,6,10,9,0,0,13-Jun-16,,0.163,NA,5
+II,sub,M02,M,2,two,267,exp,II-M02,5,9,14,0,0,15-Aug-16,,0.178,NA,3
+III,sub,M02,M,2,two,267,exp,III-M02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,M02,M,2,two,267,exp,IV-M02,10,20,33,0,0,17-Jan-17,,0.815,NA,5
+V,sub,M02,M,2,two,267,exp,V-M02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,M03,M,3,two,279,control,I-M03,0,2,3,0,0,13-Jun-16,yellow leaves,0.014,NA,4
+II,sub,M03,M,3,two,279,control,II-M03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,M03,M,3,two,279,control,III-M03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,M03,M,3,two,279,control,IV-M03,10,16,23,0,0,17-Jan-17,,0.573,NA,3
+V,sub,M03,M,3,two,279,control,V-M03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,M04,M,4,two,270,exp,I-M04,0,9,6,0,0,13-Jun-16,,0.052,NA,2
+II,sub,M04,M,4,two,270,exp,II-M04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,M04,M,4,two,270,exp,III-M04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,M04,M,4,two,270,exp,IV-M04,10,34,26,0,0,17-Jan-17,,0.441,NA,5
+V,sub,M04,M,4,two,270,exp,V-M04,10,16,7,0,0,29-Mar-17,,0.077,NA,3.5
+I,sub,M05,M,5,two,279,exp,I-M05,8,10,20,0,0,13-Jun-16,,0.453,NA,7
+II,sub,M05,M,5,two,279,exp,II-M05,0,5,15,0,0,15-Aug-16,,0.191,NA,3
+III,sub,M05,M,5,two,279,exp,III-M05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,M05,M,5,two,279,exp,IV-M05,10,25,24,0,0,17-Jan-17,,0.406,NA,3.5
+V,sub,M05,M,5,two,279,exp,V-M05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,M06,M,6,two,276,exp,I-M06,0,0,1,0,0,13-Jun-16,,0.007,NA,1
+II,sub,M06,M,6,two,276,exp,II-M06,0,2,9,0,0,15-Aug-16,,0.076,NA,3
+III,sub,M06,M,6,two,276,exp,III-M06,0,1,11,0,0,21-Oct-16,,0.078,NA,5
+IV,sub,M06,M,6,two,276,exp,IV-M06,10,20,24,0,0,17-Jan-17,,0.421,NA,4.5
+V,sub,M06,M,6,two,276,exp,V-M06,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,0.5
+I,sub,M07,M,7,two,270,exp,I-M07,10,13,10,0,0,13-Jun-16,,0.193,NA,6
+II,sub,M07,M,7,two,270,exp,II-M07,0,3,5,0,0,15-Aug-16,,0.01,NA,0.5
+III,sub,M07,M,7,two,270,exp,III-M07,0,15,8,0,0,21-Oct-16,,0.076,NA,7
+IV,full,M07,M,7,two,270,exp,IV-M07,26,0,27,0,0,17-Jan-17,FD-genIV,0.312,0.088,3
+I,sub,M08,M,8,two,267,exp,I-M08,0,6,7,1,0,13-Jun-16,,0.147,NA,3
+II,sub,M08,M,8,two,267,exp,II-M08,10,31,21,0,0,15-Aug-16,,0.255,NA,4
+III,sub,M08,M,8,two,267,exp,III-M08,0,0,5,0,0,21-Oct-16,,0.021,NA,5
+IV,sub,M08,M,8,two,267,exp,IV-M08,10,25,14,0,0,18-Jan-17,,0.644,NA,5
+V,sub,M08,M,8,two,267,exp,V-M08,7,7,10,0,0,29-Mar-17,,0.09,NA,4
+I,sub,M09,M,9,two,279,exp,I-M09,7,12,19,0,0,13-Jun-16,,0.34,NA,5
+II,sub,M09,M,9,two,279,exp,II-M09,10,26,24,0,0,15-Aug-16,,0.322,NA,3
+III,full,M09,M,9,two,279,exp,III-M09,14,0,16,0,0,21-Oct-16,FD-genIII,0.279,0.099,8
+I,sub,M10,M,10,two,313,exp,I-M10,10,32,29,0,0,13-Jun-16,,0.421,NA,6
+II,sub,M10,M,10,two,313,exp,II-M10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,M10,M,10,two,313,exp,III-M10,0,6,8,0,0,21-Oct-16,,0.055,NA,6
+IV,sub,M10,M,10,two,313,exp,IV-M10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,M10,M,10,two,313,exp,V-M10,6,10,16,0,0,29-Mar-17,,0.151,NA,3
+I,sub,M11,M,11,two,276,exp,I-M11,10,18,14,0,0,13-Jun-16,,0.159,NA,5
+II,sub,M11,M,11,two,276,exp,II-M11,0,2,18,0,0,15-Aug-16,,0.116,NA,2
+III,sub,M11,M,11,two,276,exp,III-M11,0,0,14,0,0,21-Oct-16,,0.073,NA,6
+IV,sub,M11,M,11,two,276,exp,IV-M11,0,5,19,0,0,18-Jan-17,,0.314,NA,2.5
+V,sub,M11,M,11,two,276,exp,V-M11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,M12,M,12,two,270,exp,I-M12,0,2,4,0,0,13-Jun-16,late emerge,0.014,NA,1
+II,sub,M12,M,12,two,270,exp,II-M12,0,1,5,0,0,15-Aug-16,,0.012,NA,0.5
+III,sub,M12,M,12,two,270,exp,III-M12,6,12,20,0,0,21-Oct-16,,0.17,NA,7
+IV,sub,M12,M,12,two,270,exp,IV-M12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,M12,M,12,two,270,exp,V-M12,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+I,sub,N01,N,1,two,270,exp,I-N01,7,10,6,0,0,13-Jun-16,,0.121,NA,4
+II,sub,N01,N,1,two,270,exp,II-N01,7,10,12,0,0,14-Aug-16,bottom root,0.105,NA,2
+III,sub,N01,N,1,two,270,exp,III-N01,0,8,10,0,0,21-Oct-16,,0.082,NA,8
+IV,sub,N01,N,1,two,270,exp,IV-N01,0,15,27,0,0,17-Jan-17,,0.506,NA,6
+V,sub,N01,N,1,two,270,exp,V-N01,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,N02,N,2,two,276,control,I-N02,0,0,2,0,0,13-Jun-16,,0.012,NA,2
+II,sub,N02,N,2,two,276,control,II-N02,0,5,10,0,0,14-Aug-16,,0.071,NA,2
+III,sub,N02,N,2,two,276,control,III-N02,0,7,3,0,0,21-Oct-16,,0.026,NA,5
+IV,sub,N02,N,2,two,276,control,IV-N02,0,10,41,0,0,17-Jan-17,,0.54,NA,3
+V,sub,N02,N,2,two,276,control,V-N02,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,N03,N,3,two,267,exp,I-N03,10,12,23,0,0,13-Jun-16,,0.4,NA,6
+II,sub,N03,N,3,two,267,exp,II-N03,7,10,15,3,2,14-Aug-16,,0.221,NA,3
+III,sub,N03,N,3,two,267,exp,III-N03,0,11,6,0,0,21-Oct-16,,0.059,NA,7
+IV,full,N03,N,3,two,267,exp,IV-N03,48,0,16,0,0,17-Jan-17,FD-genIV,0.185,0.073,5
+I,sub,N04,N,4,two,313,exp,I-N04,10,30,26,0,0,13-Jun-16,,0.354,NA,7
+II,sub,N04,N,4,two,313,exp,II-N04,10,11,10,0,0,15-Aug-16,,0.108,NA,2
+III,sub,N04,N,4,two,313,exp,III-N04,0,0,5,0,0,21-Oct-16,,0.048,NA,6
+IV,sub,N04,N,4,two,313,exp,IV-N04,0,10,38,0,0,17-Jan-17,,0.724,NA,5
+V,sub,N04,N,4,two,313,exp,V-N04,8,10,7,0,0,29-Mar-17,yellow leaves,0.065,NA,3.5
+I,sub,N05,N,5,two,276,exp,I-N05,1,10,5,0,0,13-Jun-16,,0.046,NA,2
+II,sub,N05,N,5,two,276,exp,II-N05,0,13,10,0,0,15-Aug-16,,0.084,NA,2
+III,sub,N05,N,5,two,276,exp,III-N05,0,0,6,0,0,21-Oct-16,,0.028,NA,4
+IV,sub,N05,N,5,two,276,exp,IV-N05,0,12,34,0,0,17-Jan-17,,0.494,NA,5
+V,sub,N05,N,5,two,276,exp,V-N05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,N06,N,6,two,279,exp,I-N06,10,44,25,0,0,13-Jun-16,clusters,0.549,NA,7
+II,sub,N06,N,6,two,279,exp,II-N06,9,19,17,0,0,15-Aug-16,clusters,0.217,NA,3
+III,sub,N06,N,6,two,279,exp,III-N06,0,7,5,0,0,21-Oct-16,,0.047,NA,6
+IV,sub,N06,N,6,two,279,exp,IV-N06,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+V,sub,N06,N,6,two,279,exp,V-N06,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,N07,N,7,two,276,exp,I-N07,0,12,10,0,0,13-Jun-16,,0.142,NA,5
+II,sub,N07,N,7,two,276,exp,II-N07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,N07,N,7,two,276,exp,III-N07,0,0,2,0,0,21-Oct-16,,0.007,NA,1
+IV,sub,N07,N,7,two,276,exp,IV-N07,0,7,17,0,0,17-Jan-17,,0.356,NA,4
+V,sub,N07,N,7,two,276,exp,V-N07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,N08,N,8,two,276,exp,I-N08,0,11,12,0,0,13-Jun-16,,0.153,NA,5
+II,sub,N08,N,8,two,276,exp,II-N08,6,10,12,0,0,15-Aug-16,height not recorded,0.095,NA,NA
+III,sub,N08,N,8,two,276,exp,III-N08,0,0,2,0,0,21-Oct-16,,0.007,NA,1
+IV,sub,N08,N,8,two,276,exp,IV-N08,0,10,37,0,0,17-Jan-17,,0.474,NA,5
+V,sub,N08,N,8,two,276,exp,V-N08,NA,NA,NA,NA,NA,NA,"yellow leaves, died",NA,NA,2.5
+I,sub,N09,N,9,two,267,exp,I-N09,0,12,30,9,0,13-Jun-16,,0.392,NA,7
+II,full,N09,N,9,two,267,exp,II-N09,13,0,21,0,0,15-Aug-16,FD-genII,0.299,0.065,3
+I,sub,N10,N,10,two,270,exp,I-N10,10,14,8,0,0,13-Jun-16,,0.107,NA,4
+II,sub,N10,N,10,two,270,exp,II-N10,0,2,5,0,0,15-Aug-16,,0.006,NA,0.5
+III,sub,N10,N,10,two,270,exp,III-N10,7,11,8,0,0,21-Oct-16,,0.059,NA,5
+IV,sub,N10,N,10,two,270,exp,IV-N10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,N10,N,10,two,270,exp,V-N10,10,12,20,0,0,29-Mar-17,,0.176,NA,3.5
+I,sub,N11,N,11,two,313,exp,I-N11,10,46,30,0,0,13-Jun-16,,0.326,NA,5
+II,sub,N11,N,11,two,313,exp,II-N11,0,9,16,0,0,15-Aug-16,,0.184,NA,2
+III,sub,N11,N,11,two,313,exp,III-N11,0,0,2,0,0,21-Oct-16,,0.028,NA,2
+IV,sub,N11,N,11,two,313,exp,IV-N11,0,3,25,0,0,17-Jan-17,,0.369,NA,4.5
+V,sub,N11,N,11,two,313,exp,V-N11,NA,NA,NA,NA,NA,NA,"yellow leaves, died",NA,NA,1.5
+I,sub,N12,N,12,two,279,exp,I-N12,10,52,22,0,0,13-Jun-16,,0.442,NA,7
+II,sub,N12,N,12,two,279,exp,II-N12,10,13,13,0,0,15-Aug-16,,0.126,NA,2
+III,sub,N12,N,12,two,279,exp,III-N12,6,12,8,0,0,21-Oct-16,,0.068,NA,4
+IV,sub,N12,N,12,two,279,exp,IV-N12,0,8,15,0,0,17-Jan-17,,0.185,NA,2
+V,sub,N12,N,12,two,279,exp,V-N12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,O02,O,2,two,267,exp,I-O02,10,23,22,0,0,13-Jun-16,,0.387,NA,6
+II,sub,O02,O,2,two,267,exp,II-O02,10,56,21,0,0,14-Aug-16,bottom root,0.216,NA,4
+III,sub,O02,O,2,two,267,exp,III-O02,0,4,9,0,0,21-Oct-16,,0.091,NA,8.5
+IV,sub,O02,O,2,two,267,exp,IV-O02,10,32,27,0,0,17-Jan-17,,0.459,NA,5
+V,sub,O02,O,2,two,267,exp,V-O02,10,25,23,0,0,29-Mar-17,,0.323,NA,6
+I,sub,O05,O,5,two,267,exp,I-O05,10,NA,32,0,0,13-Jun-16,nod_rem not recorded,0.787,NA,7
+II,sub,O05,O,5,two,267,exp,II-O05,9,10,9,1,1,14-Aug-16,bottom root,0.091,NA,3
+III,sub,O05,O,5,two,267,exp,III-O05,0,4,9,0,0,21-Oct-16,,0.106,NA,7
+IV,sub,O05,O,5,two,267,exp,IV-O05,10,38,25,0,0,17-Jan-17,,NA,NA,4.5
+V,sub,O05,O,5,two,267,exp,V-O05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,O07,O,7,two,267,exp,I-O07,10,48,27,0,0,13-Jun-16,,0.494,NA,5
+II,sub,O07,O,7,two,267,exp,II-O07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,O07,O,7,two,267,exp,III-O07,0,2,7,0,0,21-Oct-16,,0.075,NA,8
+IV,sub,O07,O,7,two,267,exp,IV-O07,10,50,27,0,0,17-Jan-17,,0.281,NA,6
+V,sub,O07,O,7,two,267,exp,V-O07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,O08,O,8,two,270,exp,I-O08,NA,NA,NA,NA,NA,13-Jun-16,No germination,NA,NA,0
+II,sub,O08,O,8,two,270,exp,II-O08,10,18,8,0,0,14-Aug-16,bottom root,0.047,NA,2
+III,sub,O08,O,8,two,270,exp,III-O08,0,7,13,0,0,21-Oct-16,,0.109,NA,6.5
+IV,sub,O08,O,8,two,270,exp,IV-O08,0,4,17,0,0,17-Jan-17,,0.134,NA,3
+V,sub,O08,O,8,two,270,exp,V-O08,0,4,3,0,0,29-Mar-17,,0.013,NA,0.5
+I,sub,O11,O,11,two,276,exp,I-O11,0,0,2,0,0,13-Jun-16,"Pot fell, yellow leaves",0.005,NA,2
+II,sub,O11,O,11,two,276,exp,II-O11,0,7,8,0,0,14-Aug-16,,0.053,NA,2
+III,sub,O11,O,11,two,276,exp,III-O11,0,0,12,0,0,21-Oct-16,,0.105,NA,6
+IV,sub,O11,O,11,two,276,exp,IV-O11,10,10,23,0,0,17-Jan-17,,0.515,NA,4
+V,sub,O11,O,11,two,276,exp,V-O11,0,10,24,0,0,29-Mar-17,,0.177,NA,3
+I,sub,O12,O,12,two,267,exp,I-O12,10,40,24,2,0,13-Jun-16,,0.461,NA,12
+II,sub,O12,O,12,two,267,exp,II-O12,0,4,16,0,0,14-Aug-16,,0.18,NA,2
+III,sub,O12,O,12,two,267,exp,III-O12,0,13,6,0,0,21-Oct-16,,0.052,NA,5
+IV,sub,O12,O,12,two,267,exp,IV-O12,10,10,16,0,0,17-Jan-17,,0.352,NA,5
+V,sub,O12,O,12,two,267,exp,V-O12,6,6,13,0,0,29-Mar-17,,0.108,NA,5.5
+I,sub,P01,P,1,three,279,exp,I-P01,0,3,21,0,0,14-Jun-16,(can't read),0.371,NA,5
+II,sub,P01,P,1,three,279,exp,II-P01,10,33,29,0,0,14-Aug-16,bottom root,0.39,NA,3
+III,sub,P01,P,1,three,279,exp,III-P01,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+IV,sub,P01,P,1,three,279,exp,IV-P01,10,11,10,0,0,16-Jan-17,,0.132,NA,4
+V,sub,P01,P,1,three,279,exp,V-P01,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,P02,P,2,three,267,exp,I-P02,10,18,25,2,0,14-Jun-16,,0.387,NA,6
+II,sub,P02,P,2,three,267,exp,II-P02,0,8,23,1,0,14-Aug-16,bottom root,0.197,NA,4
+III,sub,P02,P,2,three,267,exp,III-P02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,P02,P,2,three,267,exp,IV-P02,10,24,32,0,0,16-Jan-17,,0.458,NA,6
+V,sub,P02,P,2,three,267,exp,V-P02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,P03,P,3,three,279,exp,I-P03,0,9,29,0,0,14-Jun-16,,0.609,NA,7
+II,sub,P03,P,3,three,279,exp,II-P03,0,3,19,0,0,14-Aug-16,bottom root,0.223,NA,3
+III,full,P03,P,3,three,279,exp,III-P03,16,0,20,0,0,03-Nov-16,FD-genIII,0.266,0.03,5
+I,sub,P04,P,4,three,276,exp,I-P04,10,11,16,0,0,14-Jun-16,,0.208,NA,5
+II,sub,P04,P,4,three,276,exp,II-P04,0,4,12,0,0,14-Aug-16,bottom root,0.083,NA,2
+III,sub,P04,P,4,three,276,exp,III-P04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,P04,P,4,three,276,exp,IV-P04,10,12,12,0,0,16-Jan-17,,0.158,NA,4.5
+V,sub,P04,P,4,three,276,exp,V-P04,7,7,5,0,0,29-Mar-17,,0.218,NA,5.5
+I,sub,P05,P,5,three,276,exp,I-P05,10,14,27,0,0,14-Jun-16,,0.403,NA,5
+II,full,P05,P,5,three,276,exp,II-P05,14,0,14,0,0,14-Aug-16,FD-genII,0.147,0.067,3
+I,sub,P06,P,6,three,267,exp,I-P06,0,3,3,0,0,14-Jun-16,,0.017,NA,1
+II,sub,P06,P,6,three,267,exp,II-P06,10,26,42,2,1,14-Aug-16,,0.572,NA,4
+III,sub,P06,P,6,three,267,exp,III-P06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,P06,P,6,three,267,exp,IV-P06,10,19,18,0,0,16-Jan-17,,0.267,NA,5.5
+V,sub,P06,P,6,three,267,exp,V-P06,7,10,23,0,0,29-Mar-17,,0.393,NA,5
+I,sub,P07,P,7,three,313,exp,I-P07,10,14,37,0,0,14-Jun-16,,0.412,NA,6
+II,sub,P07,P,7,three,313,exp,II-P07,0,7,19,0,0,14-Aug-16,bottom root,0.215,NA,2
+III,sub,P07,P,7,three,313,exp,III-P07,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+IV,sub,P07,P,7,three,313,exp,IV-P07,10,39,40,0,0,17-Jan-17,,0.766,NA,7
+V,sub,P07,P,7,three,313,exp,V-P07,0,5,5,0,0,29-Mar-17,,0.028,NA,1
+I,sub,P08,P,8,three,267,exp,I-P08,0,7,9,0,0,14-Jun-16,,0.107,NA,2
+II,sub,P08,P,8,three,267,exp,II-P08,10,38,31,0,0,14-Aug-16,bottom root,0.452,NA,3
+III,sub,P08,P,8,three,267,exp,III-P08,0,9,6,0,0,03-Nov-16,,0.047,NA,2.5
+IV,sub,P08,P,8,three,267,exp,IV-P08,10,45,22,0,0,17-Jan-17,,0.349,NA,5
+V,sub,P08,P,8,three,267,exp,V-P08,NA,NA,NA,NA,NA,NA,"yellow leaves, died",NA,NA,1.5
+I,sub,P09,P,9,three,279,exp,I-P09,0,0,8,0,0,14-Jun-16,,0.082,NA,3
+II,sub,P09,P,9,three,279,exp,II-P09,6,10,8,0,0,14-Aug-16,,0.088,NA,2.5
+III,sub,P09,P,9,three,279,exp,III-P09,6,10,13,0,0,03-Nov-16,,0.183,NA,6
+IV,sub,P09,P,9,three,279,exp,IV-P09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,P09,P,9,three,279,exp,V-P09,10,14,14,0,0,29-Mar-17,,0.06,NA,5.5
+I,sub,P10,P,10,three,279,exp,I-P10,4,11,29,0,0,14-Jun-16,clusters,0.589,NA,6
+II,sub,P10,P,10,three,279,exp,II-P10,0,10,38,0,0,14-Aug-16,bottom root,0.634,NA,3
+III,sub,P10,P,10,three,279,exp,III-P10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,P10,P,10,three,279,exp,IV-P10,0,5,NA,NA,NA,17-Jan-17,,0.336,NA,5
+V,sub,P10,P,10,three,279,exp,V-P10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,P11,P,11,three,276,exp,I-P11,4,8,34,0,0,14-Jun-16,,0.375,NA,5
+II,sub,P11,P,11,three,276,exp,II-P11,10,22,12,0,0,14-Aug-16,,0.126,NA,2
+III,sub,P11,P,11,three,276,exp,III-P11,0,11,10,0,0,03-Nov-16,,0.066,NA,5
+IV,sub,P11,P,11,three,276,exp,IV-P11,0,12,8,0,0,17-Jan-17,,0.087,NA,3
+V,sub,P11,P,11,three,276,exp,V-P11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,P12,P,12,three,276,exp,I-P12,10,19,21,0,0,14-Jun-16,,0.281,NA,4
+II,sub,P12,P,12,three,276,exp,II-P12,0,4,13,0,0,14-Aug-16,,0.081,NA,2.5
+III,sub,P12,P,12,three,276,exp,III-P12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,P12,P,12,three,276,exp,IV-P12,0,5,11,0,0,17-Jan-17,,0.09,NA,3
+V,sub,P12,P,12,three,276,exp,V-P12,0,7,12,0,0,29-Mar-17,,0.131,NA,3
+I,sub,P13,P,13,three,279,exp,I-P13,0,0,3,0,0,14-Jun-16,yellow leaves,0.011,NA,3
+II,sub,P13,P,13,three,279,exp,II-P13,9,14,27,0,0,14-Aug-16,"nod clust, bottom root",0.353,NA,3
+III,sub,P13,P,13,three,279,exp,III-P13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,P13,P,13,three,279,exp,IV-P13,31,0,18,0,0,17-Jan-17,FD-genIV,0.29,0.093,3
+I,sub,Q01,Q,1,three,276,exp,I-Q01,10,8,12,0,0,14-Jun-16,Wick came out,0.135,NA,4
+II,sub,Q01,Q,1,three,276,exp,II-Q01,0,2,8,0,0,15-Aug-16,,0.06,NA,1.5
+III,sub,Q01,Q,1,three,276,exp,III-Q01,0,11,16,0,0,02-Nov-16,,0.127,NA,2
+IV,sub,Q01,Q,1,three,276,exp,IV-Q01,0,4,4,0,0,16-Jan-17,,0.015,NA,3
+V,sub,Q01,Q,1,three,276,exp,V-Q01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,Q02,Q,2,three,279,exp,I-Q02,0,8,21,0,0,14-Jun-16,,0.435,NA,6
+II,sub,Q02,Q,2,three,279,exp,II-Q02,10,13,10,0,0,15-Aug-16,,0.121,NA,3
+III,sub,Q02,Q,2,three,279,exp,III-Q02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,Q02,Q,2,three,279,exp,IV-Q02,0,13,13,0,0,16-Jan-17,,0.211,NA,4
+V,sub,Q02,Q,2,three,279,exp,V-Q02,0,7,16,0,0,29-Mar-17,,0.22,NA,5.5
+I,sub,Q03,Q,3,three,276,exp,I-Q03,NA,NA,NA,NA,NA,14-Jun-16,No germination,NA,NA,0
+II,sub,Q03,Q,3,three,276,exp,II-Q03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,Q03,Q,3,three,276,exp,III-Q03,27,0,21,0,0,02-Nov-16,FD-genIII,0.278,0.058,5
+I,sub,Q04,Q,4,three,270,exp,I-Q04,0,8,11,0,0,14-Jun-16,,0.139,NA,4
+II,sub,Q04,Q,4,three,270,exp,II-Q04,0,2,3,0,0,14-Aug-16,bottom root,0.012,NA,1
+III,sub,Q04,Q,4,three,270,exp,III-Q04,0,10,22,0,0,02-Nov-16,,0.199,NA,7
+IV,sub,Q04,Q,4,three,270,exp,IV-Q04,0,8,10,0,0,16-Jan-17,,0.072,NA,6
+V,sub,Q04,Q,4,three,270,exp,V-Q04,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,0.5
+I,sub,Q05,Q,5,three,270,exp,I-Q05,0,4,9,0,0,14-Jun-16,,0.087,NA,3
+II,sub,Q05,Q,5,three,270,exp,II-Q05,16,10,5,0,0,14-Aug-16,bottom root,0.039,NA,2.5
+III,sub,Q05,Q,5,three,270,exp,III-Q05,0,13,13,0,0,02-Nov-16,,0.116,NA,6.5
+IV,sub,Q05,Q,5,three,270,exp,IV-Q05,0,13,17,0,0,16-Jan-17,,0.177,NA,5
+V,sub,Q05,Q,5,three,270,exp,V-Q05,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,Q06,Q,6,three,276,control,I-Q06,0,0,3,0,0,14-Jun-16,yellow leaves,0.013,NA,2
+II,sub,Q06,Q,6,three,276,control,II-Q06,0,4,14,0,0,14-Aug-16,bottom root,0.112,NA,3
+III,sub,Q06,Q,6,three,276,control,III-Q06,0,10,16,0,0,02-Nov-16,,0.242,NA,6.5
+IV,sub,Q06,Q,6,three,276,control,IV-Q06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,Q06,Q,6,three,276,control,V-Q06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,Q07,Q,7,three,313,exp,I-Q07,6,10,17,0,0,14-Jun-16,,0.166,NA,4
+II,sub,Q07,Q,7,three,313,exp,II-Q07,0,9,11,0,0,14-Aug-16,bottom root,0.119,NA,2
+III,sub,Q07,Q,7,three,313,exp,III-Q07,0,0,1,0,0,02-Nov-16,,0.011,NA,2
+IV,sub,Q07,Q,7,three,313,exp,IV-Q07,13,20,29,0,0,16-Jan-17,,0.507,NA,6
+V,sub,Q07,Q,7,three,313,exp,V-Q07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,Q08,Q,8,three,313,exp,I-Q08,5,10,32,0,0,14-Jun-16,,0.374,NA,6
+II,sub,Q08,Q,8,three,313,exp,II-Q08,10,20,19,0,0,14-Aug-16,bottom root,0.155,NA,3
+III,sub,Q08,Q,8,three,313,exp,III-Q08,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+IV,sub,Q08,Q,8,three,313,exp,IV-Q08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,Q08,Q,8,three,313,exp,V-Q08,10,38,61,0,0,29-Mar-17,,0.851,NA,5
+I,sub,Q09,Q,9,three,279,exp,I-Q09,10,28,26,0,0,14-Jun-16,,0.621,NA,7
+II,sub,Q09,Q,9,three,279,exp,II-Q09,10,17,8,0,0,14-Aug-16,,0.109,NA,3
+III,sub,Q09,Q,9,three,279,exp,III-Q09,0,9,4,0,0,02-Nov-16,,0.058,NA,3
+IV,sub,Q09,Q,9,three,279,exp,IV-Q09,0,0,4,0,0,16-Jan-17,,0.037,NA,4
+V,sub,Q09,Q,9,three,279,exp,V-Q09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,Q10,Q,10,three,313,exp,I-Q10,0,0,1,0,0,14-Jun-16,,0.01,NA,3
+II,sub,Q10,Q,10,three,313,exp,II-Q10,10,14,15,0,0,14-Aug-16,,0.103,NA,2
+III,sub,Q10,Q,10,three,313,exp,III-Q10,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+IV,sub,Q10,Q,10,three,313,exp,IV-Q10,0,11,6,0,0,16-Jan-17,,0.052,NA,3
+V,sub,Q10,Q,10,three,313,exp,V-Q10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,Q11,Q,11,three,313,exp,I-Q11,10,19,41,0,0,14-Jun-16,,0.703,NA,7
+II,sub,Q11,Q,11,three,313,exp,II-Q11,10,19,20,0,0,14-Aug-16,,0.19,NA,1
+III,sub,Q11,Q,11,three,313,exp,III-Q11,0,10,9,0,0,02-Nov-16,,0.106,NA,4
+IV,sub,Q11,Q,11,three,313,exp,IV-Q11,0,12,6,0,0,16-Jan-17,,0.07,NA,4
+V,sub,Q11,Q,11,three,313,exp,V-Q11,10,57,28,0,0,29-Mar-17,,0.309,NA,4
+I,sub,Q12,Q,12,three,279,exp,I-Q12,10,24,45,0,0,14-Jun-16,,0.902,NA,7
+II,sub,Q12,Q,12,three,279,exp,II-Q12,0,8,13,0,0,14-Aug-16,bottom root,0.149,NA,3
+III,sub,Q12,Q,12,three,279,exp,III-Q12,0,12,15,0,0,02-Nov-16,,0.217,NA,4.5
+IV,sub,Q12,Q,12,three,279,exp,IV-Q12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,Q12,Q,12,three,279,exp,V-Q12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,Q13,Q,13,three,267,exp,I-Q13,0,0,1,0,0,14-Jun-16,yellow leaves,0.009,NA,4
+II,sub,Q13,Q,13,three,267,exp,II-Q13,0,3,8,0,0,14-Aug-16,,0.055,NA,0.5
+III,sub,Q13,Q,13,three,267,exp,III-Q13,9,13,25,0,0,03-Nov-16,,NA,NA,8
+IV,sub,Q13,Q,13,three,267,exp,IV-Q13,10,23,29,0,0,16-Jan-17,,0.387,NA,4
+V,sub,Q13,Q,13,three,267,exp,V-Q13,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,R01,R,1,three,270,exp,I-R01,0,5,5,0,0,14-Jun-16,,0.02,NA,2
+II,sub,R01,R,1,three,270,exp,II-R01,0,7,7,0,0,15-Aug-16,,0.04,NA,2
+III,sub,R01,R,1,three,270,exp,III-R01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,R01,R,1,three,270,exp,IV-R01,8,10,21,0,0,16-Jan-17,,0.203,NA,6
+V,sub,R01,R,1,three,270,exp,V-R01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,R02,R,2,three,279,exp,I-R02,0,8,20,0,0,14-Jun-16,,0.372,NA,6
+II,full,R02,R,2,three,279,exp,II-R02,43,0,11,0,0,14-Aug-16,FD-genII,0.117,0.052,3
+I,sub,R03,R,3,three,276,exp,I-R03,0,7,6,0,0,14-Jun-16,late emerge,0.076,NA,2
+II,sub,R03,R,3,three,276,exp,II-R03,0,10,6,0,0,15-Aug-16,,0.024,NA,2
+III,full,R03,R,3,three,276,exp,III-R03,33,0,24,0,0,02-Nov-16,FD-genIII,0.285,0.091,5
+I,sub,R04,R,4,three,267,exp,I-R04,2,10,14,5,0,14-Jun-16,clusters,0.183,NA,5
+II,sub,R04,R,4,three,267,exp,II-R04,0,12,17,0,0,15-Aug-16,,0.21,NA,3.5
+III,sub,R04,R,4,three,267,exp,III-R04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,R04,R,4,three,267,exp,IV-R04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,R04,R,4,three,267,exp,V-R04,0,0,4,0,0,29-Mar-17,,0.007,NA,2
+I,sub,R05,R,5,three,313,exp,I-R05,10,19,25,0,0,14-Jun-16,,0.311,NA,7
+II,sub,R05,R,5,three,313,exp,II-R05,0,8,9,0,0,15-Aug-16,,0.061,NA,2.5
+III,full,R05,R,5,three,313,exp,III-R05,27,0,23,0,0,02-Nov-16,FD-genIII,0.22,0.046,7
+I,sub,R06,R,6,three,270,control,I-R06,0,0,4,0,0,14-Jun-16,yellow leaves,0.01,NA,3
+II,sub,R06,R,6,three,270,control,II-R06,0,3,5,0,0,15-Aug-16,,0.009,NA,0.5
+III,sub,R06,R,6,three,270,control,III-R06,9,10,17,0,0,02-Nov-16,,0.17,NA,5.5
+IV,full,R06,R,6,three,270,control,IV-R06,28,0,6,0,0,16-Jan-17,FD-genIV,0.2492,0.099,6
+I,sub,R07,R,7,three,313,exp,I-R07,6,11,21,0,0,14-Jun-16,,0.254,NA,6
+II,sub,R07,R,7,three,313,exp,II-R07,0,14,12,0,0,15-Aug-16,,0.098,NA,2
+III,sub,R07,R,7,three,313,exp,III-R07,NA,NA,NA,NA,NA,NA,died,NA,NA,1.5
+IV,sub,R07,R,7,three,313,exp,IV-R07,10,17,17,0,0,16-Jan-17,,0.246,NA,5
+V,sub,R07,R,7,three,313,exp,V-R07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,R08,R,8,three,313,exp,I-R08,6,14,18,0,0,14-Jun-16,,0.257,NA,7
+II,sub,R08,R,8,three,313,exp,II-R08,0,12,14,0,0,15-Aug-16,,0.118,NA,3
+III,sub,R08,R,8,three,313,exp,III-R08,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,sub,R08,R,8,three,313,exp,IV-R08,10,32,42,0,0,16-Jan-17,,0.454,NA,5
+V,sub,R08,R,8,three,313,exp,V-R08,0,5,5,0,0,29-Mar-17,,0.024,NA,2.5
+I,sub,R09,R,9,three,267,control,I-R09,0,0,0,0,0,14-Jun-16,yellow leaves,0.002,NA,2
+II,sub,R09,R,9,three,267,control,II-R09,10,23,19,0,0,15-Aug-16,,0.154,NA,3
+III,sub,R09,R,9,three,267,control,III-R09,7,9,5,0,0,02-Nov-16,,0.075,NA,7
+IV,sub,R09,R,9,three,267,control,IV-R09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,R09,R,9,three,267,control,V-R09,10,18,13,0,0,29-Mar-17,,0.136,NA,3.5
+I,sub,R10,R,10,three,279,exp,I-R10,10,28,31,0,0,14-Jun-16,,0.7,NA,7
+II,sub,R10,R,10,three,279,exp,II-R10,10,24,17,0,0,15-Aug-16,,0.192,NA,3.5
+III,sub,R10,R,10,three,279,exp,III-R10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,R10,R,10,three,279,exp,IV-R10,6,10,32,0,0,16-Jan-17,,0.582,NA,5
+V,sub,R10,R,10,three,279,exp,V-R10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,R11,R,11,three,276,exp,I-R11,5,10,9,0,0,14-Jun-16,,0.098,NA,3
+II,sub,R11,R,11,three,276,exp,II-R11,0,9,7,0,0,15-Aug-16,,0.077,NA,2
+III,sub,R11,R,11,three,276,exp,III-R11,0,6,0,0,0,02-Nov-16,,NA,NA,6
+IV,sub,R11,R,11,three,276,exp,IV-R11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,R11,R,11,three,276,exp,V-R11,10,12,21,0,0,29-Mar-17,,0.163,NA,2.5
+I,sub,R12,R,12,three,270,exp,I-R12,4,10,10,0,0,14-Jun-16,,0.179,NA,6
+II,sub,R12,R,12,three,270,exp,II-R12,0,13,7,0,0,15-Aug-16,,0.057,NA,2
+III,sub,R12,R,12,three,270,exp,III-R12,0,7,13,0,0,02-Nov-16,,0.113,NA,3
+IV,sub,R12,R,12,three,270,exp,IV-R12,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+V,sub,R12,R,12,three,270,exp,V-R12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,R13,R,13,three,270,exp,I-R13,10,28,9,0,0,14-Jun-16,clusters,0.135,NA,4
+II,sub,R13,R,13,three,270,exp,II-R13,0,4,7,0,0,15-Aug-16,,0.016,NA,0.5
+III,sub,R13,R,13,three,270,exp,III-R13,10,17,17,0,0,02-Nov-16,,0.12,NA,6.5
+IV,sub,R13,R,13,three,270,exp,IV-R13,0,11,12,0,0,16-Jan-17,,0.114,NA,4
+V,sub,R13,R,13,three,270,exp,V-R13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,S01,S,1,three,279,exp,I-S01,10,3,23,0,0,14-Jun-16,,0.487,NA,6
+II,sub,S01,S,1,three,279,exp,II-S01,0,7,15,0,0,12-Aug-16,,0.166,NA,3
+III,sub,S01,S,1,three,279,exp,III-S01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,S01,S,1,three,279,exp,IV-S01,10,18,12,0,0,16-Jan-17,,0.235,NA,5
+V,sub,S01,S,1,three,279,exp,V-S01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,S02,S,2,three,270,exp,I-S02,0,2,6,0,0,14-Jun-16,,0.018,NA,1
+II,sub,S02,S,2,three,270,exp,II-S02,7,10,8,0,0,12-Aug-16,,0.054,NA,1
+III,sub,S02,S,2,three,270,exp,III-S02,0,7,15,0,0,02-Nov-16,,0.147,NA,6.5
+IV,sub,S02,S,2,three,270,exp,IV-S02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,S02,S,2,three,270,exp,V-S02,6,7,12,0,0,29-Mar-17,,0.091,NA,4
+I,sub,S03,S,3,three,267,exp,I-S03,10,11,5,0,0,14-Jun-16,,0.117,NA,4
+II,sub,S03,S,3,three,267,exp,II-S03,8,10,12,0,0,12-Aug-16,"root grew into wick, nods included below",0.142,NA,3
+III,sub,S03,S,3,three,267,exp,III-S03,0,6,3,0,0,02-Nov-16,,0.006,NA,0.5
+IV,sub,S03,S,3,three,267,exp,IV-S03,0,8,20,0,0,16-Jan-17,,0.308,NA,5.5
+V,sub,S03,S,3,three,267,exp,V-S03,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,S04,S,4,three,279,control,I-S04,0,0,0,0,0,14-Jun-16,yellow leaves,0.013,NA,3
+II,sub,S04,S,4,three,279,control,II-S04,0,7,6,0,0,12-Aug-16,,0.046,NA,2.5
+III,full,S04,S,4,three,279,control,III-S04,19,0,15,0,0,02-Nov-16,FD-genIII,0.2,0.044,5
+I,sub,S05,S,5,three,313,exp,I-S05,10,5,2,0,0,14-Jun-16,,0.271,NA,6
+II,sub,S05,S,5,three,313,exp,II-S05,5,10,15,0,0,12-Aug-16,,0.105,NA,2
+III,sub,S05,S,5,three,313,exp,III-S05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,S05,S,5,three,313,exp,IV-S05,20,0,52,0,0,16-Jan-17,FD-genIV,0.563,0.084,5
+I,sub,S06,S,6,three,267,exp,I-S06,10,34,10,0,0,14-Jun-16,,0.237,NA,6
+II,sub,S06,S,6,three,267,exp,II-S06,0,1,7,1,1,12-Aug-16,,0.067,NA,3
+III,full,S06,S,6,three,267,exp,III-S06,30,0,10,0,0,02-Nov-16,FD-genIII,0.106,0.048,3.5
+I,sub,S07,S,7,three,276,exp,I-S07,10,20,11,0,0,14-Jun-16,,0.128,NA,4
+II,sub,S07,S,7,three,276,exp,II-S07,0,1,3,0,0,12-Aug-16,,0.014,NA,1
+III,sub,S07,S,7,three,276,exp,III-S07,0,10,10,0,0,02-Nov-16,,0.084,NA,4
+IV,sub,S07,S,7,three,276,exp,IV-S07,10,18,20,0,0,16-Jan-17,,0.266,NA,5
+V,sub,S07,S,7,three,276,exp,V-S07,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,S08,S,8,three,279,exp,I-S08,10,16,24,0,0,14-Jun-16,,0.494,NA,6
+II,sub,S08,S,8,three,279,exp,II-S08,0,4,9,0,0,12-Aug-16,,0.095,NA,3
+III,sub,S08,S,8,three,279,exp,III-S08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,S08,S,8,three,279,exp,IV-S08,13,0,19,0,0,16-Jan-17,FD-genIV,0.323,0.131,4.5
+I,sub,S09,S,9,three,276,exp,I-S09,10,23,12,0,0,14-Jun-16,,0.149,NA,4
+II,sub,S09,S,9,three,276,exp,II-S09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,S09,S,9,three,276,exp,III-S09,0,7,7,0,0,02-Nov-16,,0.107,NA,5
+IV,sub,S09,S,9,three,276,exp,IV-S09,0,4,6,0,0,16-Jan-17,,0.01,NA,4
+V,sub,S09,S,9,three,276,exp,V-S09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,S10,S,10,three,270,exp,I-S10,10,20,7,0,0,14-Jun-16,,0.119,NA,6
+II,sub,S10,S,10,three,270,exp,II-S10,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+III,sub,S10,S,10,three,270,exp,III-S10,0,11,20,0,0,02-Nov-16,,0.181,NA,7.5
+IV,sub,S10,S,10,three,270,exp,IV-S10,NA,NA,NA,NA,NA,NA,died,NA,NA,2
+V,sub,S10,S,10,three,270,exp,V-S10,NA,NA,NA,NA,NA,NA,"brown leaves, larva, died",NA,NA,0.5
+I,sub,S11,S,11,three,267,exp,I-S11,10,44,31,7,0,14-Jun-16,,0.586,NA,6
+II,sub,S11,S,11,three,267,exp,II-S11,NA,NA,10,0,0,15-Aug-16,,0.091,NA,2
+III,sub,S11,S,11,three,267,exp,III-S11,0,3,12,0,0,02-Nov-16,,0.129,NA,7
+IV,sub,S11,S,11,three,267,exp,IV-S11,NA,NA,NA,0,0,16-Jan-17,died,0.049,NA,6
+V,sub,S11,S,11,three,267,exp,V-S11,10,10,7,0,0,29-Mar-17,yellow leaves,0.087,NA,5
+I,sub,S12,S,12,three,276,exp,I-S12,10,28,12,0,0,14-Jun-16,,0.128,NA,5
+II,sub,S12,S,12,three,276,exp,II-S12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,S12,S,12,three,276,exp,III-S12,0,6,9,0,0,02-Nov-16,,0.059,NA,7.5
+IV,sub,S12,S,12,three,276,exp,IV-S12,NA,NA,NA,0,0,16-Jan-17,died,0.15,NA,7
+V,sub,S12,S,12,three,276,exp,V-S12,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,S13,S,13,three,267,control,I-S13,5,21,9,0,0,14-Jun-16,clusters,0.097,NA,3
+II,full,S13,S,13,three,267,control,II-S13,43,0,13,0,0,14-Aug-16,FD-genII,0.122,0.059,2
+I,sub,T01,T,1,three,267,exp,I-T01,10,55,32,0,0,14-Jun-16,,0.569,NA,7
+II,sub,T01,T,1,three,267,exp,II-T01,0,6,21,0,0,12-Aug-16,,0.21,NA,3
+III,sub,T01,T,1,three,267,exp,III-T01,NA,NA,NA,NA,NA,NA,died,NA,NA,4.5
+IV,sub,T01,T,1,three,267,exp,IV-T01,3,10,15,0,0,12-Jan-17,,0.271,NA,6
+V,sub,T01,T,1,three,267,exp,V-T01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,T02,T,2,three,276,exp,I-T02,10,19,10,0,0,14-Jun-16,,0.137,NA,5
+II,sub,T02,T,2,three,276,exp,II-T02,0,3,5,0,0,12-Aug-16,,0.035,NA,1.5
+III,sub,T02,T,2,three,276,exp,III-T02,0,3,8,0,0,01-Nov-16,,0.096,NA,6
+IV,sub,T02,T,2,three,276,exp,IV-T02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,T02,T,2,three,276,exp,V-T02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,T03,T,3,three,313,exp,I-T03,10,14,17,0,0,14-Jun-16,,0.185,NA,4
+II,sub,T03,T,3,three,313,exp,II-T03,5,10,10,0,0,12-Aug-16,clusters,0.088,NA,2
+III,sub,T03,T,3,three,313,exp,III-T03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,T03,T,3,three,313,exp,IV-T03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,T03,T,3,three,313,exp,V-T03,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,T04,T,4,three,279,control,I-T04,10,41,23,0,0,14-Jun-16,,0.472,NA,6
+II,sub,T04,T,4,three,279,control,II-T04,0,10,18,0,0,12-Aug-16,clusters,0.247,NA,3
+III,sub,T04,T,4,three,279,control,III-T04,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,T04,T,4,three,279,control,IV-T04,0,9,7,0,0,12-Jan-17,,0.061,NA,2
+V,sub,T04,T,4,three,279,control,V-T04,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,T05,T,5,three,313,exp,I-T05,5,12,24,0,0,14-Jun-16,,0.296,NA,6
+II,sub,T05,T,5,three,313,exp,II-T05,0,7,14,0,0,12-Aug-16,,0.146,NA,2.5
+III,sub,T05,T,5,three,313,exp,III-T05,0,4,5,0,0,01-Nov-16,,0.007,NA,1
+IV,sub,T05,T,5,three,313,exp,IV-T05,4,10,29,0,0,12-Jan-17,,0.376,NA,6
+V,sub,T05,T,5,three,313,exp,V-T05,NA,NA,NA,NA,NA,NA,"died, larva",NA,NA,0.5
+I,sub,T06,T,6,three,270,exp,I-T06,NA,NA,NA,NA,NA,14-Jun-16,No germination,NA,NA,0
+II,sub,T06,T,6,three,270,exp,II-T06,0,3,4,0,0,12-Aug-16,,0.01,NA,0.5
+III,sub,T06,T,6,three,270,exp,III-T06,0,10,16,0,0,01-Nov-16,,0.205,NA,7
+IV,sub,T06,T,6,three,270,exp,IV-T06,9,10,10,0,0,12-Jan-17,,0.176,NA,3
+V,sub,T06,T,6,three,270,exp,V-T06,6,19,33,0,0,29-Mar-17,,0.363,NA,6
+I,sub,T07,T,7,three,313,exp,I-T07,10,66,24,0,0,14-Jun-16,,0.388,NA,8
+II,sub,T07,T,7,three,313,exp,II-T07,3,10,12,0,0,12-Aug-16,,0.153,NA,2
+III,sub,T07,T,7,three,313,exp,III-T07,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,T07,T,7,three,313,exp,IV-T07,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+V,sub,T07,T,7,three,313,exp,V-T07,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+I,sub,T08,T,8,three,270,exp,I-T08,0,5,41,0,0,14-Jun-16,,0.023,NA,1
+II,sub,T08,T,8,three,270,exp,II-T08,0,4,9,0,0,12-Aug-16,,0.071,NA,2.5
+III,sub,T08,T,8,three,270,exp,III-T08,0,10,13,0,0,01-Nov-16,,0.098,NA,7
+IV,full,T08,T,8,three,270,exp,IV-T08,62,0,27,0,0,12-Jan-17,FD-genIV,0.298,0.076,6
+I,sub,T09,T,9,three,270,exp,I-T09,0,0,2,0,0,14-Jun-16,,0.003,NA,1
+II,sub,T09,T,9,three,270,exp,II-T09,7,10,11,0,0,12-Aug-16,,0.067,NA,1.5
+III,sub,T09,T,9,three,270,exp,III-T09,0,7,5,0,0,01-Nov-16,,0.036,NA,5.5
+IV,sub,T09,T,9,three,270,exp,IV-T09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,T09,T,9,three,270,exp,V-T09,6,6,31,0,0,29-Mar-17,,0.45,NA,6
+I,sub,T10,T,10,three,279,exp,I-T10,10,33,17,0,0,14-Jun-16,,0.434,NA,7
+II,sub,T10,T,10,three,279,exp,II-T10,0,4,5,0,0,12-Aug-16,,0.06,NA,2
+III,sub,T10,T,10,three,279,exp,III-T10,0,2,5,0,0,01-Nov-16,,0.006,NA,1.5
+IV,sub,T10,T,10,three,279,exp,IV-T10,0,6,22,0,0,17-Jan-17,,0.427,NA,3
+V,sub,T10,T,10,three,279,exp,V-T10,10,16,22,0,0,29-Mar-17,,0.327,NA,5.5
+I,sub,T11,T,11,three,276,exp,I-T11,10,25,16,0,0,14-Jun-16,,0.202,NA,5
+II,sub,T11,T,11,three,276,exp,II-T11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,T11,T,11,three,276,exp,III-T11,0,6,18,0,0,01-Nov-16,,0.165,NA,6
+IV,sub,T11,T,11,three,276,exp,IV-T11,10,13,40,0,0,12-Jan-17,,0.524,NA,4.5
+V,sub,T11,T,11,three,276,exp,V-T11,6,7,19,0,0,29-Mar-17,,0.134,NA,4
+I,sub,T12,T,12,three,313,exp,I-T12,10,36,23,0,0,14-Jun-16,,0.363,NA,6
+II,sub,T12,T,12,three,313,exp,II-T12,4,10,21,0,0,12-Aug-16,,0.159,NA,3
+III,sub,T12,T,12,three,313,exp,III-T12,NA,NA,NA,NA,NA,NA,died,NA,NA,0.5
+IV,full,T12,T,12,three,313,exp,IV-T12,40,30,32,0,0,12-Jan-17,"FD-genIV, height not recorded",0.38,0.046,NA
+I,sub,T13,T,13,three,279,exp,I-T13,4,10,6,0,0,14-Jun-16,,0.165,NA,6
+II,sub,T13,T,13,three,279,exp,II-T13,0,5,7,0,0,12-Aug-16,,0.06,NA,2
+III,sub,T13,T,13,three,279,exp,III-T13,0,1,8,0,0,01-Nov-16,,0.074,NA,4
+IV,full,T13,T,13,three,279,exp,IV-T13,40,0,20,0,0,17-Jan-17,FD-genIV,0.243,0.082,5
+I,sub,U01,U,1,three,270,exp,I-U01,0,5,0,0,0,14-Jun-16,,0.021,NA,1
+II,sub,U01,U,1,three,270,exp,II-U01,10,11,33,0,0,12-Aug-16,,0.236,NA,2.5
+III,sub,U01,U,1,three,270,exp,III-U01,0,11,21,0,0,01-Nov-16,,0.119,NA,7
+IV,sub,U01,U,1,three,270,exp,IV-U01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,U01,U,1,three,270,exp,V-U01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,U02,U,2,three,267,exp,I-U02,10,6,5,0,0,14-Jun-16,,0.023,NA,4
+II,full,U02,U,2,three,267,exp,II-U02,32,0,27,2,0,12-Aug-16,FD-genII,0.456,0.056,4
+I,sub,U03,U,3,three,276,exp,I-U03,10,25,18,0,0,14-Jun-16,,0.268,NA,5
+II,sub,U03,U,3,three,276,exp,II-U03,0,5,8,0,0,12-Aug-16,lots of dried leaves,0.085,NA,3
+III,sub,U03,U,3,three,276,exp,III-U03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,U03,U,3,three,276,exp,IV-U03,29,0,40,0,0,12-Jan-17,,0.285,NA,6
+V,sub,U03,U,3,three,276,exp,V-U03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,U04,U,4,three,276,exp,I-U04,10,15,17,0,0,14-Jun-16,,0.189,NA,5
+II,full,U04,U,4,three,276,exp,II-U04,17,0,10,0,0,12-Aug-16,FD-genII,0.064,0.026,2
+I,sub,U05,U,5,three,270,exp,I-U05,0,6,6,0,0,14-Jun-16,,0.02,NA,1
+II,sub,U05,U,5,three,270,exp,II-U05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,U05,U,5,three,270,exp,III-U05,10,13,7,0,0,01-Nov-16,,0.091,NA,5
+IV,sub,U05,U,5,three,270,exp,IV-U05,0,6,4,0,0,12-Jan-17,,0.049,NA,4
+V,sub,U05,U,5,three,270,exp,V-U05,NA,NA,NA,NA,NA,NA,died,NA,NA,1
+I,sub,U06,U,6,three,279,exp,I-U06,5,12,23,0,0,14-Jun-16,,0.52,NA,7
+II,sub,U06,U,6,three,279,exp,II-U06,0,7,8,0,0,12-Aug-16,clusters,0.114,NA,1.5
+III,sub,U06,U,6,three,279,exp,III-U06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,U06,U,6,three,279,exp,IV-U06,10,29,14,0,0,12-Jan-17,,0.2636,NA,5
+V,sub,U06,U,6,three,279,exp,V-U06,0,6,5,0,0,29-Mar-17,,0.041,NA,1.5
+I,sub,U07,U,7,three,270,exp,I-U07,NA,NA,NA,NA,NA,14-Jun-16,No germination,NA,NA,0
+II,sub,U07,U,7,three,270,exp,II-U07,0,2,6,0,0,12-Aug-16,,0.027,NA,1
+III,sub,U07,U,7,three,270,exp,III-U07,0,5,5,0,0,01-Nov-16,,0.03,NA,1
+IV,full,U07,U,7,three,270,exp,IV-U07,17,0,15,0,0,12-Jan-17,FD-genIV,0.251,0.072,5
+I,sub,U08,U,8,three,267,exp,I-U08,10,49,31,7,0,14-Jun-16,,0.601,NA,7
+II,sub,U08,U,8,three,267,exp,II-U08,0,3,15,0,3,12-Aug-16,nods incl below sand,0.241,NA,3.5
+III,sub,U08,U,8,three,267,exp,III-U08,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,U08,U,8,three,267,exp,IV-U08,0,10,6,0,0,12-Jan-17,,0.045,NA,0.5
+V,sub,U08,U,8,three,267,exp,V-U08,NA,NA,NA,NA,NA,NA,"yellow leaves, died",NA,NA,3.5
+I,sub,U09,U,9,three,267,exp,I-U09,10,67,42,9,0,14-Jun-16,,0.922,NA,7
+II,sub,U09,U,9,three,267,exp,II-U09,10,23,21,0,0,12-Aug-16,nods incl below sand,0.32,NA,3
+III,sub,U09,U,9,three,267,exp,III-U09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,full,U09,U,9,three,267,exp,IV-U09,31,0,12,0,0,12-Jan-17,FD-genIV,0.221,0.099,4
+I,sub,U10,U,10,three,313,exp,I-U10,0,7,25,0,0,14-Jun-16,,0.346,NA,7
+II,sub,U10,U,10,three,313,exp,II-U10,0,2,16,0,0,12-Aug-16,nods incl below sand,0.131,NA,2
+III,sub,U10,U,10,three,313,exp,III-U10,7,10,19,0,0,01-Nov-16,,0.24,NA,7
+IV,sub,U10,U,10,three,313,exp,IV-U10,10,13,28,0,0,12-Jan-17,,0.2647,NA,4
+V,sub,U10,U,10,three,313,exp,V-U10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,U11,U,11,three,313,exp,I-U11,6,12,5,0,0,14-Jun-16,,0.028,NA,2
+II,sub,U11,U,11,three,313,exp,II-U11,8,10,7,0,0,12-Aug-16,,0.052,NA,2
+III,sub,U11,U,11,three,313,exp,III-U11,0,11,10,0,0,01-Nov-16,,0.114,NA,6
+IV,sub,U11,U,11,three,313,exp,IV-U11,0,7,4,0,0,12-Jan-17,,0.031,NA,1.5
+V,sub,U11,U,11,three,313,exp,V-U11,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,U12,U,12,three,267,exp,I-U12,0,0,1,0,0,14-Jun-16,,0.008,NA,3
+II,sub,U12,U,12,three,267,exp,II-U12,0,8,19,0,0,12-Aug-16,,0.222,NA,2
+III,full,U12,U,12,three,267,exp,III-U12,30,0,10,0,0,01-Nov-16,FD-genIII,0.158,0.049,8.5
+I,sub,U13,U,13,three,276,exp,I-U13,0,8,4,0,0,14-Jun-16,late emerge,0.022,NA,2
+II,sub,U13,U,13,three,276,exp,II-U13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,sub,U13,U,13,three,276,exp,III-U13,0,4,17,0,0,01-Nov-16,,0.127,NA,7
+IV,sub,U13,U,13,three,276,exp,IV-U13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,U13,U,13,three,276,exp,V-U13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,V01,V,1,three,270,exp,I-V01,NA,NA,NA,NA,NA,14-Jun-16,No germination,NA,NA,0
+II,sub,V01,V,1,three,270,exp,II-V01,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,V01,V,1,three,270,exp,III-V01,27,0,20,0,0,01-Nov-16,FD-genIII,0.237,0.046,7
+I,sub,V02,V,2,three,279,exp,I-V02,10,17,35,0,0,14-Jun-16,,0.72,NA,7
+II,sub,V02,V,2,three,279,exp,II-V02,10,33,19,0,0,12-Aug-16,,0.215,NA,4
+III,sub,V02,V,2,three,279,exp,III-V02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,V02,V,2,three,279,exp,IV-V02,10,32,9,0,0,12-Jan-17,,0.193,NA,4
+V,sub,V02,V,2,three,279,exp,V-V02,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,V03,V,3,three,270,exp,I-V03,3,10,10,0,0,14-Jun-16,,0.096,NA,4
+II,sub,V03,V,3,three,270,exp,II-V03,1,10,15,0,0,12-Aug-16,,0.106,NA,1.5
+III,sub,V03,V,3,three,270,exp,III-V03,6,10,5,0,0,01-Nov-16,,0.082,NA,6
+IV,sub,V03,V,3,three,270,exp,IV-V03,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,V03,V,3,three,270,exp,V-V03,0,0,4,0,0,29-Mar-17,yellow leaves,0.017,NA,3
+I,sub,V04,V,4,three,279,exp,I-V04,7,10,35,0,0,14-Jun-16,,0.716,NA,7
+II,full,V04,V,4,three,279,exp,II-V04,26,0,26,0,0,12-Aug-16,FD-genII,0.378,0.124,4
+I,sub,V05,V,5,three,270,exp,I-V05,NA,NA,NA,NA,NA,14-Jun-16,No germination,NA,NA,0
+II,sub,V05,V,5,three,270,exp,II-V05,10,16,15,0,0,12-Aug-16,,0.116,NA,3
+III,sub,V05,V,5,three,270,exp,III-V05,0,12,10,0,0,01-Nov-16,,0.131,NA,7
+IV,sub,V05,V,5,three,270,exp,IV-V05,0,11,11,0,0,12-Jan-17,,0.085,NA,5
+V,sub,V05,V,5,three,270,exp,V-V05,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,V06,V,6,three,313,exp,I-V06,10,14,36,0,0,14-Jun-16,,0.568,NA,7
+II,sub,V06,V,6,three,313,exp,II-V06,0,6,21,0,0,12-Aug-16,,0.212,NA,2.5
+III,sub,V06,V,6,three,313,exp,III-V06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,V06,V,6,three,313,exp,IV-V06,0,15,45,0,0,12-Jan-17,,0.527,NA,5
+V,sub,V06,V,6,three,313,exp,V-V06,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,V07,V,7,three,267,exp,I-V07,10,19,9,0,0,14-Jun-16,,0.131,NA,4
+II,full,V07,V,7,three,267,exp,II-V07,32,0,22,0,0,12-Aug-16,FD-genII,0.234,0.06,2
+I,sub,V08,V,8,three,313,control,I-V08,10,47,32,0,0,14-Jun-16,,0.411,NA,6
+II,sub,V08,V,8,three,313,control,II-V08,2,10,22,0,0,12-Aug-16,nod incl below sand,0.216,NA,3
+III,sub,V08,V,8,three,313,control,III-V08,0,3,4,0,0,01-Nov-16,,0.01,NA,0.5
+IV,sub,V08,V,8,three,313,control,IV-V08,8,10,11,0,0,12-Jan-17,,0.156,NA,5
+V,sub,V08,V,8,three,313,control,V-V08,0,6,6,0,0,29-Mar-17,,0.056,NA,2.5
+I,sub,V09,V,9,three,276,exp,I-V09,10,23,32,0,0,14-Jun-16,,0.349,NA,4
+II,sub,V09,V,9,three,276,exp,II-V09,4,10,9,0,0,12-Aug-16,,0.085,NA,2.5
+III,sub,V09,V,9,three,276,exp,III-V09,0,2,6,0,0,01-Nov-16,,0.095,NA,4
+IV,sub,V09,V,9,three,276,exp,IV-V09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,V09,V,9,three,276,exp,V-V09,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+I,sub,V10,V,10,three,267,exp,I-V10,10,49,31,0,0,14-Jun-16,,0.565,NA,5
+II,sub,V10,V,10,three,267,exp,II-V10,10,30,25,2,0,12-Aug-16,"nod clust, nod incl below sand",0.307,NA,4
+III,sub,V10,V,10,three,267,exp,III-V10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+IV,sub,V10,V,10,three,267,exp,IV-V10,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+V,sub,V10,V,10,three,267,exp,V-V10,0,9,11,0,0,29-Mar-17,,0.113,NA,3
+I,sub,V11,V,11,three,276,exp,I-V11,10,NA,22,0,0,14-Jun-16,,0.252,NA,4
+II,sub,V11,V,11,three,276,exp,II-V11,0,2,2,0,0,12-Aug-16,,0.002,NA,1.5
+III,sub,V11,V,11,three,276,exp,III-V11,0,7,7,0,0,01-Nov-16,,0.094,NA,6
+IV,sub,V11,V,11,three,276,exp,IV-V11,0,8,17,0,0,12-Jan-17,,0.223,NA,4
+V,sub,V11,V,11,three,276,exp,V-V11,NA,NA,NA,NA,NA,NA,"brown leaves, died",NA,NA,1
+I,sub,V12,V,12,three,267,exp,I-V12,10,40,31,0,0,14-Jun-16,,0.571,NA,6
+II,sub,V12,V,12,three,267,exp,II-V12,10,12,13,0,0,12-Aug-16,,0.129,NA,2
+III,sub,V12,V,12,three,267,exp,III-V12,5,0,3,0,0,01-Nov-16,,0.013,NA,3.5
+IV,full,V12,V,12,three,267,exp,IV-V12,32,0,12,0,0,12-Jan-17,FD-genIV,0.2457,0.056,4.5
+I,sub,V13,V,13,three,313,control,I-V13,NA,NA,NA,NA,NA,14-Jun-16,No germination,NA,NA,0
+II,sub,V13,V,13,three,313,control,II-V13,NA,NA,NA,NA,NA,NA,No germination,NA,NA,0
+III,full,V13,V,13,three,313,control,III-V13,28,0,13,0,0,01-Nov-16,FD-genIII,0.073,0.037,7
