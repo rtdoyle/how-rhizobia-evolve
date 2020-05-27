@@ -33,7 +33,7 @@ This folder contains the raw data from the single-inoculation experiment, the mo
 
 #### Variant discovery
 
-This folder contains ... 
+This folder contains the code and data to call and filter variants in the whole genome sequences of our ancestral and derived _Ensifer meliloti_ strains. It also contains the code that generated supplemental figure S5. 
 
 #### GWAS
 
