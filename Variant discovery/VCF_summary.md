@@ -1531,7 +1531,7 @@ level_key <- c('(0,3]' = 3,  '(3,6]' = 6, '(6,9]' = 9, '(9,12]' = 12,
                '(12,15]' = 15, '(15,18]' = 18, '(18,21]' = 21, '(21,24]' = 24)
 filt1_vars.f_span$mac <- recode_factor(filt1_vars.f_span$AC_bin, !!!level_key)
 
-png(filename="./AFS_allvars.png", units="px", width=797, height=557)
+png(filename="./Data/AFS_allvars.png", units="px", width=797, height=557)
      
 ggplot(filt1_vars.f_span, aes(x = mac, y = prop, fill = Novel)) +
   geom_bar(stat = "identity", position = position_dodge()) +
