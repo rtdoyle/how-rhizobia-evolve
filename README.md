@@ -4,7 +4,7 @@ with the local host genotype”
 Rebecca Batstone
 2020-05-27
 
-This repository archives the analyses for the paper:
+This repository archives the data and analyses for the paper:
 
 Batstone RT, O’Brien AM, Harrison TL, Frederickson ME. Experimental
 evolution makes microbes more cooperative with their local host
@@ -25,3 +25,20 @@ their host. This local adaptation was mostly limited to the symbiosis
 plasmids, with mutations in putative signalling genes. Thus, cooperation
 depends on the match between partner genotypes and increases as bacteria
 adapt to their local host.
+
+### Contents
+
+This repository contains the raw data and analyses for the following
+parts of the study:
+
+#### Evolution experiment
+
+#### Single-inoculation experiment
+
+#### Variant discovery
+
+#### GWAS
+
+#### Permutation test
+
+#### Nucleotide diversity

@@ -1,0 +1,616 @@
+---
+title: "Single-inoculation experiment: analyses of phenotypes"
+author: "Rebecca Batstone"
+date: "`r format(Sys.Date())`"
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Setup
+
+### Global setup, load relevant packages
+
+```{r setup, message=FALSE, warning = FALSE}
+# Global setup
+knitr::opts_chunk$set(echo = TRUE)
+
+# Packages
+library("tidyverse") ## includes ggplot2, dplyr, readr, stringr
+library("car") ## Anova function
+library("lme4") ## mixed effects models
+library("knitr") ## produce the knitted doc
+library("cowplot") ## produce paneled plots
+library("DHARMa") ## residual diagnostics for glmm
+library("RColorBrewer") ## color palettes
+library("wesanderson") ## more color palettes
+library("lmerTest") ## lmerModLmerTest
+library("reshape2") ## dcast function
+library("corrplot") ## to make correlation plots
+library("psych") ## calculate p-vals of correlation matrix
+```
+
+### Load data
+
+First, we need to read in and tidy the data
+
+```{r Load data, warning=FALSE, message=FALSE}
+plants_all <- read_csv("./Data/single_evo_18Jan2018.csv", 
+    col_types = cols(tray = col_character())) ## load data from single inoculation experiment
+
+# make a unique plant ID
+plants_all$plant_ID <- as.factor(do.call(paste, 
+                                         c(plants_all[c("group","tray","plant")], sep = "-"))) 
+
+# exclude controls for downstream analyses
+plants <- droplevels(subset(plants_all, ! tray_type %in% c("control"))) 
+
+# Load isolate data, with the original plant genotype they associated with
+isolate_info <- read_csv("./Data/isolate_info.csv")
+
+# match isolate ID to origin, using isolate_info
+plants$origin <- isolate_info$line_origin[match(plants$isolate, 
+                                               isolate_info$isolate)] 
+
+# make isolate ID a combination of origin and isolate 
+plants$origin_isolate <- as.factor(paste0(plants$origin, "-", 
+                                      plants$isolate))
+
+# Determine whether isolates share an evolutionary history with plant line being assayed
+plants$line_origin <- do.call(paste, c(plants[c("line","origin")], sep = "-")) # create a column combining "line" and "origin"
+plants$history <- ifelse(grepl("anc1021", plants$line_origin, ignore.case = T), "anc1021",
+         ifelse(grepl("anc1022", plants$line_origin, ignore.case = T), "anc1022",              
+         ifelse(grepl("270-270", plants$line_origin, ignore.case = T), "Yes",
+         ifelse(grepl("276-276", plants$line_origin, ignore.case = T), "Yes",
+         ifelse(grepl("279-279", plants$line_origin, ignore.case = T), "Yes", 
+         ifelse(grepl("267-267", plants$line_origin, ignore.case = T), "Yes",
+         ifelse(grepl("313-313", plants$line_origin, ignore.case = T), "Yes",
+                "No")))))))
+
+# Make key variables factors
+plants$history <- factor(plants$history, levels = c("anc1021","anc1022","No","Yes"))
+plants$line <- as.factor(plants$line)
+plants$group <- as.factor(plants$group)
+plants$tray <- as.factor(plants$tray)
+plants$isolate <- as.factor(plants$isolate)
+
+plants_Em1022 <- droplevels(subset(plants, strain == "Em1022")) ## subset to Em1022 only
+
+#str(plants_Em1022) ## 1150 plants
+```
+
+## Models
+
+### How does the quality of rhizobia as symbionts differ between ancestral and derived strains? And does it depend on shared evolutionary history?
+
+```{r Shoot_models, warning=FALSE, message=FALSE, dpi=600}
+data.shoot <- subset(plants_Em1022, !is.na(shoot)) ## remove all trait values that are NAs
+
+# Two models
+# First model asks whether ancestral and derived isolates differ:
+lm1 <- lmer(sqrt(shoot) ~ line + evo_state + (1|isolate) + (1|tray), data.shoot)
+(lmm1_sum <- summary(lm1))
+(ANODEV_shoot_state <- Anova(lm1, type=2)) ## no interaction, use type II SS
+
+# Check model diagnostics
+plot(lm1, resid(., scaled=TRUE) ~ fitted(.), abline = 0)
+hist(residuals(lm1, type = "pearson" ), breaks = 100)
+qqnorm(residuals(lm1))
+ggplot(data.frame(lev=hatvalues(lm1),pearson=residuals(lm1,type="pearson")),
+      aes(x=lev,y=pearson)) +
+    geom_point() +
+    theme_bw()
+## all model diagnostics look ok
+
+# test significance of random terms
+lm1_isolate <- lmer(sqrt(shoot)~ line + evo_state + (1|tray), data.shoot)
+lm1_tray <- lmer(sqrt(shoot)~ line + evo_state + (1|isolate), data.shoot)
+(lm1_isolate_anova <- anova(lm1, lm1_isolate))
+(lm1_tray_anova <- anova(lm1, lm1_tray))
+
+# Subset the data to just the derived isolates
+data.shoot.der = droplevels(subset(data.shoot, history != "anc1022")) 
+
+# Second model: Fit a model with the fixed effect of line and isolate origin (home vs. away), 
+## and isolate and group/tray (blocks in the greenhouse) as random effects
+lm2 <- lmer(sqrt(shoot)~ line + history + (1|isolate) + (1|tray), data.shoot.der) 
+## fit a line*comp interaction too, but it was not significant so it was removed
+
+# Summarize model
+(lmm2_sum <- summary(lm2))
+(ANODEV_shoot_history <- Anova(lm2, type=2)) ## no interaction, use type II SS
+## history significantly increases symbiont quality
+
+# Check model diagnostics
+plot(lm2, resid(., scaled=TRUE) ~ fitted(.), abline = 0)
+hist(residuals(lm2, type = "pearson" ), breaks = 100)
+qqnorm(residuals(lm2))
+ggplot(data.frame(lev=hatvalues(lm2),pearson=residuals(lm2,type="pearson")),
+      aes(x=lev,y=pearson)) +
+    geom_point() +
+    theme_bw()
+## All model diagnostics look ok
+
+# test significance of random terms
+lm2_isolate <- lmer(sqrt(shoot)~ line + history + (1|tray), data.shoot.der)
+lm2_tray <- lmer(sqrt(shoot)~ line + history + (1|isolate), data.shoot.der)
+(lm2_isolate_anova <- anova(lm2, lm2_isolate))
+(lm2_tray_anova <- anova(lm2, lm2_tray))
+```
+
+### How does the fitness of rhizobia differ between ancestral and derived strains? And does it depend on shared evolutionary history?
+
+Next, we'll move to rhizobium fitness, measured by nodule number.
+
+```{r Nod_models, warning=FALSE, message=FALSE, dpi=600}
+data.nod <- subset(plants_Em1022, !is.na(nod) & nod > 0) ## remove all nod values that are NA or zero
+hist(data.nod$nod) ## not normal, trying Poisson error distribution because it is count data
+# Two models
+## First model asks whether ancestral and derived isolates differ
+glm1 <- glmer(nod ~ line + evo_state + (1|isolate) + (1|tray), data.nod, family="poisson",
+              control=glmerControl(optimizer="bobyqa",
+                           optCtrl=list(maxfun=1000000)))
+
+# Model summary
+(glmm1_sum <- summary(glm1))
+(ANODEV_nod_state <- Anova(glm1, type=2)) ## no interaction, use type II SS
+
+# Check residual diagnostics
+simOut <- simulateResiduals(fittedModel = glm1, n = 1000)
+plot(simOut)
+deviance(glm1)/df.residual(glm1) ## close to 1, so good
+testDispersion(simOut)
+
+# test significance of random terms
+glm1_isolate <- glmer(nod ~ line + evo_state + (1|tray), data.nod, family="poisson",
+              control=glmerControl(optimizer="bobyqa",
+                           optCtrl=list(maxfun=1000000)))
+glm1_tray <- glmer(nod ~ line + evo_state + (1|isolate), data.nod, family="poisson",
+              control=glmerControl(optimizer="bobyqa",
+                           optCtrl=list(maxfun=1000000)))
+(glm1_isolate_anova <- anova(glm1, glm1_isolate))
+(glm1_tray_anova <- anova(glm1, glm1_tray))
+
+# Subset the data to just the derived isolates
+data.nod.der = droplevels(subset(data.nod, history != "anc1022"))
+# Model 2: Fit GLMM with Poisson error distribution
+glm2 <- glmer(nod ~ line*history + (1|isolate) + (1|tray), data.nod.der, family="poisson",
+              control=glmerControl(optimizer="bobyqa",
+                                   optCtrl=list(maxfun=1000000)))
+
+# Model summary
+(glmm2_sum <- summary(glm2)) ## there is a significant interaction for line 270 and evolutionary history, 
+## so keeping the line*history interaction
+(ANODEV_nod_history <- Anova(glm2, type=3)) ## interaction, use type III SS
+
+## Check residual diagnostics
+simOut <- simulateResiduals(fittedModel = glm2, n = 1000)
+plot(simOut)
+deviance(glm2)/df.residual(glm2) ## close to 1, so good
+testDispersion(simOut)
+
+# test significance of random terms
+glm2_isolate <- glmer(nod ~ line*history + (1|tray), data.nod.der, family="poisson",
+              control=glmerControl(optimizer="bobyqa",
+                           optCtrl=list(maxfun=1000000)))
+glm2_tray <- glmer(nod ~ line*history + (1|isolate), data.nod.der, family="poisson",
+              control=glmerControl(optimizer="bobyqa",
+                           optCtrl=list(maxfun=1000000)))
+(glm2_isolate_anova <- anova(glm2, glm2_isolate))
+(glm2_tray_anova <- anova(glm2, glm2_tray))
+```
+
+## Figures
+
+### Figure 2 
+
+Visualize how rhizobia quality and fitness depend on the match between rhizobia and host genotypes.
+
+```{r fig2_SI_exp, warnings = FALSE}
+# summarize for isolates
+means_line_history <- plants_Em1022 %>% 
+  group_by(line, history) %>% 
+  summarize(n=n(), mean_shoot = mean(shoot, na.rm=TRUE), 
+            mean_nod = mean(nod, na.rm=TRUE), 
+            sd_shoot = sd(shoot, na.rm=TRUE), 
+            sd_nod = sd(nod, na.rm=TRUE), 
+            se_shoot = sd_shoot/sqrt(n), 
+            se_nod = sd_nod/sqrt(n)) %>%
+  as.data.frame(.)
+
+levels(means_line_history$history) <- c("1022", "No", "Yes")
+means_line_history$line <- factor(means_line_history$line, levels=c("270", "276", "279", "313", "267")) ## order plant lines
+palette <- "Royal1"
+
+#Make figures
+(figa <- ggplot(data=subset(means_line_history, history != "1022"), aes(x=history, y=mean_shoot, color=history))+
+  geom_line(aes(group=line), color="black", linetype="dotted", alpha=0.8)+
+  geom_point(size=2)+
+  geom_errorbar(aes(x=history, ymin=mean_shoot-se_shoot, ymax=mean_shoot+se_shoot), width=0.2, alpha=0.8)+
+  #geom_text(aes(x=history, y=7, label=n))+
+  facet_grid(~line)+
+  xlab("Shared evolutionary history")+
+  ylab("Rhizobium quality (shoot biomass, mg)")+
+  guides(color=FALSE)+
+  scale_color_manual(values=wes_palette(palette))+
+  theme_bw() +  
+  theme(
+    panel.background = element_rect(fill=wes_palette(palette)[[3]]), 
+    strip.background = element_rect(fill=wes_palette(palette)[[4]]), 
+    axis.title = element_text(size=12, face = "bold"),
+    axis.text = element_text(size=10),
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),
+    strip.text =  element_text(face = "bold", size = 12)
+    )
+)
+
+(figb <- ggplot(data=subset(means_line_history, history != "1022"), aes(x=history, y=mean_nod, color=history))+
+  geom_line(aes(group=line), color="black", linetype="dotted", alpha=0.8)+
+  geom_point(size=2)+
+  geom_errorbar(aes(x=history, ymin=mean_nod-se_nod, ymax=mean_nod+se_nod), width=0.2, alpha=0.8)+
+  #geom_text(aes(x=history, y=3, label=n))+
+  facet_grid(~line)+
+  xlab("Shared evolutionary history")+
+  ylab("Rhizobium fitness (nodule number)")+
+  guides(color=FALSE)+
+  scale_color_manual(values=wes_palette(palette))+
+  theme_bw() +    
+  theme(
+    panel.background = element_rect(fill=wes_palette(palette)[[3]]), 
+    strip.background = element_rect(fill=wes_palette(palette)[[4]]), 
+    axis.title = element_text(size=12, face = "bold"),
+    axis.text = element_text(size=10),
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),
+    strip.text =  element_text(face = "bold", size = 12)
+    )
+)
+  
+fig <- plot_grid(figa, figb, ncol=2, labels=c("A", "B")) #Combine figure panels
+save_plot("Figures/Figure2.pdf", fig, dpi = 1000, base_width=7) #Save plot
+```
+
+### Calculate raw and standardized means for GWAS analyses
+
+```{r means}
+# means across all environments
+raw_means_all <- plants_Em1022 %>% 
+  group_by(isolate, origin) %>% 
+  summarize(n=n(), mean_shoot = mean(shoot, na.rm=TRUE), 
+            mean_nod = mean(nod, na.rm=TRUE), 
+            sd_shoot = sd(shoot, na.rm=TRUE), 
+            sd_nod = sd(nod, na.rm=TRUE), 
+            se_shoot = sd_shoot/sqrt(n), 
+            se_nod = sd_nod/sqrt(n)) %>%
+  as.data.frame(.)
+
+raw_means_all$line <- "All"
+
+# get isolate ID, based on shoot rank
+raw_means_all_rank <- raw_means_all %>% 
+  filter(origin != "anc1022") %>%
+  mutate(iso_ID = rank(mean_shoot))
+
+# means within each environment
+raw_means_line <- plants_Em1022 %>% 
+  group_by(line, isolate, origin) %>% 
+  summarize(n=n(), mean_shoot = mean(shoot, na.rm=TRUE), 
+            mean_nod = mean(nod, na.rm=TRUE), 
+            sd_shoot = sd(shoot, na.rm=TRUE), 
+            sd_nod = sd(nod, na.rm=TRUE), 
+            se_shoot = sd_shoot/sqrt(n), 
+            se_nod = sd_nod/sqrt(n)) %>%
+  as.data.frame(.)
+
+# combine both:
+raw_means <- rbind(raw_means_line, raw_means_all)
+
+# add in iso_ID (based on shoot rank)
+raw_means$iso_ID <- raw_means_all_rank$iso_ID[match(raw_means$isolate, 
+                                               raw_means_all_rank$isolate)] 
+# Add in shared evolutionary history
+raw_means$line_origin <- do.call(paste, c(raw_means[c("line","origin")], sep = "-")) # create a column combining "line" and "origin"
+raw_means$history <- ifelse(grepl("anc1021", raw_means$line_origin, ignore.case = T), "anc1021",
+         ifelse(grepl("anc1022", raw_means$line_origin, ignore.case = T), "anc1022",              
+         ifelse(grepl("270-270", raw_means$line_origin, ignore.case = T), "Yes",
+         ifelse(grepl("276-276", raw_means$line_origin, ignore.case = T), "Yes",
+         ifelse(grepl("279-279", raw_means$line_origin, ignore.case = T), "Yes", 
+         ifelse(grepl("267-267", raw_means$line_origin, ignore.case = T), "Yes",
+         ifelse(grepl("313-313", raw_means$line_origin, ignore.case = T), "Yes",
+                "No")))))))
+
+# Make key variables factors
+plants$history <- factor(plants$history, levels = c("anc1021","anc1022","No","Yes"))
+
+# Standardize means
+stand_means <- raw_means %>%
+  group_by(line) %>%
+  mutate(stand_shoot = (mean_shoot - mean(mean_shoot))/sd(mean_shoot),
+         stand_nod = (mean_nod - mean(mean_nod))/sd(mean_nod)) %>%
+  as.data.frame(.)
+
+# check means
+stand_means %>% 
+  group_by(line) %>%
+  summarize(mean_shoot = mean(stand_shoot),
+            sd_shoot = sd(stand_shoot),
+            mean_nod = mean(stand_nod),
+            sd_nod = sd(stand_nod)) ## mean of 0, sd of 1
+
+# format for GEMMA (line as columns)
+stand_means.w_shoot <- dcast(stand_means, isolate ~ line, value.var="stand_shoot")
+colnames(stand_means.w_shoot)[2:7] <- paste("shoot", 
+                                                colnames(stand_means.w_shoot[,c(2:7)]), sep = "_")
+stand_means.w_nod <- dcast(stand_means, isolate ~ line, value.var="stand_nod")
+colnames(stand_means.w_nod) <- paste("nod", colnames(stand_means.w_nod), sep = "_")
+stand_means.w <- cbind(stand_means.w_shoot, stand_means.w_nod[,-1])                           
+save(stand_means.w, file="Output/stand_means_for_GEMMA.Rdata")
+```
+
+### Figures S1 and S2
+
+Heatmaps of isolate effects on each host
+
+```{r FigS1_S2}
+# heatmap variables:
+stand_means$origin_iso <- do.call(paste, c(stand_means[c("origin","iso_ID")], sep = "-"))
+
+# factor specifications
+stand_means$line <- factor(stand_means$line, 
+                                         levels = c("All", "270", "276",
+                                                    "279", "313", "267"))
+stand_means$origin <- factor(stand_means$origin, 
+                                  levels = c("anc1022", "270",
+                                              "276", "279", "313", "267"))
+
+### order for figure
+stand_means$origin_iso <- factor(stand_means$origin_iso,
+                  levels = unique(stand_means$origin_iso[order(stand_means$origin,
+                                                               stand_means$iso_ID)]))
+
+stand_means.d <- filter(stand_means, origin_iso != "anc1022-NA")
+
+### colour x-axis according to line
+line_col <- c("black","#F8766D","#A3A500","#00BF7D","#00B0F6","#E76BF3")
+names(line_col) <- levels(stand_means.d$line)
+
+pdf("Figures/FigureS1.pdf", width = 10, height = 16)
+
+(HM_shoot_IL<- ggplot(stand_means.d,
+               aes(x = line, y = origin_iso, fill = stand_shoot))+
+  geom_tile(color = "black") +
+  xlab("Plant line isolate tested on") + 
+  ylab("Isolate (plant line isolate evolved on-ID)") +
+    
+   scale_fill_gradient2(low = "blue",mid = "white", high = "red",
+                      midpoint = 0,
+                      space = "Lab",
+                      name="Shoot biomass (g)") +
+    
+    # Label All column with isolate IDs (origin, overall rank)
+    geom_text(data=subset(stand_means.d, line == "All"),
+              aes(label = origin_iso), color = "black", size = 6) +
+    theme_bw() +
+    
+    # add boxes around isolates that share an evolutionary history with the plant line being assayed
+    annotate("rect", xmax = 2.5, ymax = 12.5, xmin= 1.5, ymin = 0.5, size = 2, colour="black", fill=NA)  + ## 270
+    annotate("rect", xmax = 3.5, ymax = 15.5, xmin= 2.5, ymin = 12.5, size = 2, colour="black", fill=NA)  + ## 276
+    annotate("rect", xmax = 4.5, ymax = 26.5, xmin= 3.5, ymin = 15.5, size = 2, colour="black", fill=NA)  + ## 279
+    annotate("rect", xmax = 5.5, ymax = 32.5, xmin= 4.5, ymin = 26.5, size = 2, colour="black", fill=NA)  + ## 313
+    annotate("rect", xmax = 6.5, ymax = 40.5, xmin= 5.5, ymin = 32.5, size = 2, colour="black", fill=NA)  + ## 267
+    
+    # Add asterisks to positive isolate effects when isolates share an evolutionary history with the plant line being assayed
+    # geom_text(data=. %>%
+    #           group_by(origin_iso) %>%
+    #           filter(history == "Yes" & stand_shoot > 0),
+    #           label = "*", size = 10, colour = "black", nudge_y = -0.3) +
+ 
+    guides(colour=FALSE) +
+    theme(axis.title.y = element_text(colour = "black", size = 20), 
+        axis.text.y = element_blank(),
+        axis.title.x = element_text(size=20), 
+        axis.text.x = element_text(size=18, colour = line_col),
+        axis.ticks = element_blank(),
+        legend.title = element_blank(),
+        legend.key.height = unit(1.2, "inch"),
+        legend.text = element_text(size=16)))
+
+dev.off()
+
+HM_shoot_IL
+
+pdf("Figures/FigureS2.pdf", width = 10, height = 16)
+
+(HM_nod_IL<- ggplot(stand_means.d,
+               aes(x = line, y = origin_iso, fill = stand_nod))+
+  geom_tile(color = "black") +
+  xlab("Plant line isolate tested on") + 
+  ylab("Isolate (plant line isolate evolved on-ID)") +
+  scale_fill_gradient2(low = "blue",mid = "white", high = "red",
+                      midpoint = 0,
+                      space = "Lab",
+                      name="Nodules (no.)") +
+    theme_bw() +
+ 
+    # Label All column with isolate IDs (origin, overall rank)
+    geom_text(data=subset(stand_means.d, line == "All"),
+              aes(label = origin_iso), color = "black", size = 6) +
+    
+    # add boxes around isolates that share an evolutionary history with the plant line being assayed
+    annotate("rect", xmax = 2.5, ymax = 12.5, xmin= 1.5, ymin = 0.5, size = 2, colour="black", fill=NA)  + ## 270
+    annotate("rect", xmax = 3.5, ymax = 15.5, xmin= 2.5, ymin = 12.5, size = 2, colour="black", fill=NA)  + ## 276
+    annotate("rect", xmax = 4.5, ymax = 26.5, xmin= 3.5, ymin = 15.5, size = 2, colour="black", fill=NA)  + ## 279
+    annotate("rect", xmax = 5.5, ymax = 32.5, xmin= 4.5, ymin = 26.5, size = 2, colour="black", fill=NA)  + ## 313
+    annotate("rect", xmax = 6.5, ymax = 40.5, xmin= 5.5, ymin = 32.5, size = 2, colour="black", fill=NA)  + ## 267
+    
+    # Add asterisks to positive isolate effects when isolates share an evolutionary history with the plant line being assayed
+    # geom_text(data=. %>%
+    #           group_by(origin_iso) %>%
+    #           filter(history == "Yes" & stand_nod > 0),
+    #           label = "*", size = 10, colour = "black", nudge_y = -0.3) +
+ 
+    guides(colour=FALSE) +
+    theme(axis.title.y = element_text(colour = "black", size = 20), 
+        axis.text.y = element_blank(),
+        axis.title.x = element_text(size=20), 
+        axis.text.x = element_text(size=18, colour = line_col),
+        axis.ticks = element_blank(),
+        legend.title = element_blank(),
+        legend.key.height = unit(1.2, "inch"),
+        legend.text = element_text(size=16)))
+
+dev.off()
+
+HM_nod_IL
+```
+
+### Figure S3 
+
+Correlation between rhizobia quality and fitness (across hosts)
+
+```{r FigS3}
+# Model for overall correlation:
+# lm1
+lm1 <- lm(mean_shoot ~ mean_nod, data=raw_means_all_rank)
+summary(lm1)
+Anova(lm1, type=2) # Significant positive correlation
+
+# order factor levels
+raw_means_all_rank$origin <- factor(raw_means_all_rank$origin, 
+                                         levels = c("270", "276", "279", "313", "267"))
+
+(plot_corr <- ggplot(raw_means_all_rank, aes(x=mean_nod, y=mean_shoot)) +
+  geom_smooth(method=lm, se=TRUE, colour="black") +
+  geom_errorbar(aes(ymin=mean_shoot-se_shoot, ymax=mean_shoot+se_shoot), colour="black") +
+  geom_errorbarh(aes(xmin=mean_nod-se_nod, xmax=mean_nod+se_nod), colour="black") +
+ 
+  # population aves
+  geom_hline(data=raw_means_all %>%
+               filter(origin == "anc1022"),
+             aes(yintercept=mean(mean_shoot)), colour="black", linetype=2, size = 1) +
+  geom_vline(data=raw_means_all %>%
+               filter(origin == "anc1022"),
+             aes(xintercept=mean(mean_nod)), colour="black", linetype=2, size = 1) +
+  geom_hline(data=raw_means_all %>%
+               filter(origin != "anc1022"),
+             aes(yintercept=mean(mean_shoot)), colour="black", linetype=1, size = 1) +
+  geom_vline(data=raw_means_all %>%
+               filter(origin != "anc1022"),
+             aes(xintercept=mean(mean_nod)), colour="black", linetype=1, size = 1) +
+  
+  geom_point(aes(colour=origin), size=4) +  
+  annotate("text", x = 3, y = 16, label="italic(R) ^ 2 == 0.750", parse = TRUE, size=5) +  
+  annotate("text", x = 3, y = 15.4, label='p < 0.001', size=5) +    
+  theme_bw() + 
+  xlab("Nodules (no.)") + 
+  ylab("Shoot biomass (mg)") +
+  geom_text(aes(label=iso_ID), size = 2) +  
+
+  theme(axis.title.y = element_text(colour = "black", size = 20), 
+        axis.text.y = element_text(size=18), 
+        axis.title.x = element_text(colour = "black", size = 20), 
+        axis.text.x = element_text(size=18), 
+        legend.title = element_blank(),
+        legend.text = element_text(colour="black", size=12, face="bold"),
+        legend.box.background = element_blank(),
+        legend.background = element_blank(),
+        legend.position=c(0.9,0.22),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()))
+
+save_plot("Figures/FigureS3.pdf", plot_corr, dpi = 1000,
+          base_aspect_ratio = 1.3)
+```
+
+### Figure S4
+
+Correlations across host environments. First, need to make wide format spreadsheets for each trait. Then, run corrplot on each.
+
+```{r Figure S4}
+# shoot biomass
+
+stand_means.dw_shoot <- dcast(stand_means.d, iso_ID ~ line, value.var="stand_shoot")
+
+# set line as row-names
+stand_means.dw_shoot.m <- stand_means.dw_shoot[,-c(1:2)]
+rownames(stand_means.dw_shoot.m) <- stand_means.dw_shoot[,1]
+
+# set label colours
+traitcolors1 <- c("#F8766D","#A3A500","#00BF7D","#00B0F6","#E76BF3")
+names(traitcolors1) <- names(stand_means.dw_shoot.m)
+
+# compute correlation matrix
+stand_means.dw_shoot.mat <- cor(stand_means.dw_shoot.m, use="pairwise.complete.obs")
+
+# compute the matrix of the p-value
+source('./Source code/corr_test.R')
+
+p.mat_shoot <- cor.mtest(stand_means.dw_shoot.m) ## uncorrected
+p.mat_shoot.c <- psych::corr.test(stand_means.dw_shoot.m, adjust="bonferroni")$p ## corrected
+
+# Nodules
+
+stand_means.dw_nod <- dcast(stand_means.d, iso_ID ~ line, value.var="stand_nod")
+
+# set line as row-names
+stand_means.dw_nod.m <- stand_means.dw_nod[,-c(1:2)]
+rownames(stand_means.dw_nod.m) <- stand_means.dw_nod[,1]
+
+# compute correlation matrix
+stand_means.dw_nod.mat <- cor(stand_means.dw_nod.m, use="pairwise.complete.obs")
+
+p.mat_nod <- cor.mtest(stand_means.dw_nod.m) ## uncorrected
+p.mat_nod.c <- psych::corr.test(stand_means.dw_nod.m, adjust="bonferroni")$p ## corrected
+
+## corrplot figure
+
+# upper
+bg_colors_upper1 <- p.mat_shoot < 0.05
+bg_colors_upper1[bg_colors_upper1 == T] <- "grey"
+bg_colors_upper1[bg_colors_upper1 == F] <- "white"
+diag(bg_colors_upper1) <- "white" # if the diagonal values shall be white
+# select colors from lower/upper1 part of matrix:
+bg_colors_upper1 <- bg_colors_upper1[upper.tri(bg_colors_upper1, diag=T)]
+
+# lower
+bg_colors_lower1 <- p.mat_nod < 0.05
+bg_colors_lower1[bg_colors_lower1 == T] <- "grey"
+bg_colors_lower1[bg_colors_lower1 == F] <- "white"
+diag(bg_colors_lower1) <- "white" # if the diagonal values shall be white
+# select colors from lower/lower1 part of matrix:
+bg_colors_lower1 <- bg_colors_lower1[lower.tri(bg_colors_lower1, diag=T)]
+
+### and the plot
+pdf("Figures/FigureS4.pdf", width = 10, height = 10, pointsize = 14)
+
+par(xpd = TRUE)
+
+corrplot(stand_means.dw_shoot.mat, method = "ellipse", type="upper",
+         #order="hclust", 
+         addCoef.col = "black",
+         tl.pos = "tl",
+         tl.col = traitcolors1,
+         tl.srt=70,
+         col = rev(brewer.pal(n = 8, name = "RdYlBu")),
+         cl.lim=c(0,1),
+         # p.mat = p.mat1.o, sig.level = 0.1, insig = "p-value",
+         number.digits = 3,
+         bg = bg_colors_upper1,
+         diag = TRUE,
+         mar=c(0,0,2,3))
+         
+corrplot(stand_means.dw_nod.mat, method = "ellipse", type="lower",
+         #order="hclust", 
+         addCoef.col = "black",
+         col = rev(brewer.pal(n = 8, name = "RdYlBu")),
+         add=T, 
+         tl.pos="n", 
+         cl.pos="n",
+         # p.mat = p.mat1.o, sig.level = 0.1, insig = "p-value",
+         number.digits = 3,
+         bg = bg_colors_lower1,
+         diag = TRUE)
+
+dev.off()
+```

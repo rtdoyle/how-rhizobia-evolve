@@ -11,10 +11,28 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This repository archives the analyses for the paper:
+This repository archives the data and analyses for the paper:
 
 Batstone RT, O'Brien AM, Harrison TL, Frederickson ME. Experimental evolution makes microbes more cooperative with their local host genotype.
 
 ### Abstract
 
 Advances in microbiome science require a better understanding of how beneficial microbes adapt to hosts. We tested if hosts select for more cooperative microbial strains with a year-long evolution experiment and a cross-inoculation experiment designed to explore how nitrogen-fixing bacteria (rhizobia) adapt to legumes. We paired _Ensifer meliloti_ with one of five _Medicago truncatula_ genotypes that vary in how strongly they ‘choose’ bacterial symbionts. Independent of host choice, _Ensifer meliloti_ rapidly adapted to its local host genotype and derived microbes were more beneficial when they shared evolutionary history with their host. This local adaptation was mostly limited to the symbiosis plasmids, with mutations in putative signalling genes. Thus, cooperation depends on the match between partner genotypes and increases as bacteria adapt to their local host.
+
+### Contents
+
+This repository contains the raw data and analyses for the following parts of the study:
+
+#### Evolution experiment
+
+#### Single-inoculation experiment
+
+This folder contains the raw data from the single-inoculation experiment, the model results presented in Tables S1 and S2, and the code that generated Figure 2 in the main text, as well as supplemental figures Fi
+
+#### Variant discovery
+
+#### GWAS
+
+#### Permutation test
+
+#### Nucleotide diversity
