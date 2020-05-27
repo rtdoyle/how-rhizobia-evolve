@@ -29,7 +29,7 @@ extract_fun <- function(files){
 ##########
 
 #get filenames of permutations
-files <- list.files(path ="./Run_GEMMA_files/Perm_runs/", pattern="perm_comb", full.names = T)
+files <- list.files(path ="~/batstone permutations/perms/", pattern="perm_comb", full.names = T)
 
 # ## measuring the false positives in the permutations is a function
 # fprates <- function(filename,ncols=2:1001) { #, prblim = c(0.00007,0.99993)){
@@ -49,38 +49,19 @@ files <- list.files(path ="./Run_GEMMA_files/Perm_runs/", pattern="perm_comb", f
 
 library(lawstat)
 
-load("./Data/allfprates1-3.Rdata") # because of file naming, this corresponds to traits 1, 10, 11
-load("./Data/allfprates4-6.Rdata")# because of file naming, this corresponds to traits 12, 2, 3
-load("./Data/allfprates7-9.Rdata")# because of file naming, this corresponds to traits 4-6
-load("./Data/allfprates10-12.Rdata")# because of file naming, this corresponds to traits 7-9
+load("~/batstone permutations/allfprates1-3.Rdata") # because of file naming, this corresponds to traits 1, 10, 11
+load("~/batstone permutations/allfprates4-6.Rdata")# because of file naming, this corresponds to traits 12, 2, 3
+load("~/batstone permutations/allfprates7-9.Rdata")# because of file naming, this corresponds to traits 4-6
+load("~/batstone permutations/allfprates10-12.Rdata")# because of file naming, this corresponds to traits 7-9
 allfprates <- c(allfprates1.3,allfprates4.6,allfprates7.9,allfprates10.12)[c(1,5:12,2:4)] 
 traitnames <- c("beta.shoot267", "beta.shoot270", "beta.shoot276", "beta.shoot279", "beta.shoot313",
                     "beta.shootall", "beta.nod267", "beta.nod270", "beta.nod276", "beta.nod279", "beta.nod313",
                     "beta.nodall") # traits here correspond, in order, to traits 1-12, so are resorted
-
-files <- list.files(path ="./Run_GEMMA_files/Perm_runs/", pattern="perm_comb", full.names = T)[c(1,5:12,2:4)] #these are left in the same order for now
-files
-outside <- function(x, numbers) { (x > max(numbers, na.rm=T)) | (x < min(numbers, na.rm=T))}
-
-
-#####
-#what is the actually number of "false positives" that we observe given this cutoff -- e.g. how many SNPs might we be taggin as 
-#####
-
-#distribution of false positives per trait
-pdf("./Run_GEMMA_files/Perm_runs/sigsnpsFP1000pertrait1percent.pdf",width=8,height=4)
-par(mfrow=c(2,6))
-par(oma = c(3,1,0,0))
-sapply(1:12, function(x) 
-	hist(sapply(1:1000, function(z) 
-		100*sum(allfprates[[x]][,z]>0.995 | allfprates[[x]][,z]<0.005) /363 ),
-	ylab=ifelse(x == 1 | x==7,"# permutations",""),xlab="%FP",main=traitnames[x],ylim=c(0,400))
-	) 
-mtext("at 99.5-0.5% cutoff",side=1, adj = 4,line=6)
-dev.off()
-
 files <- list.files(path ="~/batstone permutations/perms/", pattern="perm_comb", full.names = T) [c(1,5:12,2:4)] #these are put in the same order
 files #check arranged as expected
+
+
+
 
 ##########
 #what is the actually number of "false positives" that we observe given this cutoff, using rates of signficant association in each permutation
@@ -96,12 +77,8 @@ snpsoutbyint <- lapply(1:length(prbs), function(y)  sapply(1:12, function(x)
 snpsoutbyquant <- lapply(1:length(prbs), function(y)  sapply(1:12, function(x)
 		 mean(sapply(1:1000, function(z) sum(allfprates[[x]][,z]>prbs[[y]][1]  | allfprates[[x]][,z]<prbs[[y]][2]) )
 		 ) ) )
-
-pdf("./Run_GEMMA_files/Perm_runs/sigsnpsFPs1000perm_1-5.pdf",h=3,w=3)
-
 #verify that observed false positive rates in permuted data only match those expected based on the interval used
 pdf("~/batstone permutations/sigsnpsFPs1000perm_1-5.pdf",h=3,w=3) 
-
 par(mfrow=c(1,1))
 par(mar=c(4,4,1,1))
 plot(c(0.01,0.02,0.03,0.04,0.05)~intout,pch=NA,ylim=c(0,0.06),xlim=c(0,0.06),ylab="avg proportion false positive snps",xlab="expected proportion false positive")
@@ -110,9 +87,6 @@ for(i in 1:(length(intout))){
 }
 abline(a=0, b=1)
 dev.off()
-
-
-pdf("./Run_GEMMA_files/Perm_runs/sigsnpsFP1000pertrait5percent.pdf",width=8,height=4)
 
 ###Here we examine variation among permuted datasets. Using the hold-one-out method for a permuted dataset, there is therefore a distribution of false positive rates -- 1 per permuted dataset
 ###E.g. if the FP rate is 5%, what range of actual FP percents are observed for an individually sampled random dataset? 
@@ -129,7 +103,6 @@ sapply(1:12, function(x)
 mtext("at 99.5-0.5% cutoff",side=1, adj = 4,line=6)
 dev.off()
 pdf("~/batstone permutations/sigsnpsFP1000pertrait5percent.pdf",width=8,height=4)
-
 par(mfrow=c(2,6))
 par(oma = c(3,1,0,0))
 sapply(1:12, function(x) 
@@ -139,8 +112,7 @@ sapply(1:12, function(x)
 	) 
 mtext("at 97.5-2.5% cutoff",side=1, adj = 4,line=6)
 dev.off()
-
-pdf("./Run_GEMMA_files/Perm_runs/sigsnpsFP1000pertrait4percent.pdf",width=8,height=4)
+pdf("~/batstone permutations/sigsnpsFP1000pertrait4percent.pdf",width=8,height=4)
 par(mfrow=c(2,6))
 par(oma = c(3,1,0,0))
 sapply(1:12, function(x) 
@@ -150,8 +122,7 @@ sapply(1:12, function(x)
 	) 
 mtext("at 98.0-2.0% cutoff",side=1, adj = 4,line=6)
 dev.off()
-
-pdf("./Run_GEMMA_files/Perm_runs/sigsnpsFP1000pertrait3percent.pdf",width=8,height=4)
+pdf("~/batstone permutations/sigsnpsFP1000pertrait3percent.pdf",width=8,height=4)
 par(mfrow=c(2,6))
 par(oma = c(3,1,0,0))
 sapply(1:12, function(x) 
@@ -161,8 +132,7 @@ sapply(1:12, function(x)
 	) 
 mtext("at 98.5-1.5% cutoff",side=1, adj = 4,line=6)
 dev.off()
-
-pdf("./Run_GEMMA_files/Perm_runs/sigsnpsFP1000pertrait2percent.pdf",width=8,height=4)
+pdf("~/batstone permutations/sigsnpsFP1000pertrait2percent.pdf",width=8,height=4)
 par(mfrow=c(2,6))
 par(oma = c(3,1,0,0))
 sapply(1:12, function(x) 
@@ -221,7 +191,6 @@ tagged <- matrix(NA,nrow=nrow(f1),ncol=12)
 for(i in 1:12){
 tagged[,i] <- sapply(1:363, function(z) sum((allfprates[[i]][z,] > 0.995 | allfprates[[i]][z,] < 0.005)))
 }
-
 #FP2%
 tagged2 <- matrix(NA,nrow=nrow(f1),ncol=12)
 for(i in 1:12){
@@ -232,26 +201,12 @@ tagged5 <- matrix(NA,nrow=nrow(f1),ncol=12)
 for(i in 1:12){
 tagged5[,i] <- sapply(1:363, function(z) sum((allfprates[[i]][z,] > 0.975 | allfprates[[i]][z,] < 0.025)))
 }
-
-
-#####
-#is there beta bias. this is permuted snps only.
-#####
-pdf("./Run_GEMMA_files/Perm_runs/positivebetas1000perm.pdf",height=8,width=8)
-par(mfrow=c(3,4))
-for(i in 1:12){
-	permut <- read.table(files[i],header=T,sep="\t") #read in the file
-	hist(rowMeans(permut[,2:1001]),breaks=14, main = traitnames[[i]] ,xlab="snp avg betascores" ) #
-	abline(v=0,col="green")
-}
-
 # for how many traits*permutations does a SNP exceed the threshold?
 pdf("~/batstone permutations/persnpbias1000.pdf")
 plot(rowSums(tagged)~f1$ps,ylab="Times FP",xlab="genomic position",ylim=c(min(rowSums(tagged)),1000*0.01*12*1.05)) 
 abline(h=1000*0.01*12)# based on max false positive rate, expected is here
 abline(h=9*12,lty=2) # based on ~mean observed FP rate 
 ##(see above, was about 9 times in 1000 permutations, or 9*12 across 1000 permutations in 12 traits)
-
 dev.off()
 #a few SNPs do seem to be tagged because of data structure, but generally do not exceed our expected FP rate
 #Again at FP 2%, and then 5%
@@ -271,23 +226,12 @@ dev.off()
 ##Basic comparisons to real data -- calling significant SNPS, checking rates, distribution of betas
 ##########
 
-
-files <- list.files(path ="./Run_GEMMA_files/Perm_runs", pattern="perm_comb", full.names = T)[c(1,5:12,2:4)] # files are not in order of plant lines and need to be rearranged
-files #files defined a second time (the same way), just for code chunk clarity.
-
-extract_fun <- function(files){
-  traits <- read.table(files,header=T,sep="\t") # read in the file
-    return(traits)
-}  
-files2 <- list.files(path ="./Run_GEMMA_files/Real_runs/", pattern=".assoc", full.names = T)[c(1,5:12,2:4)] 
-
 files <- list.files(path ="~/batstone permutations/perms", pattern="perm_comb", full.names = T)[c(1,5:12,2:4)]
  # files are not in order of plant lines and need to be rearranged
 files #files defined a second time (the same way), repeated for code chunk clarity.
 
 #real files now
 files2 <- list.files(path ="~/batstone permutations/Real_runs/", pattern=".assoc", full.names = T)[c(1,5:12,2:4)] 
-
 files2
 traits <- lapply(files2, extract_fun) #extract_fun is defined at the beginning of this script, it is a read.csv() call
 realres.ps <- cbind(traits[[1]][,c("ps","beta")], traits[[2]][,c("beta")], traits[[3]][,c("beta")], 
@@ -296,30 +240,9 @@ realres.ps <- cbind(traits[[1]][,c("ps","beta")], traits[[2]][,c("beta")], trait
                 traits[[12]][,c("beta")])  # extract SNP position column from one, beta columns from each
  names(realres.ps) <- c("ps","beta.shoot267", "beta.shoot270", "beta.shoot276", "beta.shoot279", "beta.shoot313",
                     "beta.shootall", "beta.nod267", "beta.nod270", "beta.nod276", "beta.nod279", "beta.nod313",
-
-                    "beta.nodall")
-#in contrast with the gwas_res file later, Real_runs/*.assoc files are indeed sorted the same as permuted output.                     
-f1$ps==realres.ps$ps #demonstration of identical sorting
-
-
-pdf("./Run_GEMMA_files/Perm_runs/persnpbias1000.pdf")
-plot(rowSums(tagged)~realres.ps$ps,ylab="Times FP",xlab="genomic position",ylim=c(min(rowSums(tagged)),1000*0.01*12*1.05)) # for how many traits*permutations does a SNP exceed the threshold? expected is 120
-abline(h=1000*0.01*12)
-abline(h=9*12,lty=2)
-dev.off()
-#a few SNPs do seem to be tagged because of data structure.
-pdf("./Run_GEMMA_files/Perm_runs/persnpbias1000_2percent.pdf")
-plot(rowSums(tagged2)~realres.ps$ps,ylab="Times FP",xlab="genomic position",ylim=c(min(rowSums(tagged2)),1000*0.02*12*1.05)) # for how many traits*permutations does a SNP exceed the threshold? expected is 120
-abline(h=1000*0.02*12)
-dev.off()
-pdf("./Run_GEMMA_files/Perm_runs/persnpbias1000_5percent.pdf")
-plot(rowSums(tagged5)~realres.ps$ps,ylab="Times FP",xlab="genomic position",ylim=c(min(rowSums(tagged5)),1000*0.05*12*1.05)) # for how many traits*permutations does a SNP exceed the threshold? expected is 120
-abline(h=1000*0.05*12)
-dev.off()
-
+                    "beta.nodall") 
 #in contrast with the gwas_res file later, Real_runs/*.assoc positions are indeed sorted the same as permuted output.                     
 sum(f1$ps==realres.ps$ps)/length(realres.ps$ps) #check of identical sorting.
-
 
 betacols.realres <- c( 2:13 ) #first shoot columns then nod columns
 colnames(realres.ps[betacols.realres])#double check this
@@ -345,24 +268,12 @@ data.frame(trait =colnames(realres.ps[betacols.realres]) , snps = colSums(realin
 data.frame(trait =colnames(realres.ps[betacols.realres]) , snps = colSums(realintFull > 0.99 | realintFull < 0.01))
 data.frame(trait =colnames(realres.ps[betacols.realres]) , snps = colSums(realintFull > 0.975 | realintFull < 0.025))
 
-
-dfFIsig <- data.frame(realsigFull)
-colnames(dfFIsig) <- paste(colnames(realres.ps[betacols.realres]),".FIsig",sep="")
-annaFIsig <- cbind(realres.ps,dfFIsig)
-write.csv(annaFIsig,"./Run_GEMMA_files/Perm_runs/annasversionsigsnps_findInterval.csv")
-# write.csv(realsigFull,"~/batstone permutations/annasversionsigsnps_findInterval.csv")
-# write.csv(realsigFullq,"~/batstone permutations/annasversionsigsnps_quantile.csv")
-# write.csv(cbind(realres.ps,realsig, "~/batstone permutations/annasversion_sortedgwasresult.csv" )
-
-pdf("./Run_GEMMA_files/Perm_runs/positivebetas1000real.pdf",height=8,width=8)
-
 dfFIsig <- data.frame(realsigFull) #format as dataframe object for export
 colnames(dfFIsig) <- paste(colnames(realres.ps[betacols.realres]),".FIsig",sep="") # add column names
 FIsig <- cbind(realres.ps,dfFIsig)  # add SNP positions
 write.csv(FIsig,"~/batstone permutations/sigsnps_findInterval.csv") #write file; previously known as annasversionsigsnps_findInterval.csv, and may be labeled as such in gitrepo
 
 pdf("~/batstone permutations/positivebetas1000real.pdf",height=8,width=8) #inspect distribution of beta scores in real snps
-
 par(mfrow=c(3,4))
 for(i in 1:12){
 	hist(realsnpsBETAS[,i],breaks=14, main = traitnames[[i]] ,xlab="snp avg betascores")
@@ -398,17 +309,12 @@ for(i in 1:5) {
 } #hosts in order of 267 270 276 279 313
 hostorder <- c(267, 270, 276, 279, 313)
 
-
-realres.nbu <- read.csv("./Result_outputs/gwas_res_11Nov19.csv",header=T)
-sims.ps <- read.csv("./Run_GEMMA_files/Perm_runs/perm_comb_trait9.tsv",sep="\t",header=T)$ps #sims and the above gwas_res file are sorted differently, but both have ps info
-
 #tally SNP origins 
 realres.nbu <- read.csv("~/batstone permutations/gwas_res_11Nov19.csv",header=T)
  #unsorted GWAS results; this file is a curated version of the individual gwas files read in above for each trait
  #Importantly, this one includes host origin information for each SNP
 sims.ps <- read.csv("~/batstone permutations/perms/perm_comb_trait9.tsv",sep="\t",header=T)$ps #sims and the above gwas_res file are sorted differently, but both have ps info
 #above is read as an example file for sorting order of SNP positions
-
 sortindex <- sapply(sims.ps,function(z) which(realres.nbu$ps == z))
 realres.nb <- realres.nbu[sortindex,] # now realres object sorted the same way as sims
 origincols <- grep("origin",colnames(realres.nb)) #extract origin information
