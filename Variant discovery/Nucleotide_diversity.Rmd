@@ -15,11 +15,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r Load packages, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(knitr)
 ```
 
 ## Calculating nucelotide diversity
 
-Tia provided python script, used in Harrison et al. 2017 (Evolution)
 Script available at Dryad, https://doi.org/10.5061/dryad.77k64 (doi:10.5061/dryad.77k64)
 
 copied (cp) KH35c_align.filtered.recode.vcf to python_scripts, and renamed to KH35c_WSM1022.vcf
@@ -40,9 +40,6 @@ Plsm	psymA	      NZ_CP021827.1	CP021827.1
 Plsm	psymB	      NZ_CP021828.1	CP021828.1
 
 Notes: use actual INSDC accession numbers from NCBI (Chromosome isn't in the code)
-
-scp'ed to my comp:
-scp rebecca.batstone@grandiflora.eeb.utoronto.ca:/gran1/rebecca.batstone/python_scripts/nuc_div_Em1022.zip ./mnt/c/Users/rtbatstone/Downloads/
 
 ## Import results
 
@@ -96,75 +93,13 @@ nuc_div$host_comp <- do.call(paste, c(nuc_div[c("host1","host2")], sep = "vs"))
 ## Compare pw nucleotide diffs between ancestral and derived isolates
 
 ```{r graph_state}
+## across all genomic regions:
 div_sum_state <- nuc_div %>%
-  group_by(region, state_comp) %>%
-  summarise(mean_div = mean(nuc_diff.t), SE_div = (sd(nuc_diff.t)/sqrt(length(nuc_diff.t))),
-            mean_pw = mean(pairwise_geno))
+  group_by(state_comp) %>%
+  summarise(mean_div = mean(nuc_diff.t), sd_div = sd(nuc_diff.t),
+            mean_pw = mean(pairwise_geno), SE_pw = (sd(pairwise_geno)/sqrt(length(pairwise_geno))))
   
 div_sum_state$state_comp <- recode_factor(div_sum_state$state_comp,'ancvsanc'="Ancestral",'dervsder'="Derived")
 
-png(filename="./Nucleotide_diversity_files/nuc_div_state.png", units="px", width=863, height=235)
-
-(plot <- ggplot(data=div_sum_state %>% filter(state_comp %in% c("Ancestral","Derived")),
-                 aes(x=state_comp, y=mean_div, colour=state_comp)) + 
-  geom_point(size=4, position = position_dodge(0.3), colour="black") + 
-  geom_errorbar(aes(ymin=mean_div-SE_div, ymax=mean_div+SE_div), width=.1, 
-                position = position_dodge(0.3), colour="black") +
-  theme_bw() +
-  xlab("Evolutionary state") + 
-  ylab(expression(paste(pi, " (per 10kbps)"))) +
-  facet_wrap(~region, scales="free") +
-  scale_colour_discrete(name="Evolutionary state") +
-  theme(axis.title.y = element_text(colour = "black", size = 18), 
-        axis.text.y = element_text(size=16), 
-        axis.title.x = element_blank(), 
-        legend.title = element_text(colour="black", size=16, face="bold"),
-        legend.text = element_text(colour="black", size=12),
-        axis.text.x = element_text(size=16),
-        legend.position="none",
-        strip.text = element_text(size=12, face = "bold"),
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank()))
-
-dev.off()
-```
-
-## Compare pw nucleotide diffs between ancestral and isolates evolving on ea. plant line
-
-```{r graph_hosts}
-div_sum_host <- nuc_div %>%
-  group_by(region, host_comp) %>%
-  summarise(mean_div = mean(nuc_diff.t), SE_div = (sd(nuc_diff.t)/sqrt(length(nuc_diff.t))),
-            mean_pw = mean(pairwise_geno))
-  
-div_sum_host$host_comp <- recode_factor(div_sum_host$host_comp,'anc1022vsanc1022'="Ancestral",
-                                        '270vs270'="270", '276vs276'="276", '279vs279'="279",
-                                        '313vs313'="313", '267vs267'="267")
-
-png(filename="./Nucleotide_diversity_files/nuc_div_host.png", units="px", width=945, height=275)
-
-(plot <- ggplot(data=div_sum_host %>% filter(host_comp %in% c("270","276","279","313","267")),
-                 aes(x=host_comp, y=mean_div, colour=host_comp)) + 
-  geom_point(size=4, position = position_dodge(0.3), colour="black") + 
-  geom_errorbar(aes(ymin=mean_div-SE_div, ymax=mean_div+SE_div), width=.1, 
-                position = position_dodge(0.3), colour="black") +
-  geom_hline(data=div_sum_host %>% filter(host_comp == "Ancestral"),
-                                          aes(yintercept = mean_div), linetype = 2, color = "black") +
-  theme_bw() +
-  xlab("Evolutionary host") + 
-  ylab(expression(paste(pi, " (per 10kbps)"))) +
-  facet_wrap(~region, scales="free") +
-  scale_colour_discrete(name="Evolutionary host") +
-  theme(axis.title.y = element_text(colour = "black", size = 18), 
-        axis.text.y = element_text(size=16), 
-        axis.title.x = element_blank(), 
-        legend.title = element_text(colour="black", size=16, face="bold"),
-        legend.text = element_text(colour="black", size=12),
-        axis.text.x = element_text(size=16),
-        legend.position="none",
-        strip.text = element_text(size=12, face = "bold"),
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank()))
-
-dev.off()
+kable(div_sum_state)
 ```
