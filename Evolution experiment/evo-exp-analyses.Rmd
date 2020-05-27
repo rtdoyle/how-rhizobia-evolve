@@ -206,7 +206,7 @@ sum_qPCR_sub <- qPCR_sub %>%
 
 ## Proportion of Em1022 in nodules (antibiotic plating), Gen V
 
-```{r nod_GSV}
+```{r nod_GSV, message=FALSE, warning=FALSE}
 nod_plates <- read_csv("./Data/nod_plates.csv", 
     col_types = cols(strain_call = col_factor(levels = c("1021", 
         "1022"))))

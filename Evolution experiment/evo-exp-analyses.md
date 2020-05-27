@@ -235,13 +235,7 @@ nod_plates$line <- plants_I_V$line[match(nod_plates$line, plants_I_V$loc)]
 
 # need to put data on plant-lvl (each obs per plant)
 nod_plates.w <- dcast(nod_plates, plant + line ~ strain_call)
-```
 
-    ## Using line as value column: use value.var to override.
-
-    ## Aggregation function missing: defaulting to length
-
-``` r
 # calculate proportion of Em1022 nods
 nod_plates.w$tot_nod <- nod_plates.w$'1021' + nod_plates.w$'1022'
 nod_plates.w$prop_Em1022 <- nod_plates.w$'1022' / nod_plates.w$tot_nod
