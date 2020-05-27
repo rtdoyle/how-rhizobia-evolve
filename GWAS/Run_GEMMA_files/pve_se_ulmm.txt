@@ -1,0 +1,12 @@
+pve estimate =0.402123	se(pve) =0.30336	shoot267
+pve estimate =0.426778	se(pve) =0.251427	shoot270
+pve estimate =0.504303	se(pve) =0.316567	shoot276
+pve estimate =0.775832	se(pve) =0.29373	shoot279
+pve estimate =0.145106	se(pve) =0.17654	shoot313
+pve estimate =0.770474	se(pve) =0.242599	shootAll
+pve estimate =0.488589	se(pve) =0.284219	nod267
+pve estimate =0.178275	se(pve) =0.206155	nod270
+pve estimate =0.369469	se(pve) =0.384131	nod276
+pve estimate =0.497662	se(pve) =0.341575	nod279
+pve estimate =0.0906379	se(pve) =0.170236	nod313
+pve estimate =0.481312	se(pve) =0.261632	nodAll

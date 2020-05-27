@@ -61,7 +61,8 @@ S5.
 This
 [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/GWAS)
 contains the code to run the GWAS analyses and permutation tests
-described in the paper, as well as the code to produce Figure 3.
+described in the paper, as well as the code to produce Figure 3 and the
+information summarized in supplemental table S3.
 
 ##### Nucleotide diversity
 

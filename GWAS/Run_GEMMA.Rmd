@@ -36,7 +36,7 @@ $PLINK --vcf GEMMA_363.ann.vcf --recode --make-bed --out "KH35c_final_plink" --a
 
 ## Format the phenotype file (to make .fam file)
 
-First, need to format your phenotypes file:
+First, we formatted the phenotypes file:
 
 - NO HEADERS
 - column 1 = strain identifiers
@@ -46,10 +46,10 @@ IMPORTANT:
 Ensure that strain identifiers generated from the vcf to plink conversion ended up being in the same order as the strain identifiers in the .fam file.
 
 ```{r format_phenotype_file}
-load("./Result_outputs/stand_means_for_GEMMA.Rdata") ## load stand_means.w
-
+load("../Single-inoculation experiment/Output/stand_means_for_GEMMA.Rdata") ## load stand_means.w
+  
 # add in vcf sample names
-isolate_info <- read_csv("./pheno_SI_exp_files/isolate_info.csv")
+isolate_info <- read_csv("../Single-inoculation experiment/Data/isolate_info.csv")
 
 # merge phenotypes and info by isolate
 fam_file <- merge(isolate_info, stand_means.w, by = "isolate")
@@ -95,7 +95,7 @@ $GEMMA -bfile KH35c_final_plink -gk 1 -miss 1 -o KH35c_final_kmat
 
 If you include multiple phenotypes in the same .fam file, you can use this loop
 -n <number> specifies column corresponding to phenotype in .fam file.
-Epstein used -lmm option 4, for all three tests, but only reports the liklihood ratio test (-lmm 2)
+Epstein used -lmm option 4, for all three tests, but only reports the likelihood ratio test (-lmm 2)
 
 ```{r LMM_gemma, engine = 'bash', eval=FALSE}
 # paste into bash script (KH35c_final_ulmm.sh):
@@ -269,7 +269,7 @@ save(realres.psFIsig, file = "./Run_GEMMA_files/Real_runs/betasigs.Rdata")
 
 ```{r variant_info_combined}
 # Import VCF info file, merge
-load(file = "./Result_outputs/GEMMA_363_sum.Rdata") ## load GEMMA.vars.f
+load(file = "../Variant discovery/Output/GEMMA_363_sum.Rdata") ## load GEMMA.vars.f
 
 # load beta sig file
 load(file = "./Run_GEMMA_files/Real_runs/betasigs.Rdata") ## load realres.psFIsig
@@ -282,10 +282,14 @@ setdiff(realres.psFIsig$ps,GEMMA_vars.f$ps) ## no diffs
 GEMMA_vars_sig <- merge(GEMMA_vars.f, realres.psFIsig, by = "ps") # all 363 overlapping vars
 
 # save file
-save(GEMMA_vars_sig, file = "./Result_outputs/GEMMA_363_sig.Rdata")
+save(GEMMA_vars_sig, file = "./Output/GEMMA_363_sig.Rdata")
 ```
 
-## Figure 3: Regress shoot and nod beta scores in each environment
+## Figures
+
+### Figure 3
+
+Plot shoot and nod beta scores one each host and averaged over all hosts
 
 ```{r Fig3, warnings = FALSE}
 
@@ -294,7 +298,7 @@ shapes=c(22,21,24)
 palette <- "Royal1"
 
 # load df
-load(file = "./Result_outputs/GEMMA_363_sig.Rdata") # loads GEMMA_vars_sig
+load(file = "./Output/GEMMA_363_sig.Rdata") # loads GEMMA_vars_sig
 
 # Make "All" figure
 sig_all_env <- subset(GEMMA_vars_sig, 
@@ -309,8 +313,7 @@ sig_all_env$effect <- ifelse(sig_all_env$beta.nodall > 0 & sig_all_env$beta.shoo
     sig_all_env$beta.nodall > 0 & sig_all_env$beta.shootall < 0, "Cheater", "Defective"
 )))
 
-save(sig_all_env, file = "./Result_outputs/sig_all_env.Rdata")
-
+save(sig_all_env, file = "./Output/sig_all_env.Rdata")
 
 # plot
 gwas_res_all <- GEMMA_vars_sig
@@ -446,7 +449,7 @@ p <- ggplot(data = df, aes(x=get(beta.nod), y=get(beta.shoot))) +
 line.list <- c("270", "276","279", "313", "267")
 
 fig3_plots <- lapply(line.list, Fig3_fun, df = GEMMA_vars_sig)
-save(fig3_plots, file = "./Result_outputs/fig3_plots.Rdata")
+save(fig3_plots, file = "./Output/fig3_plots.Rdata")
 
 # cowplot function
 fig3a_base <- plot_grid(p.all, 
@@ -543,7 +546,7 @@ fig3 <- plot_grid(fig3a, fig3b,
 
 fig3
 
-save_plot("./Figures/Fig3_gwas.pdf", fig3, dpi= 1000,
+save_plot("./Figures/Figure3.pdf", fig3, dpi= 1000,
           ncol = 1, # we're saving a grid plot of 2 columns
           nrow = 2, # and 2 rows
           # each individual subplot should have an aspect ratio of 1.3
@@ -551,11 +554,13 @@ save_plot("./Figures/Fig3_gwas.pdf", fig3, dpi= 1000,
           base_width=14)
 ```
 
-## Summarize variants (combine dataframes generated in Fig. 3)
+## Tables
+
+This code generates the information in supplemental table S3 in the paper. It summarizes variants by combining dataframes generated to make Figure 3
 
 ```{r sum_vars}
-load(file = "./Result_outputs/sig_all_env.Rdata") # loads sig_all_env
-load(file = "./Result_outputs/fig3_plots.Rdata") # fig3_plots
+load(file = "./Output/sig_all_env.Rdata") # loads sig_all_env
+load(file = "./Output/fig3_plots.Rdata") # fig3_plots
 
 sig_all <- sig_all_env %>%
   select(-starts_with("maf_"),-starts_with("beta"))
@@ -603,8 +608,8 @@ sig_comb_sum <- sig_comb %>%
   group_by(ORIG, effect) %>%
   summarize(count = n())
 
-ggplot(sig_comb_sum, aes(x = ORIG, y = count, fill = effect)) +
-  geom_bar(stat="identity", position = position_dodge())
+#ggplot(sig_comb_sum, aes(x = ORIG, y = count, fill = effect)) +
+#  geom_bar(stat="identity", position = position_dodge())
 
 # Summarize at the position-level
 sig_ps_sum <- sig_comb %>%
@@ -646,8 +651,8 @@ sig_ps_sum$traits <- ifelse(sig_ps_sum$traits == "Shoot biomass", "Quality",
                                       ifelse(sig_ps_sum$traits == "Nodule number","Fitness",
                                              "Both"))
 
-write.csv(sig_ps_sum, "./Result_outputs/sig_ps_sum.csv", row.names = FALSE)
-save(sig_ps_sum, file = "./Result_outputs/sig_ps_sum.Rdata")
+write.csv(sig_ps_sum, "./Output/sig_ps_sum.csv", row.names = FALSE)
+save(sig_ps_sum, file = "./Output/sig_ps_sum.Rdata")
 
 sig_ps_sum_counts <- sig_ps_sum %>%
   group_by(var_cat) %>%
@@ -715,189 +720,5 @@ sig_gene_sum$traits <- ifelse(sig_gene_sum$traits == "Shoot biomass", "Quality",
                                              "Fitness","Both"))
 
 # save wide_gene df
-write.csv(sig_gene_sum, "./Result_outputs/sig_gene_sum.csv", row.names = FALSE)
-```
-
-## Summarize long version of GEMMA_vars_sig
-
-long: Each row is one sig effect
-wide_ps: each row is one position
-wide_gene: each row is one gene
-
-```{r long_effects}
-# load df
-load(file = "./Result_outputs/GEMMA_363_sig.Rdata") # loads GEMMA_vars_sig
-
-# create long version of GEMMA_vars_sig
-rownames(GEMMA_vars_sig) <- GEMMA_vars_sig[,1] ## name rows by position
-
-# use gather to convert wide to long
-gwas_res_long.1 <- GEMMA_vars_sig %>% 
-  gather(betas, scores, beta.shoot267:beta.nodall)
-
-gwas_res_long.2 <- GEMMA_vars_sig %>% 
-  gather(betas, sig, beta.shoot267.FIsig:beta.nodall.FIsig)
- 
-# merge into one, getting rid of redundant cols
-gwas_res_long <- cbind(gwas_res_long.1[,-c(26:37)],gwas_res_long.2[,39])
-
-# Rename cols
-colnames(gwas_res_long)[colnames(gwas_res_long)=="betas"] <- "effect"
-colnames(gwas_res_long)[colnames(gwas_res_long)=="gwas_res_long.2[, 39]"] <- "perms"
-
-save(gwas_res_long, file = "./Result_outputs/gwas_long_all.Rdata")
-
-# filter any non-significant vars
-gwas_res_long_sig <- gwas_res_long %>%
-  filter(perms != "FALSE") %>%
-  droplevels()
-
-# Rename effect 
-gwas_res_long.rn <- gwas_res_long_sig %>% 
-  mutate(effect = factor(effect, levels = c("beta.shootall", "beta.shoot270", "beta.shoot276", 
-                                            "beta.shoot279", "beta.shoot313", "beta.shoot267",
-                                            "beta.nodall", "beta.nod270", "beta.nod276", 
-                                            "beta.nod279", "beta.nod313", "beta.nod267"),
-                              labels = c("Shoot.All", "Shoot.270","Shoot.276",
-                                         "Shoot.279","Shoot.313","Shoot.267",
-                                         "Nod.All", "Nod.270","Nod.276",
-                                         "Nod.279","Nod.313","Nod.267"))) 
-
-# split into trait and env
-gwas_res_long.s <- separate(data = gwas_res_long.rn, 
-                            col = effect, 
-                            into = c("trait", "env"), sep = "\\.")
-
-# determine whether effects are local or not
-gwas_res_long.l <- gwas_res_long.s %>%
-   mutate(Local = 
-           str_detect(as.character(gwas_res_long.s$origin), 
-                      as.character(gwas_res_long.s$env)) 
-       )
-
-gwas_res_long.sl <- gwas_res_long.l %>% 
-  mutate(Local = factor(Local, levels = c("FALSE", "TRUE"),
-                              labels = c("No", "Yes"))) 
-
-# get rid of unwanted cols
-gwas_res_long.f <- gwas_res_long.sl[ , -which(names(gwas_res_long.sl) %in% c("perms"))]
-
-# add minor allele effect (C = pos, D = neg)
-gwas_res_long.f$ma_effect <- ifelse(gwas_res_long.f$scores > 0, "C", "D")
-
-# save long df
-write.csv(gwas_res_long.f, "./Result_outputs/gwas_res_long_24Nov2019.csv", row.names = FALSE)
-
-# get total numbers of each category
-gwas_res_long.sum <- gwas_res_long.f %>%
-  filter(Novel == "Yes") %>%
-  group_by(Local, ma_effect) %>%
-  summarize(count = n())
-
-ggplot(gwas_res_long.sum, aes(x = Local, y = count, fill = ma_effect)) +
-  geom_bar(stat="identity", position=position_dodge())
-
-# Summarize at the position-level
-gwas_res_long.ps_sum <- gwas_res_long.f %>%
-  mutate(effect_cat = paste(Local, ma_effect, sep = '-'),
-         effect_cat2 = paste(env, Local, ma_effect, sep = '-')) %>%
-  group_by(ps, env, effect_cat) %>%
-  mutate(no_effects = n(),
-         effect_cat_no = paste0(effect_cat, "(", no_effects, ")")) %>%
-  ungroup %>%
-  spread(key = env, value = effect_cat_no) %>%
-  rename(
-    "L270" = '270',
-    "L276" = '276',
-    "L279" = '279',
-    "L313" = '313',
-    "L267" = '267'
-    ) %>%
-  group_by(CHROM, ps, gene, gene_ID, ncbi_func, RefSeq_ID, protein_ID, 
-           var_type, origin, Novel) %>%
-  summarize(traits = paste(unique(trait), collapse = ", "),
-    effect_cats = paste(unique(effect_cat2), collapse = ", "),
-    no_effects = n(),
-    ave_score = mean(scores),
-    effect_All = paste(unique(All[!is.na(All)]), collapse = ", "),
-    effect_270 = paste(unique(L270[!is.na(L270)]), collapse = ", "),
-    effect_276 = paste(unique(L276[!is.na(L276)]), collapse = ", "),
-    effect_279 = paste(unique(L279[!is.na(L279)]), collapse = ", "),
-    effect_313 = paste(unique(L313[!is.na(L313)]), collapse = ", "),
-    effect_267 = paste(unique(L267[!is.na(L267)]), collapse = ", ")) %>%
-  as.data.frame(.)
-
-# categorize the vars into broad, local and mismatch
-gwas_res_long.ps_sum$cat <- ifelse(grepl(", ", gwas_res_long.ps_sum$effect_cats) | 
-                                     grepl("All", gwas_res_long.ps_sum$effect_cats), "Broad",
-                                   ifelse(grepl("Yes", gwas_res_long.ps_sum$effect_cats),
-                                          "Local", "Mismatch"))
-                                   
-# rename traits
-gwas_res_long.ps_sum$traits <- ifelse(gwas_res_long.ps_sum$traits == "Shoot", "Quality",
-                                      ifelse(gwas_res_long.ps_sum$traits == "Nod",
-                                             "Fitness","Both"))
-
-gwas_res_long.ps_sum <- gwas_res_long.ps_sum %>%
-  arrange(cat, CHROM, ps)
-
-# add effect cat to long
-gwas_res_long.fec <- merge(gwas_res_long.f, 
-                           gwas_res_long.ps_sum[,c("ps","cat","traits")], 
-                           by = "ps", all.x = TRUE)
-
-# save wide_ps df
-write.csv(gwas_res_long.ps_sum, "./Result_outputs/gwas_res_wide_ps.csv", row.names = FALSE)
-save(gwas_res_long.ps_sum, file = "./Result_outputs/gwas_ps_sum.Rdata")
-
-# summarize variants
-gwas_res_long.ps_sum$effect_dir <- ifelse(gwas_res_long.ps_sum$ave_score > 0,
-                                          "Beneficial", "Deleterious")
-
-# Summarize at the gene-level
-gwas_res_long.gene_sum <- gwas_res_long.fec %>%
-  mutate(effect_cat = paste(Local, ma_effect, sep = '-'),
-         effect_cat2 = paste(env, Local, ma_effect, sep = '-')) %>%
-  group_by(gene, env, effect_cat) %>% 
-  mutate(no_effects = n(),
-         effect_cat_no = paste0(effect_cat, "(", no_effects, ")")) %>%
-  ungroup %>%
-  spread(key = env, value = effect_cat_no) %>%
-  rename(
-    "L270" = '270',
-    "L276" = '276',
-    "L279" = '279',
-    "L313" = '313',
-    "L267" = '267'
-    ) %>%
-  group_by(CHROM, gene, ncbi_func, RefSeq_ID, protein_ID) %>%
-  summarize(no_vars = n_distinct(ps),
-            min_ps = min(ps), 
-            max_ps = max(ps), 
-            var_types = paste(unique(var_type), collapse = ", "),
-            Novel = paste(unique(Novel), collapse = ", "),
-            traits = paste(unique(traits), collapse = ", "),
-            no_effects = n(),
-    effect_All = paste(unique(All[!is.na(All)]), collapse = ", "),
-    effect_270 = paste(unique(L270[!is.na(L270)]), collapse = ", "),
-    effect_276 = paste(unique(L276[!is.na(L276)]), collapse = ", "),
-    effect_279 = paste(unique(L279[!is.na(L279)]), collapse = ", "),
-    effect_313 = paste(unique(L313[!is.na(L313)]), collapse = ", "),
-    effect_267 = paste(unique(L267[!is.na(L267)]), collapse = ", ")) %>%
-  arrange(CHROM, min_ps) %>%
-  as.data.frame(.)
-
-# format position range
-gwas_res_long.gene_sum$ps_range <- ifelse(gwas_res_long.gene_sum$min_ps == gwas_res_long.gene_sum$max_ps, gwas_res_long.gene_sum$min_ps, 
-                                          paste(gwas_res_long.gene_sum$min_ps,
-                                                gwas_res_long.gene_sum$max_ps, sep = "-"))
-
-# rename traits
-gwas_res_long.gene_sum$traits <- ifelse(gwas_res_long.gene_sum$traits == "Quality", "Quality",
-                                      ifelse(gwas_res_long.gene_sum$traits == "Fitness",
-                                             "Fitness","Both"))
-
-# save wide_gene df
-write.csv(gwas_res_long.gene_sum, "./Result_outputs/gwas_res_wide_gene.csv", row.names = FALSE)
-save(gwas_res_long.gene_sum, file = "./Result_outputs/gwas_gene_sum.Rdata")
+write.csv(sig_gene_sum, "./Output/sig_gene_sum.csv", row.names = FALSE)
 ```
