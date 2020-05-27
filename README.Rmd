@@ -23,22 +23,22 @@ Advances in microbiome science require a better understanding of how beneficial 
 
 This repository contains the raw data and analyses for:
 
-#### Evolution experiment
+##### Evolution experiment 
 
-This folder contains the raw data from the evolution experiment, the linear model results presented in the main text of the paper, and the code that generated Figure 1 in the main text and supplemental figure S6. 
+This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/Evolution%20experiment) contains the raw data from the evolution experiment, the linear model results presented in the main text of the paper, and the code that generated Figure 1 in the main text and supplemental figure S6. 
 
-#### Single-inoculation experiment
+##### Single-inoculation experiment
 
-This folder contains the raw data from the single-inoculation experiment, the model results presented in Tables S1 and S2, and the code that generated Figure 2 in the main text, as well as supplemental figures S1 through S4. 
+This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/Single-inoculation%20experiment) contains the raw data from the single-inoculation experiment, the model results presented in Tables S1 and S2, and the code that generated Figure 2 in the main text, as well as supplemental figures S1 through S4. 
 
-#### Variant discovery
+##### Variant discovery
 
-This folder contains the code and data to call and filter variants in the whole genome sequences of our ancestral and derived _Ensifer meliloti_ strains. It also contains the code that generated supplemental figure S5. 
+This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/Variant%20discovery) contains the code and data to call and filter variants in the whole genome sequences of our ancestral and derived _Ensifer meliloti_ strains. It also contains the code that generated supplemental figure S5. 
 
-#### GWAS
+##### GWAS
 
-Figure 3
+This [folder](https://github.com/rtbatstone/how-rhizobia-evolve/tree/master/GWAS) contains the code to run the GWAS analyses and permutation tests described in the paper, as well as the code to produce Figure 3. 
 
-#### Permutation test
+##### Nucleotide diversity
 
-#### Nucleotide diversity
+Finally, this folder contains the code to calculate nucleotide diversity for ancestral versus derived bacteria. 
