@@ -21,17 +21,23 @@ Advances in microbiome science require a better understanding of how beneficial 
 
 ### Contents
 
-This repository contains the raw data and analyses for the following parts of the study:
+This repository contains the raw data and analyses for:
 
 #### Evolution experiment
 
+This folder contains the raw data from the evolution experiment, the linear model results presented in the main text of the paper, and the code that generated Figure 1 in the main text and supplemental figure S6. 
+
 #### Single-inoculation experiment
 
-This folder contains the raw data from the single-inoculation experiment, the model results presented in Tables S1 and S2, and the code that generated Figure 2 in the main text, as well as supplemental figures Fi
+This folder contains the raw data from the single-inoculation experiment, the model results presented in Tables S1 and S2, and the code that generated Figure 2 in the main text, as well as supplemental figures S1 through S4. 
 
 #### Variant discovery
 
+This folder contains ... 
+
 #### GWAS
+
+Figure 3
 
 #### Permutation test
 
