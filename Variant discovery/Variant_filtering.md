@@ -1,0 +1,360 @@
+Variant filtering
+================
+Rebecca Batstone
+2020-05-27
+
+``` r
+# packages
+library("tidyverse") #includes ggplot2, dplyr, readr, stringr
+library("cowplot") # paneled graphs
+library("reshape2") # dcast function
+library("magick") ## include images
+library("UpSetR") ## upset graphs
+library("car") ## which.names function
+```
+
+## Recap: variant calling prior to filtering, (see Variant\_calling.md for full details)
+
+Note: made a path to vcftools: export
+VCFTOOLS=“/gran1/tia.harrison/VCFTOOLS/vcftools\_0.1.13/bin/vcftools”
+
+Called SNPs using HaplotypeCaller, specifying haploidy. See
+KH35cWG\_alignment.Rmd for details (re-run HaplotypeCaller).
+
+Directory:
+/gran1/rebecca.batstone/align\_KH35c\_08Mar2018/processed\_bam\_samples/
+VCF: KH35c\_rn.vcf (21247 unfiltered sites, re-named isolates using
+bcftools)
+
+## Filtering sites using vcftools
+
+``` bash
+# from /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
+$VCFTOOLS --vcf KH35c_rn.vcf --min-meanDP 20 --max-meanDP 230 --minQ 30 --max-missing 0.9 --max-non-ref-ac 48 --min-alleles 2 --max-alleles 2 --recode --recode-INFO-all --out KH35c_filt1
+# kept 1330 out of a possible 21,247 Sites
+
+# renamed
+cp KH35c_filt1.recode.vcf ./filt1_1330.recode.vcf
+```
+
+Notes about filters:
+
+–min-meanDP 20 –max-meanDP 230 Includes only sites with mean depth
+values (over all included individuals) greater than or equal to the
+“–min-meanDP” value and less than or equal to the “–max-meanDP”
+
+–minQ 30 Includes only sites with Quality value above this threshold
+
+–max-missing 0.9 Exclude sites on the basis of the proportion of missing
+data (defined to be between 0 and 1, where 0 allows sites that are
+completely missing and 1 indicates no missing data allowed). \* 0.9
+therefore allows sites with 10% missing data
+
+–max-non-ref-ac 48 Include only sites with all Non-Reference (ALT)
+Allele Counts (ac) within the range specified, and including the
+specified value. \* Filters out any SNPs alternative to the reference,
+but homozygous across all my samples.
+
+–min-alleles 2 –max-alleles 2 Include only sites with a number of
+alleles greater than or equal to the “–min-alleles” value and less than
+or equal to the “–max-alleles” value. \* I included only bi-allelic
+sites. (excluded 16 non-biallelic sites)
+
+Notes on vcftools summary options:
+
+–site-mean-depth Generates a file containing the mean depth per site
+averaged across all individuals. This output file has the suffix
+“.ldepth.mean”.
+
+–hap-r2 Outputs a file reporting the r2, D, and D’ statistics using
+phased haplotypes. These are the traditional measures of LD often
+reported in the population genetics literature. The output file has the
+suffix “.hap.ld”. This option assumes that the VCF input file has phased
+haplotypes.
+
+–singletons This option will generate a file detailing the location of
+singletons, and the individual they occur in. The file reports both true
+singletons, and private doubletons (i.e. SNPs where the minor allele
+only occurs in a single individual and that individual is homozygotic
+for that allele). The output file has the suffix “.singletons”.
+
+–site-quality Generates a file containing the per-site SNP quality, as
+found in the QUAL column of the VCF file. This file has the suffix
+“.lqual”.
+
+## Pick representative singletons for each individual
+
+I output singletons for KH35c\_filt1.recode.vcf (487 singletons), and
+did the same for site quality. I scp’ed these to my computer, depositing
+them to my project folder.
+
+–exclude-positions I determined how many singletons there were in the
+dataset (KH35c\_filt1.vcf), singletons being a SNP that was only present
+in a single sample I used the vcftools output options described below. I
+chose a representative singleton for each individual by selecting the
+SNP within each individual that showed the highest quality score. Out of
+all the singletons (N=487), only 43 representatives were included in the
+filtered VCF (KH35c\_filt2.vcf).
+
+``` r
+# merge singletons and freq
+singletons <- read_csv("./Data/1330_singletons.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHROM = col_character(),
+    ##   POS = col_double(),
+    ##   `SINGLETON/DOUBLETON` = col_character(),
+    ##   ALLELE = col_character(),
+    ##   INDV = col_character()
+    ## )
+
+``` r
+qual <- read_csv("./Data/1330_quality.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHROM = col_character(),
+    ##   POS = col_double(),
+    ##   QUAL = col_double()
+    ## )
+
+``` r
+SNP_info <- merge(x= singletons, y = qual, by = "POS")
+# write.csv(SNP_info, "SNP_info.csv", row.names = FALSE)
+
+# pick site with max quality for each individual
+SNP_info_filt <- SNP_info %>%
+  group_by(INDV) %>%
+  filter(! QUAL == max(QUAL))
+### 444 sites to exclude, 43 sites used as representatives for each sample
+
+write.csv(SNP_info_filt, "./Output/SNP_info_exc.csv", row.names = FALSE)
+# I then formatted for vcftools (first column = chrom, second column = pos, no headers). Saved as SNPs_to_excluded, and scp'ed to the cluster (/gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples/)
+```
+
+### Use vcftools to filter out singletons
+
+``` bash
+# then, filtered out non-representative singletons (see note below, N = 437)
+# from /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
+$VCFTOOLS --vcf KH35c_filt1.recode.vcf --exclude-positions SNPs_to_exclude.txt --recode --recode-INFO-all --out KH35c_filt2
+# kept 886 out of a possible 1330 Sites
+```
+
+## Exclude SNPs in high (\>0.95) LD
+
+Checked pairwise LD for KH35c\_filt2
+
+Groups SNPs in high (\>0.95) LD together (see high\_LD\_groups.xls for
+full details). Then picked the SNP from each group either showing the
+highest MAF or QUAL.
+
+``` r
+LD_filt2 <- read_csv("./Data/886_LD.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHR = col_character(),
+    ##   POS1 = col_double(),
+    ##   POS2 = col_double(),
+    ##   N_CHR = col_double(),
+    ##   r2 = col_double(),
+    ##   D = col_double(),
+    ##   Dprime = col_double()
+    ## )
+
+``` r
+(LD_filt2_sum1 <- LD_filt2 %>%
+  na.omit() %>%
+  group_by(CHR) %>%
+  summarize(mean_LD = mean(r2)))
+```
+
+    ## # A tibble: 4 x 2
+    ##   CHR        mean_LD
+    ##   <chr>        <dbl>
+    ## 1 CP021825.1  0.0815
+    ## 2 CP021826.1  0.0265
+    ## 3 CP021827.1  0.0318
+    ## 4 CP021828.1  0.0386
+
+``` r
+LD_filt2$gen_dist <- abs(LD_filt2$POS2 - LD_filt2$POS1)
+
+(LD_all_plot <- ggplot(LD_filt2, aes(x=gen_dist, y=r2, colour = CHR)) +
+    geom_point() +
+    theme_bw() +
+    xlab("Genomic Span (Mbp)") + 
+    ylab(expression("R"^"2")) +
+    scale_color_discrete(name = "Genomic region",
+      breaks = c("CP021825.1","CP021826.1","CP021827.1","CP021828.1"),
+      labels=c("Chromosome","pAccA","pSymA","pSymB")) +
+    #scale_x_continuous(limits = c(0,60)) +
+    theme(axis.title.y = element_text(colour = "black", size = 18), 
+        axis.text.y = element_text(size=16), 
+        axis.title.x = element_text(size=18), 
+        axis.text.x = element_text(size=16), 
+        legend.position=c(0.8,0.8),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()))
+```
+
+    ## Warning: Removed 120263 rows containing missing values (geom_point).
+
+![](Variant_filtering_files/figure-gfm/LD_exclude-1.png)<!-- -->
+
+``` r
+# how many sites are at LD > 95%?
+(LD_filt2_sum2 <- LD_filt2 %>%
+  na.omit() %>%
+  filter(r2 > 0.95) %>%
+  summarize(count_LD = length(r2)))
+```
+
+    ## # A tibble: 1 x 1
+    ##   count_LD
+    ##      <int>
+    ## 1      120
+
+``` r
+prop_LD <- LD_filt2_sum2/length(LD_filt2$r2)
+
+# what's the max distance between SNPs at r2 > 0.95
+(LD_filt2_sum3 <- LD_filt2 %>%
+  na.omit() %>%
+  filter(r2 > 0.95) %>%
+  summarize(max_dist = max(gen_dist)))
+```
+
+    ## # A tibble: 1 x 1
+    ##   max_dist
+    ##      <dbl>
+    ## 1    77750
+
+``` r
+# LD groups: filter for SNPs @ LD > 0.95, group by site
+LD_filt2_sum4 <- LD_filt2 %>%
+  na.omit() %>%
+  filter(r2 > 0.95) %>%
+  group_by(POS1) %>%
+  arrange(desc(POS2))
+  
+write.csv(LD_filt2_sum4, "./Output/high_LD_groups.csv", row.names = FALSE)
+
+# plot of no vars (x), group count on y
+
+LD_groups <- read_csv("./Data/high_LD_groups_plot.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHR = col_character(),
+    ##   POS1 = col_double(),
+    ##   POS2 = col_double(),
+    ##   N_CHR = col_double(),
+    ##   r2 = col_double(),
+    ##   D = col_double(),
+    ##   Dprime = col_double(),
+    ##   gen_dist = col_double(),
+    ##   LD_group = col_double(),
+    ##   no_var_group = col_double()
+    ## )
+
+``` r
+LD_group_sum <- LD_groups %>%
+  group_by(LD_group) %>%
+  summarize(mean_no_vars = mean(no_var_group))
+
+LD_group_sum$mean_no_vars <- as.factor(LD_group_sum$mean_no_vars)
+
+(LD_groups_plot <- ggplot(LD_group_sum, aes(x=mean_no_vars)) +
+    geom_bar(stat="count") +
+    theme_bw() +
+    xlab("Variants per LD group (no.)") + 
+    ylab("LD groups (no.)") +
+    theme(axis.title.y = element_text(colour = "black", size = 18), 
+        axis.text.y = element_text(size=16), 
+        axis.title.x = element_text(size=18), 
+        axis.text.x = element_text(size=16), 
+        legend.position="none",
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank()))
+```
+
+![](Variant_filtering_files/figure-gfm/LD_exclude-2.png)<!-- -->
+
+``` r
+# merge spreadsheets
+MAF_filt2 <- read_csv("./Data/MAF_LD_groups.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHROM = col_character(),
+    ##   POS = col_double(),
+    ##   N_ALLELES = col_double(),
+    ##   N_CHR = col_double(),
+    ##   REF = col_double(),
+    ##   ALT = col_double(),
+    ##   MAF = col_double()
+    ## )
+
+``` r
+qual_filt2 <- read_csv("./Data/QUAL_LD_groups.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHROM = col_character(),
+    ##   POS = col_double(),
+    ##   QUAL = col_double()
+    ## )
+
+``` r
+LD_groups_filt2 <- read_csv("./Data/high_LD_groups_UP.csv") # 135 SNPs
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   CHR = col_character(),
+    ##   POS = col_double(),
+    ##   group_no = col_double()
+    ## )
+
+``` r
+SNP_info2 <- merge(x= MAF_filt2, y = qual_filt2, by = "POS")
+SNP_info3 <- merge(x= SNP_info2, y = LD_groups_filt2, by = "POS")
+
+# filter variants within ea group, highest MAF and QUAL
+SNP_info_filt2 <- SNP_info3 %>%
+  group_by(group_no) %>%
+  filter(MAF == max(MAF)) %>%
+  filter(QUAL == max(QUAL))
+
+exclude_pos <- SNP_info_filt2$POS # 31 SNPs, one representative from each group
+SNP_info3_sub <- subset(SNP_info3, ! POS %in% exclude_pos) # 103 SNPs to exlude (see note below)
+write.csv(SNP_info3_sub, "./Output/SNPs_to_exclude_LD.csv", 
+          row.names = FALSE)
+```
+
+Note about LD groups: some SNPs appear in multiple groups. 288074,
+288091 (both in groups 19 and 24), 365824 (in groups 11 and
+19).
+
+### Use vcftools to filter out linked variants
+
+``` bash
+# from /gran1/rebecca.batstone/align_KH35c_08Mar2018/processed_bam_samples:
+$VCFTOOLS --vcf KH35c_filt2.recode.vcf --exclude-positions SNPs_to_exclude_LD.txt --maf 0.001 --recode --recode-INFO-all --out KH35c_final
+# 363 out of a possible 886 Sites
+# copied to GEMMA, renamed
+cp KH35c_final.recode.vcf ../../GEMMA/GEMMA_363.recode.vcf
+```
+
+–maf 0.001 Include only sites with a Minor Allele Frequency greater than
+or equal to the “–maf” value \* Excludes homozygous sites with missing
+genotypes
