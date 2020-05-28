@@ -35,7 +35,7 @@ library("psych") ## calculate p-vals of correlation matrix
 First, we need to read in and tidy the data
 
 ```{r Load data, warning=FALSE, message=FALSE}
-plants_all <- read_csv("./Single-inoculation experiment/Data/single_evo_18Jan2018.csv", 
+plants_all <- read_csv("Data/single_evo_18Jan2018.csv", 
     col_types = cols(tray = col_character())) ## load data from single inoculation experiment
 
 # make a unique plant ID
@@ -46,7 +46,7 @@ plants_all$plant_ID <- as.factor(do.call(paste,
 plants <- droplevels(subset(plants_all, ! tray_type %in% c("control"))) 
 
 # Load isolate data, with the original plant genotype they associated with
-isolate_info <- read_csv("./Single-inoculation experiment/Data/isolate_info.csv")
+isolate_info <- read_csv("Data/isolate_info.csv")
 
 # match isolate ID to origin, using isolate_info
 plants$origin <- isolate_info$line_origin[match(plants$isolate, 
@@ -268,7 +268,7 @@ palette <- "Royal1"
 )
   
 fig <- plot_grid(figa, figb, ncol=2, labels=c("A", "B")) # Combine figure panels
-save_plot("./Single-inoculation experiment/Figures/Figure2.pdf", fig, dpi = 1000, base_width=7) #Save plot
+save_plot("Figures/Figure2.pdf", fig, dpi = 1000, base_width=7) #Save plot
 ```
 
 ### Calculate raw and standardized means for GWAS analyses
@@ -345,14 +345,14 @@ colnames(stand_means.w_shoot)[2:7] <- paste("shoot",
 stand_means.w_nod <- dcast(stand_means, isolate ~ line, value.var="stand_nod")
 colnames(stand_means.w_nod) <- paste("nod", colnames(stand_means.w_nod), sep = "_")
 stand_means.w <- cbind(stand_means.w_shoot, stand_means.w_nod[,-1])                           
-save(stand_means.w, file="./Single-inoculation experiment/Output/stand_means_for_GEMMA.Rdata")
+save(stand_means.w, file="Output/stand_means_for_GEMMA.Rdata")
 ```
 
 ### Figures S1 and S2
 
 Heatmaps of isolate effects on each host
 
-```{r FigS1_S2. fig.width = 10, fig.height = 16}
+```{r FigS1_S2, fig.width = 10, fig.height = 16}
 # heatmap variables:
 stand_means$origin_iso <- do.call(paste, c(stand_means[c("origin","iso_ID")], sep = "-"))
 
@@ -375,7 +375,7 @@ stand_means.d <- filter(stand_means, origin_iso != "anc1022-NA")
 line_col <- c("black","#F8766D","#A3A500","#00BF7D","#00B0F6","#E76BF3")
 names(line_col) <- levels(stand_means.d$line)
 
-pdf("./Single-inoculation experiment/Figures/FigureS1.pdf", width = 10, height = 16)
+pdf("Figures/FigureS1.pdf", width = 10, height = 16)
 
 (HM_shoot_IL<- ggplot(stand_means.d,
                aes(x = line, y = origin_iso, fill = stand_shoot))+
@@ -420,7 +420,7 @@ dev.off()
 
 HM_shoot_IL
 
-pdf("./Single-inoculation experiment/Figures/FigureS2.pdf", width = 10, height = 16)
+pdf("Figures/FigureS2.pdf", width = 10, height = 16)
 
 (HM_nod_IL<- ggplot(stand_means.d,
                aes(x = line, y = origin_iso, fill = stand_nod))+
@@ -519,7 +519,7 @@ raw_means_all_rank$origin <- factor(raw_means_all_rank$origin,
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank()))
 
-save_plot("./Single-inoculation experiment/Figures/FigureS3.pdf", plot_corr, dpi = 1000,
+save_plot("Figures/FigureS3.pdf", plot_corr, dpi = 1000,
           base_aspect_ratio = 1.3)
 ```
 
@@ -543,7 +543,7 @@ names(traitcolors1) <- names(stand_means.dw_shoot.m)
 stand_means.dw_shoot.mat <- cor(stand_means.dw_shoot.m, use="pairwise.complete.obs")
 
 # compute the matrix of the p-value
-source('./Single-inoculation experiment/Source code/corr_test.R')
+source('Source code/corr_test.R')
 
 p.mat_shoot <- cor.mtest(stand_means.dw_shoot.m) ## uncorrected
 p.mat_shoot.c <- psych::corr.test(stand_means.dw_shoot.m, adjust="bonferroni")$p ## corrected
@@ -581,7 +581,7 @@ diag(bg_colors_lower1) <- "white" # if the diagonal values shall be white
 bg_colors_lower1 <- bg_colors_lower1[lower.tri(bg_colors_lower1, diag=T)]
 
 ### and the plot
-pdf("./Single-inoculation experiment/Figures/FigureS4.pdf", width = 10, height = 10, pointsize = 14)
+pdf("Figures/FigureS4.pdf", width = 10, height = 10, pointsize = 14)
 
 par(xpd = TRUE)
 

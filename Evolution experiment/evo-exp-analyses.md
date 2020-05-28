@@ -1,15 +1,19 @@
 Evolution experiment: analyses
 ================
 Rebecca Batstone
-2020-05-27
+2020-05-28
 
-## Setup
+Setup
+-----
 
 ### Global setup, load relevant packages
 
 ``` r
 # Global setup
 knitr::opts_chunk$set(echo = TRUE)
+
+# set working directory
+#setwd("./Evolution experiment")
 
 # set contrasts
 options(contrasts=c('contr.sum','contr.poly')) ## effects contrasts
@@ -22,27 +26,22 @@ library("car") ## Anova function
 library("wesanderson") ## more color palettes
 ```
 
-## Spreadsheet notes:
+Spreadsheet notes:
+------------------
 
-  - plants\_I-V is the most up-to-date spreadsheet, for data on all five
-    generations
-  - “sample” refers to whether I completed a sub-dissection (up to 10
-    nodules dissected), or full, meaning every nodule was dissected and
-    plated
-  - “loc” refers to the spatial distribution of each plant. There were
-    22 columns (A-V) and 12 to 13 rows, spanning across three replicate
-    benches
-  - “type” refers to whether plants were inoculated (exp) or not
-    (control) to see how much contamination there was
+-   plants\_I-V is the most up-to-date spreadsheet, for data on all five generations
+-   "sample" refers to whether I completed a sub-dissection (up to 10 nodules dissected), or full, meaning every nodule was dissected and plated
+-   "loc" refers to the spatial distribution of each plant. There were 22 columns (A-V) and 12 to 13 rows, spanning across three replicate benches
+-   "type" refers to whether plants were inoculated (exp) or not (control) to see how much contamination there was
 
-## Spreadsheet prep:
+Spreadsheet prep:
+-----------------
 
-Load plant-level data, then need nod-level data to summarize key
-variables for plants
+Load plant-level data, then need nod-level data to summarize key variables for plants
 
 ``` r
 # plant level
-plants_I_V <- read_csv("./Data/plants_I-V.csv", 
+plants_I_V <- read_csv("Data/plants_I-V.csv", 
     col_types = cols(
       bench = col_factor(levels = c("one", 
         "two", "three")), 
@@ -93,7 +92,8 @@ plants_exp <- droplevels(plants_exp)
 ## 1076 obs.
 ```
 
-## Figures
+Figures
+-------
 
 ### Figure S6
 
@@ -133,7 +133,7 @@ sum_plants_exp <- plants_exp %>%
         panel.grid.minor = element_blank()))
 ```
 
-![](evo-exp-analyses_files/figure-gfm/pheno_time-1.png)<!-- -->
+![](evo-exp-analyses_files/figure-markdown_github/pheno_time-1.png)
 
 ``` r
 (plot_nod <- ggplot(sum_plants_exp, aes(x=gen, y=mean_nod, 
@@ -159,7 +159,7 @@ sum_plants_exp <- plants_exp %>%
         panel.grid.minor = element_blank()))
 ```
 
-![](evo-exp-analyses_files/figure-gfm/pheno_time-2.png)<!-- -->
+![](evo-exp-analyses_files/figure-markdown_github/pheno_time-2.png)
 
 ``` r
 # combine the plots
@@ -170,7 +170,7 @@ sum_plants_exp <- plants_exp %>%
                  labels=NULL))
 ```
 
-![](evo-exp-analyses_files/figure-gfm/pheno_time-3.png)<!-- -->
+![](evo-exp-analyses_files/figure-markdown_github/pheno_time-3.png)
 
 ``` r
 save_plot("Figures/FigureS6.pdf", fig, dpi = 1000,
@@ -180,11 +180,12 @@ save_plot("Figures/FigureS6.pdf", fig, dpi = 1000,
 
 ### Relative abundance of Em1022 and Em1021 in soil and nodules throughout the evolution experiment
 
-## Proportion of Em1022 in soil (qPCR), Gens II-IV
+Proportion of Em1022 in soil (qPCR), Gens II-IV
+-----------------------------------------------
 
 ``` r
 # up to and including GS IV
-qPCR_all <- read_csv("./Data/qPCR_compiled.csv", 
+qPCR_all <- read_csv("Data/qPCR_compiled.csv", 
     col_types = cols(GS = col_factor(levels = c("two", "three", "four")), 
       line = col_factor(levels = c("270","276", "279", "313", "267"))))
 # str(qPCR_all) 
@@ -219,10 +220,11 @@ sum_qPCR_sub <- qPCR_sub %>%
   as.data.frame(.)
 ```
 
-## Proportion of Em1022 in nodules (antibiotic plating), Gen V
+Proportion of Em1022 in nodules (antibiotic plating), Gen V
+-----------------------------------------------------------
 
 ``` r
-nod_plates <- read_csv("./Data/nod_plates.csv", 
+nod_plates <- read_csv("Data/nod_plates.csv", 
     col_types = cols(strain_call = col_factor(levels = c("1021", 
         "1022"))))
 nod_plates$plant <- as.factor(nod_plates$plant)
@@ -234,7 +236,7 @@ nod_plates$line <- nod_plates$plant
 nod_plates$line <- plants_I_V$line[match(nod_plates$line, plants_I_V$loc)]
 
 # need to put data on plant-lvl (each obs per plant)
-nod_plates.w <- dcast(nod_plates, plant + line ~ strain_call)
+nod_plates.w <- dcast(nod_plates, plant + line ~ strain_call, fun.aggregate = length, value.var = "line")
 
 # calculate proportion of Em1022 nods
 nod_plates.w$tot_nod <- nod_plates.w$'1021' + nod_plates.w$'1022'
@@ -324,14 +326,15 @@ palette <- "Royal1"
         panel.grid.minor = element_blank()))
 ```
 
-![](evo-exp-analyses_files/figure-gfm/fig1-1.png)<!-- -->
+![](evo-exp-analyses_files/figure-markdown_github/fig1-1.png)
 
 ``` r
 save_plot("Figures/Figure1.pdf", plot_sum_comb_GS_prop, dpi = 1000,
           base_aspect_ratio = 1.3)
 ```
 
-## Models
+Models
+------
 
 ### How did the ratio of Em1022 to Em1021 change over time through the evolution experiment?
 
