@@ -39,7 +39,7 @@ Load plant-level data, then need nod-level data to summarize key variables for p
 
 ```{r plant_data}
 # plant level
-plants_I_V <- read_csv("./Data/plants_I-V.csv", 
+plants_I_V <- read_csv("./Evolution experiment/Data/plants_I-V.csv", 
     col_types = cols(
       bench = col_factor(levels = c("one", 
         "two", "three")), 
@@ -158,7 +158,7 @@ sum_plants_exp <- plants_exp %>%
                  rel_heights=c(1,1.3),
                  labels=NULL))
 
-save_plot("Figures/FigureS6.pdf", fig, dpi = 1000,
+save_plot("./Evolution experiment/Figures/FigureS6.pdf", fig, dpi = 1000,
           base_width = 6,
           base_height = 10)
 ```
@@ -169,7 +169,7 @@ save_plot("Figures/FigureS6.pdf", fig, dpi = 1000,
 
 ```{r qPCR_analyses}
 # up to and including GS IV
-qPCR_all <- read_csv("./Data/qPCR_compiled.csv", 
+qPCR_all <- read_csv("./Evolution experiment/Data/qPCR_compiled.csv", 
     col_types = cols(GS = col_factor(levels = c("two", "three", "four")), 
       line = col_factor(levels = c("270","276", "279", "313", "267"))))
 # str(qPCR_all) 
@@ -207,7 +207,7 @@ sum_qPCR_sub <- qPCR_sub %>%
 ## Proportion of Em1022 in nodules (antibiotic plating), Gen V
 
 ```{r nod_GSV, message=FALSE, warning=FALSE}
-nod_plates <- read_csv("./Data/nod_plates.csv", 
+nod_plates <- read_csv("./Evolution experiment/Data/nod_plates.csv", 
     col_types = cols(strain_call = col_factor(levels = c("1021", 
         "1022"))))
 nod_plates$plant <- as.factor(nod_plates$plant)
@@ -219,7 +219,7 @@ nod_plates$line <- nod_plates$plant
 nod_plates$line <- plants_I_V$line[match(nod_plates$line, plants_I_V$loc)]
 
 # need to put data on plant-lvl (each obs per plant)
-nod_plates.w <- dcast(nod_plates, plant + line ~ strain_call)
+nod_plates.w <- dcast(nod_plates, plant + line ~ strain_call, fun.aggregate = length, value.var = "line")
 
 # calculate proportion of Em1022 nods
 nod_plates.w$tot_nod <- nod_plates.w$'1021' + nod_plates.w$'1022'
