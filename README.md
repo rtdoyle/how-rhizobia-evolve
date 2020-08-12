@@ -10,7 +10,7 @@ Batstone RT, O’Brien AM, Harrison TL, Frederickson ME. Experimental
 evolution makes microbes more cooperative with their local host
 genotype.
 
-Permanent repository https://zenodo.org/badge/267322857.svg
+[![DOI](https://zenodo.org/badge/267322857.svg)](https://zenodo.org/badge/latestdoi/267322857)
 
 ### Abstract
 
