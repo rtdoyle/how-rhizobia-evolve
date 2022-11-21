@@ -1,16 +1,18 @@
 Single-inoculation experiment: analyses of phenotypes
 ================
 Rebecca Batstone
-2020-05-28
+2022-11-21
 
-Setup
------
+## Setup
 
 ### Global setup, load relevant packages
 
 ``` r
 # Global setup
 knitr::opts_chunk$set(echo = TRUE)
+
+## setwd
+setwd("../Single-inoculation experiment/")
 
 # Packages
 library("tidyverse") ## includes ggplot2, dplyr, readr, stringr
@@ -73,15 +75,18 @@ plants$isolate <- as.factor(plants$isolate)
 
 plants_Em1022 <- droplevels(subset(plants, strain == "Em1022")) ## subset to Em1022 only
 
+save(plants_Em1022, file = "./Output/plants_Em1022.Rdata")
+
 #str(plants_Em1022) ## 1150 plants
 ```
 
-Models
-------
+## Models
 
 ### How does the quality of rhizobia as symbionts differ between ancestral and derived strains? And does it depend on shared evolutionary history?
 
 ``` r
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 data.shoot <- subset(plants_Em1022, !is.na(shoot)) ## remove all trait values that are NAs
 
 # Two models
@@ -103,19 +108,19 @@ lm1 <- lmer(sqrt(shoot) ~ line + evo_state + (1|isolate) + (1|tray), data.shoot)
     ## 
     ## Random effects:
     ##  Groups   Name        Variance Std.Dev.
-    ##  tray     (Intercept) 0.052343 0.22879 
-    ##  isolate  (Intercept) 0.003244 0.05696 
+    ##  tray     (Intercept) 0.052342 0.22878 
+    ##  isolate  (Intercept) 0.003243 0.05695 
     ##  Residual             0.394674 0.62823 
     ## Number of obs: 1108, groups:  tray, 50; isolate, 43
     ## 
     ## Fixed effects:
     ##                    Estimate Std. Error         df t value Pr(>|t|)    
-    ## (Intercept)         3.43008    0.08305   17.95003  41.299  < 2e-16 ***
-    ## line270            -0.23185    0.06060 1046.42702  -3.826 0.000138 ***
-    ## line276             0.40374    0.05912 1045.29185   6.829 1.45e-11 ***
-    ## line279            -0.52814    0.06068 1048.28584  -8.703  < 2e-16 ***
-    ## line313            -0.06019    0.05912 1046.25508  -1.018 0.308865    
-    ## evo_statederived   -0.10281    0.07075    7.54840  -1.453 0.186421    
+    ## (Intercept)         3.43008    0.08305   17.94851  41.300  < 2e-16 ***
+    ## line270            -0.23185    0.06060 1046.42420  -3.826 0.000138 ***
+    ## line276             0.40374    0.05912 1045.28885   6.829 1.45e-11 ***
+    ## line279            -0.52814    0.06068 1048.28297  -8.703  < 2e-16 ***
+    ## line313            -0.06019    0.05912 1046.25218  -1.018 0.308864    
+    ## evo_statederived   -0.10281    0.07074    7.54754  -1.453 0.186415    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -134,9 +139,9 @@ lm1 <- lmer(sqrt(shoot) ~ line + evo_state + (1|isolate) + (1|tray), data.shoot)
     ## Analysis of Deviance Table (Type II Wald chisquare tests)
     ## 
     ## Response: sqrt(shoot)
-    ##             Chisq Df Pr(>Chisq)    
-    ## line      253.908  4     <2e-16 ***
-    ## evo_state   2.112  1     0.1461    
+    ##              Chisq Df Pr(>Chisq)    
+    ## line      253.9074  4     <2e-16 ***
+    ## evo_state   2.1121  1     0.1461    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -145,19 +150,19 @@ lm1 <- lmer(sqrt(shoot) ~ line + evo_state + (1|isolate) + (1|tray), data.shoot)
 plot(lm1, resid(., scaled=TRUE) ~ fitted(.), abline = 0)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-1.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-1.png)<!-- -->
 
 ``` r
 hist(residuals(lm1, type = "pearson" ), breaks = 100)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-2.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-2.png)<!-- -->
 
 ``` r
 qqnorm(residuals(lm1))
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-3.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-3.png)<!-- -->
 
 ``` r
 ggplot(data.frame(lev=hatvalues(lm1),pearson=residuals(lm1,type="pearson")),
@@ -166,7 +171,7 @@ ggplot(data.frame(lev=hatvalues(lm1),pearson=residuals(lm1,type="pearson")),
     theme_bw()
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-4.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-4.png)<!-- -->
 
 ``` r
 ## all model diagnostics look ok
@@ -181,9 +186,9 @@ lm1_tray <- lmer(sqrt(shoot)~ line + evo_state + (1|isolate), data.shoot)
     ## Models:
     ## lm1_isolate: sqrt(shoot) ~ line + evo_state + (1 | tray)
     ## lm1: sqrt(shoot) ~ line + evo_state + (1 | isolate) + (1 | tray)
-    ##             Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)
-    ## lm1_isolate  8 2198.3 2238.4 -1091.1   2182.3                         
-    ## lm1          9 2200.2 2245.3 -1091.1   2182.2 0.0772      1     0.7812
+    ##             npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+    ## lm1_isolate    8 2198.3 2238.4 -1091.1   2182.3                     
+    ## lm1            9 2200.2 2245.3 -1091.1   2182.2 0.0772  1     0.7812
 
 ``` r
 (lm1_tray_anova <- anova(lm1, lm1_tray))
@@ -193,9 +198,9 @@ lm1_tray <- lmer(sqrt(shoot)~ line + evo_state + (1|isolate), data.shoot)
     ## Models:
     ## lm1_tray: sqrt(shoot) ~ line + evo_state + (1 | isolate)
     ## lm1: sqrt(shoot) ~ line + evo_state + (1 | isolate) + (1 | tray)
-    ##          Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
-    ## lm1_tray  8 2230.6 2270.7 -1107.3   2214.6                             
-    ## lm1       9 2200.2 2245.3 -1091.1   2182.2 32.424      1  1.239e-08 ***
+    ##          npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)    
+    ## lm1_tray    8 2230.6 2270.7 -1107.3   2214.6                         
+    ## lm1         9 2200.2 2245.3 -1091.1   2182.2 32.424  1  1.239e-08 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -221,23 +226,23 @@ lm2 <- lmer(sqrt(shoot)~ line + history + (1|isolate) + (1|tray), data.shoot.der
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -3.2755 -0.5739 -0.0035  0.6610  2.9509 
+    ## -3.2755 -0.5740 -0.0036  0.6609  2.9509 
     ## 
     ## Random effects:
     ##  Groups   Name        Variance Std.Dev.
-    ##  tray     (Intercept) 0.043671 0.2090  
-    ##  isolate  (Intercept) 0.008209 0.0906  
-    ##  Residual             0.394030 0.6277  
+    ##  tray     (Intercept) 0.043692 0.20903 
+    ##  isolate  (Intercept) 0.008194 0.09052 
+    ##  Residual             0.394031 0.62772 
     ## Number of obs: 965, groups:  tray, 50; isolate, 40
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error        df t value Pr(>|t|)    
-    ## (Intercept)   3.30299    0.05664 229.26341  58.317  < 2e-16 ***
-    ## line270      -0.22893    0.06514 910.69692  -3.514 0.000463 ***
-    ## line276       0.42487    0.06383 911.03472   6.656 4.85e-11 ***
-    ## line279      -0.54343    0.06506 912.05290  -8.352 2.47e-16 ***
-    ## line313      -0.06414    0.06348 911.18328  -1.010 0.312532    
-    ## historyYes    0.11463    0.05285 912.56912   2.169 0.030361 *  
+    ## (Intercept)   3.30299    0.05664 229.19437  58.316  < 2e-16 ***
+    ## line270      -0.22892    0.06514 910.68863  -3.514 0.000463 ***
+    ## line276       0.42487    0.06383 911.02662   6.656 4.85e-11 ***
+    ## line279      -0.54343    0.06506 912.04520  -8.352 2.47e-16 ***
+    ## line313      -0.06414    0.06348 911.17514  -1.010 0.312533    
+    ## historyYes    0.11463    0.05285 912.56147   2.169 0.030359 *  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -257,8 +262,8 @@ lm2 <- lmer(sqrt(shoot)~ line + history + (1|isolate) + (1|tray), data.shoot.der
     ## 
     ## Response: sqrt(shoot)
     ##            Chisq Df Pr(>Chisq)    
-    ## line    229.7400  4     <2e-16 ***
-    ## history   4.7034  1     0.0301 *  
+    ## line    229.7388  4     <2e-16 ***
+    ## history   4.7035  1     0.0301 *  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -269,19 +274,19 @@ lm2 <- lmer(sqrt(shoot)~ line + history + (1|isolate) + (1|tray), data.shoot.der
 plot(lm2, resid(., scaled=TRUE) ~ fitted(.), abline = 0)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-5.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-5.png)<!-- -->
 
 ``` r
 hist(residuals(lm2, type = "pearson" ), breaks = 100)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-6.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-6.png)<!-- -->
 
 ``` r
 qqnorm(residuals(lm2))
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-7.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-7.png)<!-- -->
 
 ``` r
 ggplot(data.frame(lev=hatvalues(lm2),pearson=residuals(lm2,type="pearson")),
@@ -290,7 +295,7 @@ ggplot(data.frame(lev=hatvalues(lm2),pearson=residuals(lm2,type="pearson")),
     theme_bw()
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Shoot_models-8.png)
+![](single-inoc-analyses_files/figure-gfm/Shoot_models-8.png)<!-- -->
 
 ``` r
 ## All model diagnostics look ok
@@ -305,9 +310,9 @@ lm2_tray <- lmer(sqrt(shoot)~ line + history + (1|isolate), data.shoot.der)
     ## Models:
     ## lm2_isolate: sqrt(shoot) ~ line + history + (1 | tray)
     ## lm2: sqrt(shoot) ~ line + history + (1 | isolate) + (1 | tray)
-    ##             Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)
-    ## lm2_isolate  8 1919.3 1958.3 -951.65   1903.3                         
-    ## lm2          9 1920.3 1964.2 -951.17   1902.3 0.9539      1     0.3287
+    ##             npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)
+    ## lm2_isolate    8 1919.3 1958.3 -951.65   1903.3                     
+    ## lm2            9 1920.3 1964.2 -951.17   1902.3 0.9539  1     0.3287
 
 ``` r
 (lm2_tray_anova <- anova(lm2, lm2_tray))
@@ -317,22 +322,24 @@ lm2_tray <- lmer(sqrt(shoot)~ line + history + (1|isolate), data.shoot.der)
     ## Models:
     ## lm2_tray: sqrt(shoot) ~ line + history + (1 | isolate)
     ## lm2: sqrt(shoot) ~ line + history + (1 | isolate) + (1 | tray)
-    ##          Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
-    ## lm2_tray  8 1930.8 1969.7 -957.38   1914.8                             
-    ## lm2       9 1920.3 1964.2 -951.17   1902.3 12.414      1  0.0004262 ***
+    ##          npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)    
+    ## lm2_tray    8 1930.8 1969.7 -957.38   1914.8                         
+    ## lm2         9 1920.3 1964.2 -951.17   1902.3 12.414  1  0.0004262 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 ### How does the fitness of rhizobia differ between ancestral and derived strains? And does it depend on shared evolutionary history?
 
-Next, we'll move to rhizobium fitness, measured by nodule number.
+Next, we’ll move to rhizobium fitness, measured by nodule number.
 
 ``` r
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 data.nod <- subset(plants_Em1022, !is.na(nod) & nod > 0) ## remove all nod values that are NA or zero
 hist(data.nod$nod) ## not normal, trying Poisson error distribution because it is count data
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Nod_models-1.png)
+![](single-inoc-analyses_files/figure-gfm/Nod_models-1.png)<!-- -->
 
 ``` r
 # Two models
@@ -369,10 +376,10 @@ glm1 <- glmer(nod ~ line + evo_state + (1|isolate) + (1|tray), data.nod, family=
     ##                  Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)       1.57889    0.07781  20.291  < 2e-16 ***
     ## line270           0.22384    0.04430   5.053 4.36e-07 ***
-    ## line276          -0.11373    0.04600  -2.472 0.013421 *  
+    ## line276          -0.11373    0.04600  -2.472 0.013420 *  
     ## line279          -0.13836    0.04865  -2.844 0.004452 ** 
     ## line313           0.15428    0.04281   3.603 0.000314 ***
-    ## evo_statederived -0.08201    0.07347  -1.116 0.264320    
+    ## evo_statederived -0.08201    0.07347  -1.116 0.264323    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -403,7 +410,7 @@ simOut <- simulateResiduals(fittedModel = glm1, n = 1000)
 plot(simOut)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Nod_models-2.png)
+![](single-inoc-analyses_files/figure-gfm/Nod_models-2.png)<!-- -->
 
 ``` r
 deviance(glm1)/df.residual(glm1) ## close to 1, so good
@@ -415,14 +422,14 @@ deviance(glm1)/df.residual(glm1) ## close to 1, so good
 testDispersion(simOut)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Nod_models-3.png)
+![](single-inoc-analyses_files/figure-gfm/Nod_models-3.png)<!-- -->
 
     ## 
     ##  DHARMa nonparametric dispersion test via sd of residuals fitted vs.
     ##  simulated
     ## 
     ## data:  simulationOutput
-    ## ratioObsSim = 1.0364, p-value = 0.246
+    ## dispersion = 1.0763, p-value = 0.196
     ## alternative hypothesis: two.sided
 
 ``` r
@@ -440,9 +447,9 @@ glm1_tray <- glmer(nod ~ line + evo_state + (1|isolate), data.nod, family="poiss
     ## Models:
     ## glm1_isolate: nod ~ line + evo_state + (1 | tray)
     ## glm1: nod ~ line + evo_state + (1 | isolate) + (1 | tray)
-    ##              Df    AIC    BIC  logLik deviance Chisq Chi Df Pr(>Chisq)  
-    ## glm1_isolate  7 4636.3 4670.9 -2311.1   4622.3                          
-    ## glm1          8 4632.2 4671.8 -2308.1   4616.2 6.022      1    0.01413 *
+    ##              npar    AIC    BIC  logLik deviance Chisq Df Pr(>Chisq)  
+    ## glm1_isolate    7 4636.3 4670.9 -2311.1   4622.3                      
+    ## glm1            8 4632.2 4671.8 -2308.1   4616.2 6.022  1    0.01413 *
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -454,9 +461,9 @@ glm1_tray <- glmer(nod ~ line + evo_state + (1|isolate), data.nod, family="poiss
     ## Models:
     ## glm1_tray: nod ~ line + evo_state + (1 | isolate)
     ## glm1: nod ~ line + evo_state + (1 | isolate) + (1 | tray)
-    ##           Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
-    ## glm1_tray  7 4654.7 4689.3 -2320.3   4640.7                             
-    ## glm1       8 4632.2 4671.8 -2308.1   4616.2 24.436      1  7.682e-07 ***
+    ##           npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)    
+    ## glm1_tray    7 4654.7 4689.3 -2320.3   4640.7                         
+    ## glm1         8 4632.2 4671.8 -2308.1   4616.2 24.436  1  7.682e-07 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -496,14 +503,14 @@ glm2 <- glmer(nod ~ line*history + (1|isolate) + (1|tray), data.nod.der, family=
     ##                    Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)         1.46499    0.04625  31.673  < 2e-16 ***
     ## line270             0.30316    0.05587   5.426 5.76e-08 ***
-    ## line276            -0.07818    0.05458  -1.432  0.15204    
+    ## line276            -0.07818    0.05458  -1.432  0.15203    
     ## line279            -0.13717    0.06272  -2.187  0.02875 *  
     ## line313             0.16191    0.05247   3.086  0.00203 ** 
     ## historyYes          0.17880    0.08757   2.042  0.04118 *  
     ## line270:historyYes -0.30578    0.12246  -2.497  0.01252 *  
-    ## line276:historyYes -0.17573    0.16711  -1.052  0.29298    
+    ## line276:historyYes -0.17573    0.16711  -1.052  0.29299    
     ## line279:historyYes -0.08280    0.12955  -0.639  0.52271    
-    ## line313:historyYes -0.14662    0.13138  -1.116  0.26443    
+    ## line313:historyYes -0.14662    0.13138  -1.116  0.26444    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -528,10 +535,10 @@ glm2 <- glmer(nod ~ line*history + (1|isolate) + (1|tray), data.nod.der, family=
     ## 
     ## Response: nod
     ##                  Chisq Df Pr(>Chisq)    
-    ## (Intercept)  1003.2007  1  < 2.2e-16 ***
-    ## line           76.8900  4  7.935e-16 ***
-    ## history         4.1686  1    0.04118 *  
-    ## line:history    6.8176  4    0.14585    
+    ## (Intercept)  1003.2023  1  < 2.2e-16 ***
+    ## line           76.8899  4  7.935e-16 ***
+    ## history         4.1685  1    0.04118 *  
+    ## line:history    6.8175  4    0.14585    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -541,7 +548,7 @@ simOut <- simulateResiduals(fittedModel = glm2, n = 1000)
 plot(simOut)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Nod_models-4.png)
+![](single-inoc-analyses_files/figure-gfm/Nod_models-4.png)<!-- -->
 
 ``` r
 deviance(glm2)/df.residual(glm2) ## close to 1, so good
@@ -553,14 +560,14 @@ deviance(glm2)/df.residual(glm2) ## close to 1, so good
 testDispersion(simOut)
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/Nod_models-5.png)
+![](single-inoc-analyses_files/figure-gfm/Nod_models-5.png)<!-- -->
 
     ## 
     ##  DHARMa nonparametric dispersion test via sd of residuals fitted vs.
     ##  simulated
     ## 
     ## data:  simulationOutput
-    ## ratioObsSim = 1.0336, p-value = 0.31
+    ## dispersion = 1.0672, p-value = 0.31
     ## alternative hypothesis: two.sided
 
 ``` r
@@ -578,9 +585,9 @@ glm2_tray <- glmer(nod ~ line*history + (1|isolate), data.nod.der, family="poiss
     ## Models:
     ## glm2_isolate: nod ~ line * history + (1 | tray)
     ## glm2: nod ~ line * history + (1 | isolate) + (1 | tray)
-    ##              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)   
-    ## glm2_isolate 11 4018.0 4070.9 -1998.0   3996.0                            
-    ## glm2         12 4012.5 4070.2 -1994.2   3988.5 7.5419      1   0.006028 **
+    ##              npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)   
+    ## glm2_isolate   11 4018.0 4070.9 -1998.0   3996.0                        
+    ## glm2           12 4012.5 4070.2 -1994.2   3988.5 7.5419  1   0.006028 **
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -592,20 +599,22 @@ glm2_tray <- glmer(nod ~ line*history + (1|isolate), data.nod.der, family="poiss
     ## Models:
     ## glm2_tray: nod ~ line * history + (1 | isolate)
     ## glm2: nod ~ line * history + (1 | isolate) + (1 | tray)
-    ##           Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)    
-    ## glm2_tray 11 4022.9 4075.8 -2000.5   4000.9                             
-    ## glm2      12 4012.5 4070.2 -1994.2   3988.5 12.447      1  0.0004187 ***
+    ##           npar    AIC    BIC  logLik deviance  Chisq Df Pr(>Chisq)    
+    ## glm2_tray   11 4022.9 4075.8 -2000.5   4000.9                         
+    ## glm2        12 4012.5 4070.2 -1994.2   3988.5 12.447  1  0.0004187 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Figures
--------
+## Figures
 
 ### Figure 2
 
-Visualize how rhizobia quality and fitness depend on the match between rhizobia and host genotypes.
+Visualize how rhizobia quality and fitness depend on the match between
+rhizobia and host genotypes.
 
 ``` r
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 # summarize for isolates
 means_line_history <- plants_Em1022 %>% 
   group_by(line, history) %>% 
@@ -616,7 +625,11 @@ means_line_history <- plants_Em1022 %>%
             se_shoot = sd_shoot/sqrt(n), 
             se_nod = sd_nod/sqrt(n)) %>%
   as.data.frame(.)
+```
 
+    ## `summarise()` has grouped output by 'line'. You can override using the `.groups` argument.
+
+``` r
 levels(means_line_history$history) <- c("1022", "No", "Yes")
 means_line_history$line <- factor(means_line_history$line, levels=c("270", "276", "279", "313", "267")) ## order plant lines
 palette <- "Royal1"
@@ -645,7 +658,10 @@ palette <- "Royal1"
 )
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/fig2_SI_exp-1.png)
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+    ## "none")` instead.
+
+![](single-inoc-analyses_files/figure-gfm/fig2_SI_exp-1.png)<!-- -->
 
 ``` r
 (figb <- ggplot(data=subset(means_line_history, history != "1022"), aes(x=history, y=mean_nod, color=history))+
@@ -671,7 +687,10 @@ palette <- "Royal1"
 )
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/fig2_SI_exp-2.png)
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+    ## "none")` instead.
+
+![](single-inoc-analyses_files/figure-gfm/fig2_SI_exp-2.png)<!-- -->
 
 ``` r
 fig <- plot_grid(figa, figb, ncol=2, labels=c("A", "B")) # Combine figure panels
@@ -681,6 +700,8 @@ save_plot("Figures/Figure2.pdf", fig, dpi = 1000, base_width=7) #Save plot
 ### Calculate raw and standardized means for GWAS analyses
 
 ``` r
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 # means across all environments
 raw_means_all <- plants_Em1022 %>% 
   group_by(isolate, origin) %>% 
@@ -691,7 +712,11 @@ raw_means_all <- plants_Em1022 %>%
             se_shoot = sd_shoot/sqrt(n), 
             se_nod = sd_nod/sqrt(n)) %>%
   as.data.frame(.)
+```
 
+    ## `summarise()` has grouped output by 'isolate'. You can override using the `.groups` argument.
+
+``` r
 raw_means_all$line <- "All"
 
 # get isolate ID, based on shoot rank
@@ -709,7 +734,11 @@ raw_means_line <- plants_Em1022 %>%
             se_shoot = sd_shoot/sqrt(n), 
             se_nod = sd_nod/sqrt(n)) %>%
   as.data.frame(.)
+```
 
+    ## `summarise()` has grouped output by 'line', 'isolate'. You can override using the `.groups` argument.
+
+``` r
 # combine both:
 raw_means <- rbind(raw_means_line, raw_means_all)
 
@@ -749,29 +778,75 @@ stand_means %>%
     ## # A tibble: 6 x 5
     ##   line  mean_shoot sd_shoot  mean_nod sd_nod
     ##   <fct>      <dbl>    <dbl>     <dbl>  <dbl>
-    ## 1 267    -2.67e-16     1.00  3.84e-16   1   
-    ## 2 270    -5.17e-17     1    -6.84e-17   1.00
-    ## 3 276     3.74e-17     1     1.18e-16   1   
-    ## 4 279     4.15e-17     1    -3.00e-17   1   
-    ## 5 313    -3.27e-17     1.00  5.27e-17   1.  
-    ## 6 All    -8.37e-17     1.00 -2.10e-17   1
+    ## 1 267    -2.67e-16        1  3.84e-16      1
+    ## 2 270    -5.17e-17        1 -6.84e-17      1
+    ## 3 276     3.74e-17        1  1.18e-16      1
+    ## 4 279     4.15e-17        1 -3.00e-17      1
+    ## 5 313    -3.27e-17        1  5.27e-17      1
+    ## 6 All    -8.37e-17        1 -2.10e-17      1
 
 ``` r
+save(stand_means, file="Output/stand_means.Rdata")
+
+## create iso_ID
+stand_means$origin_iso <- do.call(paste, c(stand_means[c("origin","iso_ID")], sep = "-"))
+
 # format for GEMMA (line as columns)
-stand_means.w_shoot <- dcast(stand_means, isolate ~ line, value.var="stand_shoot")
+stand_means.w_shoot <- dcast(stand_means, isolate + origin_iso ~ line, value.var="stand_shoot")
 colnames(stand_means.w_shoot)[2:7] <- paste("shoot", 
                                                 colnames(stand_means.w_shoot[,c(2:7)]), sep = "_")
 stand_means.w_nod <- dcast(stand_means, isolate ~ line, value.var="stand_nod")
 colnames(stand_means.w_nod) <- paste("nod", colnames(stand_means.w_nod), sep = "_")
-stand_means.w <- cbind(stand_means.w_shoot, stand_means.w_nod[,-1])                           
+stand_means.w <- cbind(stand_means.w_shoot, stand_means.w_nod[,-1])
+
 save(stand_means.w, file="Output/stand_means_for_GEMMA.Rdata")
 ```
+
+### Correlation plots on each line (not in paper)
+
+``` r
+## order line
+raw_means$line <- factor(raw_means$line, 
+                         levels=c("All","270", "276", "279", "313", "267")) ## order plant lines
+
+## set color palette
+palette <- "Royal1"
+
+ggplot(raw_means_all, aes(x=mean_nod, y = mean_shoot)) +
+  geom_point(color = "black") +
+  geom_point(data = raw_means_all %>% filter(origin == "270"), color = "#F8766D", size = 3) +
+  #geom_point(data = raw_means %>% filter(origin == "267"), color = "#E76BF3", size = 3) +
+  geom_point(data = raw_means_all %>% filter(origin == "anc1022"), shape = 24, size = 5) +
+  geom_smooth(method = lm, se = FALSE, color = "black") +
+  facet_wrap(~line, ncol = 3, scales = "free") +
+  ylab("Mean shoot biomass (g)")+ 
+  xlab("Mean nodules (no.)") +
+  #guides(color=FALSE) +
+  #scale_color_manual(values=wes_palette(palette)) +
+  theme_bw() +  
+  theme(
+    panel.background = element_rect(fill=wes_palette(palette)[[3]]),
+    strip.background = element_rect(fill=wes_palette(palette)[[4]]),
+    axis.title = element_text(size=12, face = "bold"),
+    axis.text = element_text(size=10),
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),
+    strip.text =  element_text(face = "bold", size = 12),
+    legend.position = "none"
+    )
+```
+
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](single-inoc-analyses_files/figure-gfm/corrs_line-1.png)<!-- -->
 
 ### Figures S1 and S2
 
 Heatmaps of isolate effects on each host
 
 ``` r
+load(file="Output/stand_means.Rdata") ## loads stand_means
+
 # heatmap variables:
 stand_means$origin_iso <- do.call(paste, c(stand_means[c("origin","iso_ID")], sep = "-"))
 
@@ -836,6 +911,9 @@ pdf("Figures/FigureS1.pdf", width = 10, height = 16)
         legend.text = element_text(size=16)))
 ```
 
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+    ## "none")` instead.
+
     ## Warning: Vectorized input to `element_text()` is not officially supported.
     ## Results may be unexpected or may change in future versions of ggplot2.
 
@@ -850,7 +928,7 @@ dev.off()
 HM_shoot_IL
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/FigS1_S2-1.png)
+![](single-inoc-analyses_files/figure-gfm/FigS1_S2-1.png)<!-- -->
 
 ``` r
 pdf("Figures/FigureS2.pdf", width = 10, height = 16)
@@ -894,6 +972,8 @@ pdf("Figures/FigureS2.pdf", width = 10, height = 16)
         legend.text = element_text(size=16)))
 ```
 
+    ## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> = "none")` instead.
+
     ## Warning: Vectorized input to `element_text()` is not officially supported.
     ## Results may be unexpected or may change in future versions of ggplot2.
 
@@ -908,7 +988,7 @@ dev.off()
 HM_nod_IL
 ```
 
-![](single-inoc-analyses_files/figure-markdown_github/FigS1_S2-2.png)
+![](single-inoc-analyses_files/figure-gfm/FigS1_S2-2.png)<!-- -->
 
 ### Figure S3
 
@@ -1000,7 +1080,7 @@ raw_means_all_rank$origin <- factor(raw_means_all_rank$origin,
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](single-inoc-analyses_files/figure-markdown_github/FigS3-1.png)
+![](single-inoc-analyses_files/figure-gfm/FigS3-1.png)<!-- -->
 
 ``` r
 save_plot("Figures/FigureS3.pdf", plot_corr, dpi = 1000,
@@ -1011,7 +1091,8 @@ save_plot("Figures/FigureS3.pdf", plot_corr, dpi = 1000,
 
 ### Figure S4
 
-Correlations across host environments. First, need to make wide format spreadsheets for each trait. Then, run corrplot on each.
+Correlations across host environments. First, need to make wide format
+spreadsheets for each trait. Then, run corrplot on each.
 
 ``` r
 # shoot biomass
@@ -1084,7 +1165,17 @@ corrplot(stand_means.dw_shoot.mat, method = "ellipse", type="upper",
          bg = bg_colors_upper1,
          diag = TRUE,
          mar=c(0,0,2,3))
-         
+```
+
+    ## Warning in text.default(pos.xlabel[, 1], pos.xlabel[, 2], newcolnames, srt =
+    ## tl.srt, : "cl.lim" is not a graphical parameter
+
+    ## Warning in text.default(pos.ylabel[, 1], pos.ylabel[, 2], newrownames, col =
+    ## tl.col, : "cl.lim" is not a graphical parameter
+
+    ## Warning in title(title, ...): "cl.lim" is not a graphical parameter
+
+``` r
 corrplot(stand_means.dw_nod.mat, method = "ellipse", type="lower",
          #order="hclust", 
          addCoef.col = "black",
@@ -1102,3 +1193,32 @@ dev.off()
 
     ## png 
     ##   2
+
+## metadata file
+
+``` r
+## load iso info first
+isolate_info <- read_csv("./Data/isolate_info.csv")
+```
+
+    ## Rows: 49 Columns: 14
+
+    ## -- Column specification --------------------------------------------------------
+    ## Delimiter: ","
+    ## chr (11): isolate, batch, state, line_origin, plant_origin, strain, notes, C...
+    ## dbl  (3): isolate_no, extraction_ID, vcf_order
+
+    ## 
+    ## i Use `spec()` to retrieve the full column specification for this data.
+    ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+``` r
+## then add in stand means
+load(file="Output/stand_means_for_GEMMA.Rdata") ## loads stand_means.w
+
+## merge together
+isolate_info <- left_join(isolate_info, stand_means.w, by = "isolate")
+
+## save
+write.csv(isolate_info, file = "./Output/metadata.csv", row.names = FALSE)
+```

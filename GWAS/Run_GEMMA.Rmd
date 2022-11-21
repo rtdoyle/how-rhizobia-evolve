@@ -10,6 +10,9 @@ editor_options:
 ```{r setup, warning=FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+## setwd
+setwd("../GWAS")
+
 # packages
 library("tidyverse") #includes ggplot2, dplyr, readr, stringr
 library("cowplot") # paneled graphs
@@ -545,6 +548,71 @@ save_plot("./Figures/Figure3.pdf", fig3, dpi= 1000,
           base_width=14)
 ```
 
+## Add origin (not in paper)
+
+```{r origin_vars}
+# general settings
+shapes=c(22,21,24)
+palette <- "Royal1"
+
+# load df
+load(file = "./Output/GEMMA_363_sig.Rdata") # loads GEMMA_vars_sig
+
+# Make "All" figure
+sig_all_env <- subset(GEMMA_vars_sig, 
+              beta.shootall.FIsig == "TRUE" | beta.nodall.FIsig == "TRUE") #Significant SNPs, either trait
+sig_all_env$SIG <- ifelse(sig_all_env$beta.shootall.FIsig == "TRUE" & 
+                        sig_all_env$beta.nodall.FIsig == "TRUE", "Both traits",
+                  ifelse(sig_all_env$beta.shootall.FIsig == "TRUE", "Shoot biomass", 
+                         "Nodule number"))
+sig_all_env$ORIG <- "NA"
+sig_all_env$effect <- ifelse(sig_all_env$beta.nodall > 0 & sig_all_env$beta.shootall > 0, "Cooperative", ifelse(
+  sig_all_env$beta.nodall < 0 & sig_all_env$beta.shootall > 0, "Altruistic", ifelse(
+    sig_all_env$beta.nodall > 0 & sig_all_env$beta.shootall < 0, "Cheater", "Defective"
+)))
+sig_all_env$origin270 <- ifelse(grepl("270", sig_all_env$origin, fixed = FALSE),
+                                 "270","others")
+sig_all_env$origin270 <- factor(sig_all_env$origin270, levels = c("others","270"))
+
+save(sig_all_env, file = "./Output/sig_all_env.Rdata")
+
+# plot
+gwas_res_all <- GEMMA_vars_sig
+gwas_res_all$line <- "All"
+
+gwas_res_all$origin270 <- ifelse(grepl("270", gwas_res_all$origin, fixed = FALSE),
+                                 "270","others")
+gwas_res_all$origin270 <- factor(gwas_res_all$origin270, levels = c("others","270"))
+
+p.all <- ggplot(data = gwas_res_all, aes(x=beta.nodall, y=beta.shootall)) +
+  geom_rect(aes(xmin=0, xmax=Inf, ymin=-Inf, ymax=0), fill="grey90", alpha=0.5) + 
+  geom_point(size = 2, alpha = 0.2) + 
+  geom_smooth(method=lm, se=FALSE, colour="black") + 
+  geom_point(aes(x=beta.nodall, y=beta.shootall, color=origin270), 
+             data=sig_all_env, size = 4, fill="black") + 
+  geom_hline(aes(yintercept=0), linetype="dashed")+
+  geom_vline(aes(xintercept=0), linetype="dashed")+
+  scale_color_manual(values = c("black","#F8766D"),
+                     name="Variant type", 
+                     labels=c("Other", "270")) +
+  facet_grid(. ~ line) +
+  theme_bw() +
+  theme(axis.text.y = element_text(size=12), 
+        legend.position="none", 
+        legend.background = element_blank(),
+        legend.key = element_rect(colour = "transparent", fill = "transparent"),
+        axis.title.y = element_blank(), 
+        axis.title.x = element_blank(), 
+        axis.text.x = element_text(size=12), 
+        plot.title = element_text(size=16, face = "bold"),
+        panel.background = element_rect(fill=wes_palette(palette)[[3]]),
+        strip.background = element_rect(fill=wes_palette(palette)[[4]]),
+        strip.text = element_text(size = 14, face = "bold"),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())
+p.all
+
+```
 ## Table
 
 This code generates the information in supplemental table S3 in the paper. It summarizes variants by combining dataframes generated to make Figure 3

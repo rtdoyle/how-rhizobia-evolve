@@ -15,6 +15,9 @@ editor_options:
 # Global setup
 knitr::opts_chunk$set(echo = TRUE)
 
+## setwd
+setwd("../Single-inoculation experiment/")
+
 # Packages
 library("tidyverse") ## includes ggplot2, dplyr, readr, stringr
 library("car") ## Anova function
@@ -76,6 +79,8 @@ plants$isolate <- as.factor(plants$isolate)
 
 plants_Em1022 <- droplevels(subset(plants, strain == "Em1022")) ## subset to Em1022 only
 
+save(plants_Em1022, file = "./Output/plants_Em1022.Rdata")
+
 #str(plants_Em1022) ## 1150 plants
 ```
 
@@ -84,6 +89,8 @@ plants_Em1022 <- droplevels(subset(plants, strain == "Em1022")) ## subset to Em1
 ### How does the quality of rhizobia as symbionts differ between ancestral and derived strains? And does it depend on shared evolutionary history?
 
 ```{r Shoot_models, warning=FALSE, message=FALSE, dpi=600}
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 data.shoot <- subset(plants_Em1022, !is.na(shoot)) ## remove all trait values that are NAs
 
 # Two models
@@ -143,6 +150,8 @@ lm2_tray <- lmer(sqrt(shoot)~ line + history + (1|isolate), data.shoot.der)
 Next, we'll move to rhizobium fitness, measured by nodule number.
 
 ```{r Nod_models, warning=FALSE, message=FALSE, dpi=600}
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 data.nod <- subset(plants_Em1022, !is.na(nod) & nod > 0) ## remove all nod values that are NA or zero
 hist(data.nod$nod) ## not normal, trying Poisson error distribution because it is count data
 # Two models
@@ -207,6 +216,8 @@ glm2_tray <- glmer(nod ~ line*history + (1|isolate), data.nod.der, family="poiss
 Visualize how rhizobia quality and fitness depend on the match between rhizobia and host genotypes.
 
 ```{r fig2_SI_exp, warnings = FALSE}
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 # summarize for isolates
 means_line_history <- plants_Em1022 %>% 
   group_by(line, history) %>% 
@@ -274,6 +285,8 @@ save_plot("Figures/Figure2.pdf", fig, dpi = 1000, base_width=7) #Save plot
 ### Calculate raw and standardized means for GWAS analyses
 
 ```{r means}
+load(file = "./Output/plants_Em1022.Rdata") ## loads plants_Em1022
+
 # means across all environments
 raw_means_all <- plants_Em1022 %>% 
   group_by(isolate, origin) %>% 
@@ -337,15 +350,56 @@ stand_means %>%
             sd_shoot = sd(stand_shoot),
             mean_nod = mean(stand_nod),
             sd_nod = sd(stand_nod)) ## mean of 0, sd of 1
+save(stand_means, file="Output/stand_means.Rdata")
+
+## create iso_ID
+stand_means$origin_iso <- do.call(paste, c(stand_means[c("origin","iso_ID")], sep = "-"))
 
 # format for GEMMA (line as columns)
-stand_means.w_shoot <- dcast(stand_means, isolate ~ line, value.var="stand_shoot")
+stand_means.w_shoot <- dcast(stand_means, isolate + origin_iso ~ line, value.var="stand_shoot")
 colnames(stand_means.w_shoot)[2:7] <- paste("shoot", 
                                                 colnames(stand_means.w_shoot[,c(2:7)]), sep = "_")
 stand_means.w_nod <- dcast(stand_means, isolate ~ line, value.var="stand_nod")
 colnames(stand_means.w_nod) <- paste("nod", colnames(stand_means.w_nod), sep = "_")
-stand_means.w <- cbind(stand_means.w_shoot, stand_means.w_nod[,-1])                           
+stand_means.w <- cbind(stand_means.w_shoot, stand_means.w_nod[,-1])
+
 save(stand_means.w, file="Output/stand_means_for_GEMMA.Rdata")
+```
+
+### Correlation plots on each line (not in paper)
+
+```{r corrs_line}
+## order line
+raw_means$line <- factor(raw_means$line, 
+                         levels=c("All","270", "276", "279", "313", "267")) ## order plant lines
+
+## set color palette
+palette <- "Royal1"
+
+ggplot(raw_means_all, aes(x=mean_nod, y = mean_shoot)) +
+  geom_point(color = "black") +
+  geom_point(data = raw_means_all %>% filter(origin == "270"), color = "#F8766D", size = 3) +
+  #geom_point(data = raw_means %>% filter(origin == "267"), color = "#E76BF3", size = 3) +
+  geom_point(data = raw_means_all %>% filter(origin == "anc1022"), shape = 24, size = 5) +
+  geom_smooth(method = lm, se = FALSE, color = "black") +
+  facet_wrap(~line, ncol = 3, scales = "free") +
+  ylab("Mean shoot biomass (g)")+ 
+  xlab("Mean nodules (no.)") +
+  #guides(color=FALSE) +
+  #scale_color_manual(values=wes_palette(palette)) +
+  theme_bw() +  
+  theme(
+    panel.background = element_rect(fill=wes_palette(palette)[[3]]),
+    strip.background = element_rect(fill=wes_palette(palette)[[4]]),
+    axis.title = element_text(size=12, face = "bold"),
+    axis.text = element_text(size=10),
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),
+    strip.text =  element_text(face = "bold", size = 12),
+    legend.position = "none"
+    )
+
+
 ```
 
 ### Figures S1 and S2
@@ -353,6 +407,8 @@ save(stand_means.w, file="Output/stand_means_for_GEMMA.Rdata")
 Heatmaps of isolate effects on each host
 
 ```{r FigS1_S2, fig.width = 10, fig.height = 16}
+load(file="Output/stand_means.Rdata") ## loads stand_means
+
 # heatmap variables:
 stand_means$origin_iso <- do.call(paste, c(stand_means[c("origin","iso_ID")], sep = "-"))
 
@@ -612,4 +668,20 @@ corrplot(stand_means.dw_nod.mat, method = "ellipse", type="lower",
          diag = TRUE)
 
 dev.off()
+```
+
+## metadata file
+
+```{r metadata}
+## load iso info first
+isolate_info <- read_csv("./Data/isolate_info.csv")
+
+## then add in stand means
+load(file="Output/stand_means_for_GEMMA.Rdata") ## loads stand_means.w
+
+## merge together
+isolate_info <- left_join(isolate_info, stand_means.w, by = "isolate")
+
+## save
+write.csv(isolate_info, file = "./Output/metadata.csv", row.names = FALSE)
 ```
