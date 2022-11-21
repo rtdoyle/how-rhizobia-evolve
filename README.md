@@ -10,6 +10,8 @@ Batstone RT, O’Brien AM, Harrison TL, Frederickson ME. Experimental
 evolution makes microbes more cooperative with their local host
 genotype.
 
+[![DOI](https://zenodo.org/badge/267322857.svg)](https://zenodo.org/badge/latestdoi/267322857)
+
 ### Abstract
 
 Advances in microbiome science require a better understanding of how
